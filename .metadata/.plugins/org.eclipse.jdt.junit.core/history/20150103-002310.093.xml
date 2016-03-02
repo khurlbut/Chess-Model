@@ -1,0 +1,886 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="test" project="Model" tests="18" started="18" failures="0" errors="18" ignored="0">
+  <testsuite name="model.board.views.BishopViewTest" time="0.001">
+    <testcase name="initializationError" classname="model.board.views.BishopViewTest" time="0.001">
+      <error>java.lang.VerifyError: Expecting a stackmap frame at branch target 11
+Exception Details:
+  Location:
+    model/board/views/BishopViewTest.&lt;init&gt;()V @4: ifnonnull
+  Reason:
+    Expected stackmap frame at this location.
+  Bytecode:
+    0x0000000: b201 6e59 c700 0757 b801 7803 324c 2ab7
+    0x0000010: 002d 2a01 b500 2f2a 01b5 0031 2abb 0033
+    0x0000020: 59b2 0035 b200 3bb7 0041 b500 442a bb00
+    0x0000030: 3359 b200 46b2 003b b700 41b5 0049 2abb
+    0x0000040: 0033 59b2 0046 b200 4bb7 0041 b500 4e2a
+    0x0000050: bb00 3359 b200 46b2 0050 b700 41b5 0053
+    0x0000060: 2abb 0033 59b2 0035 b200 50b7 0041 b500
+    0x0000070: 552a bb00 3359 b200 57b2 0050 b700 41b5
+    0x0000080: 005a 2abb 0033 59b2 0057 b200 4bb7 0041
+    0x0000090: b500 5c2a bb00 3359 b200 57b2 003b b700
+    0x00000a0: 41b5 005e 2abb 0033 59b2 0035 b200 60b7
+    0x00000b0: 0041 b500 632a bb00 3359 b200 46b2 0060
+    0x00000c0: b700 41b5 0065 2abb 0033 59b2 0067 b200
+    0x00000d0: 60b7 0041 b500 6a2a bb00 3359 b200 67b2
+    0x00000e0: 003b b700 41b5 006c 2abb 0033 59b2 0067
+    0x00000f0: b200 4bb7 0041 b500 6e2a bb00 3359 b200
+    0x0000100: 67b2 0050 b700 41b5 0070 2abb 0033 59b2
+    0x0000110: 0067 b200 72b7 0041 b500 752a bb00 3359
+    0x0000120: b200 46b2 0072 b700 41b5 0077 2abb 0033
+    0x0000130: 59b2 0035 b200 72b7 0041 b500 792a bb00
+    0x0000140: 3359 b200 57b2 0072 b700 41b5 007b 2abb
+    0x0000150: 0033 59b2 007d b200 72b7 0041 b500 802a
+    0x0000160: bb00 3359 b200 7db2 0050 b700 41b5 0082
+    0x0000170: 2abb 0033 59b2 007d b200 4bb7 0041 b500
+    0x0000180: 842a bb00 3359 b200 7db2 003b b700 41b5
+    0x0000190: 0086 2abb 0033 59b2 007d b200 60b7 0041
+    0x00001a0: b500 882a bb00 3359 b200 57b2 0060 b700
+    0x00001b0: 41b5 008a 2abb 0033 59b2 008c b200 8fb7
+    0x00001c0: 0041 b500 922a bb00 3359 b200 8cb2 0094
+    0x00001d0: b700 41b5 0097 2abb 0033 59b2 0099 b200
+    0x00001e0: 94b7 0041 b500 9c2a bb00 3359 b200 99b2
+    0x00001f0: 008f b700 41b5 009e 2abb 0033 59b2 00a0
+    0x0000200: b200 a3b7 0041 b500 a62b 0304 54b1     
+
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2693)
+	at java.lang.Class.privateGetMethodRecursive(Class.java:3040)
+	at java.lang.Class.getMethod0(Class.java:3010)
+	at java.lang.Class.getMethod(Class.java:1776)
+	at org.junit.internal.builders.SuiteMethodBuilder.hasSuiteMethod(SuiteMethodBuilder.java:18)
+	at org.junit.internal.builders.SuiteMethodBuilder.runnerForClass(SuiteMethodBuilder.java:10)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:26)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.requests.ClassRequest.getRunner(ClassRequest.java:26)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.&lt;init&gt;(JUnit4TestReference.java:33)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestClassReference.&lt;init&gt;(JUnit4TestClassReference.java:25)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.createTest(JUnit4TestLoader.java:48)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.loadTests(JUnit4TestLoader.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:452)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+
+</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="model.enums.RowTest" time="0.0">
+    <testcase name="initializationError" classname="model.enums.RowTest" time="0.0">
+      <error>java.lang.ClassFormatError: Illegal local variable table length 5 in method model.enums.RowTest.&lt;init&gt;()V
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2693)
+	at java.lang.Class.privateGetMethodRecursive(Class.java:3040)
+	at java.lang.Class.getMethod0(Class.java:3010)
+	at java.lang.Class.getMethod(Class.java:1776)
+	at org.junit.internal.builders.SuiteMethodBuilder.hasSuiteMethod(SuiteMethodBuilder.java:18)
+	at org.junit.internal.builders.SuiteMethodBuilder.runnerForClass(SuiteMethodBuilder.java:10)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:26)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.requests.ClassRequest.getRunner(ClassRequest.java:26)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.&lt;init&gt;(JUnit4TestReference.java:33)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestClassReference.&lt;init&gt;(JUnit4TestClassReference.java:25)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.createTest(JUnit4TestLoader.java:48)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.loadTests(JUnit4TestLoader.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:452)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+
+</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="model.board.views.RookViewTest" time="0.0">
+    <testcase name="initializationError" classname="model.board.views.RookViewTest" time="0.0">
+      <error>java.lang.VerifyError: Expecting a stackmap frame at branch target 11
+Exception Details:
+  Location:
+    model/board/views/RookViewTest.&lt;init&gt;()V @4: ifnonnull
+  Reason:
+    Expected stackmap frame at this location.
+  Bytecode:
+    0x0000000: b201 7159 c700 0757 b801 7b03 324c 2ab7
+    0x0000010: 002e 2a01 b500 302a 01b5 0032 2abb 0034
+    0x0000020: 59b2 0036 b200 3cb7 0042 b500 452a bb00
+    0x0000030: 3459 b200 47b2 003c b700 42b5 004a 2abb
+    0x0000040: 0034 59b2 0047 b200 4cb7 0042 b500 4f2a
+    0x0000050: bb00 3459 b200 47b2 0051 b700 42b5 0054
+    0x0000060: 2abb 0034 59b2 0036 b200 51b7 0042 b500
+    0x0000070: 562a bb00 3459 b200 58b2 0051 b700 42b5
+    0x0000080: 005b 2abb 0034 59b2 0058 b200 4cb7 0042
+    0x0000090: b500 5d2a bb00 3459 b200 58b2 003c b700
+    0x00000a0: 42b5 005f 2abb 0034 59b2 0036 b200 61b7
+    0x00000b0: 0042 b500 642a bb00 3459 b200 47b2 0061
+    0x00000c0: b700 42b5 0066 2abb 0034 59b2 0068 b200
+    0x00000d0: 61b7 0042 b500 6b2a bb00 3459 b200 68b2
+    0x00000e0: 003c b700 42b5 006d 2abb 0034 59b2 0068
+    0x00000f0: b200 4cb7 0042 b500 6f2a bb00 3459 b200
+    0x0000100: 68b2 0051 b700 42b5 0071 2abb 0034 59b2
+    0x0000110: 0068 b200 73b7 0042 b500 762a bb00 3459
+    0x0000120: b200 47b2 0073 b700 42b5 0078 2abb 0034
+    0x0000130: 59b2 0036 b200 73b7 0042 b500 7a2a bb00
+    0x0000140: 3459 b200 58b2 0073 b700 42b5 007c 2abb
+    0x0000150: 0034 59b2 007e b200 73b7 0042 b500 812a
+    0x0000160: bb00 3459 b200 7eb2 0051 b700 42b5 0083
+    0x0000170: 2abb 0034 59b2 007e b200 4cb7 0042 b500
+    0x0000180: 852a bb00 3459 b200 7eb2 003c b700 42b5
+    0x0000190: 0087 2abb 0034 59b2 007e b200 61b7 0042
+    0x00001a0: b500 892a bb00 3459 b200 58b2 0061 b700
+    0x00001b0: 42b5 008b 2abb 0034 59b2 008d b200 4cb7
+    0x00001c0: 0042 b500 902a bb00 3459 b200 92b2 004c
+    0x00001d0: b700 42b5 0095 2abb 0034 59b2 0036 b200
+    0x00001e0: 97b7 0042 b500 9a2a bb00 3459 b200 9cb2
+    0x00001f0: 004c b700 42b5 009f 2abb 0034 59b2 0036
+    0x0000200: b200 a1b7 0042 b500 a42a bb00 3459 b200
+    0x0000210: 36b2 00a6 b700 42b5 00a9 2b03 0454 b1  
+
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2693)
+	at java.lang.Class.privateGetMethodRecursive(Class.java:3040)
+	at java.lang.Class.getMethod0(Class.java:3010)
+	at java.lang.Class.getMethod(Class.java:1776)
+	at org.junit.internal.builders.SuiteMethodBuilder.hasSuiteMethod(SuiteMethodBuilder.java:18)
+	at org.junit.internal.builders.SuiteMethodBuilder.runnerForClass(SuiteMethodBuilder.java:10)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:26)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.requests.ClassRequest.getRunner(ClassRequest.java:26)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.&lt;init&gt;(JUnit4TestReference.java:33)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestClassReference.&lt;init&gt;(JUnit4TestClassReference.java:25)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.createTest(JUnit4TestLoader.java:48)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.loadTests(JUnit4TestLoader.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:452)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+
+</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="model.enums.ColorTest" time="0.0">
+    <testcase name="initializationError" classname="model.enums.ColorTest" time="0.0">
+      <error>java.lang.ClassFormatError: Illegal local variable table length 5 in method model.enums.ColorTest.&lt;init&gt;()V
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2693)
+	at java.lang.Class.privateGetMethodRecursive(Class.java:3040)
+	at java.lang.Class.getMethod0(Class.java:3010)
+	at java.lang.Class.getMethod(Class.java:1776)
+	at org.junit.internal.builders.SuiteMethodBuilder.hasSuiteMethod(SuiteMethodBuilder.java:18)
+	at org.junit.internal.builders.SuiteMethodBuilder.runnerForClass(SuiteMethodBuilder.java:10)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:26)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.requests.ClassRequest.getRunner(ClassRequest.java:26)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.&lt;init&gt;(JUnit4TestReference.java:33)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestClassReference.&lt;init&gt;(JUnit4TestClassReference.java:25)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.createTest(JUnit4TestLoader.java:48)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.loadTests(JUnit4TestLoader.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:452)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+
+</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="model.board.GameEventNamesTest" time="0.0">
+    <testcase name="initializationError" classname="model.board.GameEventNamesTest" time="0.0">
+      <error>java.lang.VerifyError: Expecting a stackmap frame at branch target 11
+Exception Details:
+  Location:
+    model/board/GameEventNamesTest.&lt;init&gt;()V @4: ifnonnull
+  Reason:
+    Expected stackmap frame at this location.
+  Bytecode:
+    0x0000000: b200 8f59 c700 0757 b800 9903 324c 2ab7
+    0x0000010: 0016 2abb 0018 59b2 001a b200 20b7 0026
+    0x0000020: b500 292a bb00 1859 b200 1ab2 002b b700
+    0x0000030: 26b5 002e 2b03 0454 b1                 
+
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2693)
+	at java.lang.Class.privateGetMethodRecursive(Class.java:3040)
+	at java.lang.Class.getMethod0(Class.java:3010)
+	at java.lang.Class.getMethod(Class.java:1776)
+	at org.junit.internal.builders.SuiteMethodBuilder.hasSuiteMethod(SuiteMethodBuilder.java:18)
+	at org.junit.internal.builders.SuiteMethodBuilder.runnerForClass(SuiteMethodBuilder.java:10)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:26)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.requests.ClassRequest.getRunner(ClassRequest.java:26)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.&lt;init&gt;(JUnit4TestReference.java:33)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestClassReference.&lt;init&gt;(JUnit4TestClassReference.java:25)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.createTest(JUnit4TestLoader.java:48)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.loadTests(JUnit4TestLoader.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:452)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+
+</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="model.board.BoardSetterTest" time="0.001">
+    <testcase name="initializationError" classname="model.board.BoardSetterTest" time="0.001">
+      <error>java.lang.VerifyError: Expecting a stackmap frame at branch target 11
+Exception Details:
+  Location:
+    model/board/BoardSetterTest.&lt;init&gt;()V @4: ifnonnull
+  Reason:
+    Expected stackmap frame at this location.
+  Bytecode:
+    0x0000000: b201 5a59 c700 0757 b801 6403 324c 2ab7
+    0x0000010: 004c 2abb 004e 59b2 0050 b200 56b7 005c
+    0x0000020: b500 5f2a bb00 4e59 b200 61b2 0056 b700
+    0x0000030: 5cb5 0064 2abb 004e 59b2 0066 b200 56b7
+    0x0000040: 005c b500 692a bb00 4e59 b200 6bb2 0056
+    0x0000050: b700 5cb5 006e 2abb 004e 59b2 0070 b200
+    0x0000060: 56b7 005c b500 732a bb00 4e59 b200 75b2
+    0x0000070: 0056 b700 5cb5 0078 2abb 004e 59b2 007a
+    0x0000080: b200 56b7 005c b500 7d2a bb00 4e59 b200
+    0x0000090: 7fb2 0056 b700 5cb5 0082 2abb 004e 59b2
+    0x00000a0: 0050 b200 84b7 005c b500 872a bb00 4e59
+    0x00000b0: b200 61b2 0084 b700 5cb5 0089 2abb 004e
+    0x00000c0: 59b2 0066 b200 84b7 005c b500 8b2a bb00
+    0x00000d0: 4e59 b200 6bb2 0084 b700 5cb5 008d 2abb
+    0x00000e0: 004e 59b2 0070 b200 84b7 005c b500 8f2a
+    0x00000f0: bb00 4e59 b200 75b2 0084 b700 5cb5 0091
+    0x0000100: 2abb 004e 59b2 007a b200 84b7 005c b500
+    0x0000110: 932a bb00 4e59 b200 7fb2 0084 b700 5cb5
+    0x0000120: 0095 2abb 004e 59b2 0050 b200 97b7 005c
+    0x0000130: b500 9a2a bb00 4e59 b200 61b2 0097 b700
+    0x0000140: 5cb5 009c 2abb 004e 59b2 0066 b200 97b7
+    0x0000150: 005c b500 9e2a bb00 4e59 b200 6bb2 0097
+    0x0000160: b700 5cb5 00a0 2abb 004e 59b2 0070 b200
+    0x0000170: 97b7 005c b500 a22a bb00 4e59 b200 75b2
+    0x0000180: 0097 b700 5cb5 00a4 2abb 004e 59b2 007a
+    0x0000190: b200 97b7 005c b500 a62a bb00 4e59 b200
+    0x00001a0: 7fb2 0097 b700 5cb5 00a8 2abb 004e 59b2
+    0x00001b0: 0050 b200 aab7 005c b500 ad2a bb00 4e59
+    0x00001c0: b200 61b2 00aa b700 5cb5 00af 2abb 004e
+    0x00001d0: 59b2 0066 b200 aab7 005c b500 b12a bb00
+    0x00001e0: 4e59 b200 6bb2 00aa b700 5cb5 00b3 2abb
+    0x00001f0: 004e 59b2 0070 b200 aab7 005c b500 b52a
+    0x0000200: bb00 4e59 b200 75b2 00aa b700 5cb5 00b7
+    0x0000210: 2abb 004e 59b2 007a b200 aab7 005c b500
+    0x0000220: b92a bb00 4e59 b200 7fb2 00aa b700 5cb5
+    0x0000230: 00bb 2abb 00bd 59b2 00bf b200 c52a b400
+    0x0000240: 87b7 00cb b500 ce2a bb00 bd59 b200 bfb2
+    0x0000250: 00c5 2ab4 0089 b700 cbb5 00d0 2abb 00bd
+    0x0000260: 59b2 00bf b200 c52a b400 8bb7 00cb b500
+    0x0000270: d22a bb00 bd59 b200 bfb2 00c5 2ab4 008d
+    0x0000280: b700 cbb5 00d4 2abb 00bd 59b2 00bf b200
+    0x0000290: c52a b400 8fb7 00cb b500 d62a bb00 bd59
+    0x00002a0: b200 bfb2 00c5 2ab4 0091 b700 cbb5 00d8
+    0x00002b0: 2abb 00bd 59b2 00bf b200 c52a b400 93b7
+    0x00002c0: 00cb b500 da2a bb00 bd59 b200 bfb2 00c5
+    0x00002d0: 2ab4 0095 b700 cbb5 00dc 2abb 00bd 59b2
+    0x00002e0: 00bf b200 de2a b400 9ab7 00cb b500 e12a
+    0x00002f0: bb00 bd59 b200 bfb2 00de 2ab4 009c b700
+    0x0000300: cbb5 00e3 2abb 00bd 59b2 00bf b200 de2a
+    0x0000310: b400 9eb7 00cb b500 e52a bb00 bd59 b200
+    0x0000320: bfb2 00de 2ab4 00a0 b700 cbb5 00e7 2abb
+    0x0000330: 00bd 59b2 00bf b200 de2a b400 a2b7 00cb
+    0x0000340: b500 e92a bb00 bd59 b200 bfb2 00de 2ab4
+    0x0000350: 00a4 b700 cbb5 00eb 2abb 00bd 59b2 00bf
+    0x0000360: b200 de2a b400 a6b7 00cb b500 ed2a bb00
+    0x0000370: bd59 b200 bfb2 00de 2ab4 00a8 b700 cbb5
+    0x0000380: 00ef 2abb 00bd 59b2 00f1 b200 c52a b400
+    0x0000390: 5fb7 00cb b500 f42a bb00 bd59 b200 f1b2
+    0x00003a0: 00c5 2ab4 0082 b700 cbb5 00f6 2abb 00bd
+    0x00003b0: 59b2 00f8 b200 c52a b400 64b7 00cb b500
+    0x00003c0: fb2a bb00 bd59 b200 f8b2 00c5 2ab4 007d
+    0x00003d0: b700 cbb5 00fd 2abb 00bd 59b2 00ff b200
+    0x00003e0: c52a b400 69b7 00cb b501 022a bb00 bd59
+    0x00003f0: b200 ffb2 00c5 2ab4 0078 b700 cbb5 0104
+    0x0000400: 2abb 00bd 59b2 0106 b200 c52a b400 6eb7
+    0x0000410: 00cb b501 092a bb00 bd59 b201 0bb2 00c5
+    0x0000420: 2ab4 0073 b700 cbb5 010e 2abb 00bd 59b2
+    0x0000430: 00f1 b200 de2a b400 adb7 00cb b501 102a
+    0x0000440: bb00 bd59 b200 f1b2 00de 2ab4 00bb b700
+    0x0000450: cbb5 0112 2abb 00bd 59b2 00f8 b200 de2a
+    0x0000460: b400 afb7 00cb b501 142a bb00 bd59 b200
+    0x0000470: f8b2 00de 2ab4 00b9 b700 cbb5 0116 2abb
+    0x0000480: 00bd 59b2 00ff b200 de2a b400 b1b7 00cb
+    0x0000490: b501 182a bb00 bd59 b200 ffb2 00de 2ab4
+    0x00004a0: 00b7 b700 cbb5 011a 2abb 00bd 59b2 0106
+    0x00004b0: b200 de2a b400 b3b7 00cb b501 1c2a bb00
+    0x00004c0: bd59 b201 0bb2 00de 2ab4 00b5 b700 cbb5
+    0x00004d0: 011e 2b03 0454 b1                      
+
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2693)
+	at java.lang.Class.privateGetMethodRecursive(Class.java:3040)
+	at java.lang.Class.getMethod0(Class.java:3010)
+	at java.lang.Class.getMethod(Class.java:1776)
+	at org.junit.internal.builders.SuiteMethodBuilder.hasSuiteMethod(SuiteMethodBuilder.java:18)
+	at org.junit.internal.builders.SuiteMethodBuilder.runnerForClass(SuiteMethodBuilder.java:10)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:26)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.requests.ClassRequest.getRunner(ClassRequest.java:26)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.&lt;init&gt;(JUnit4TestReference.java:33)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestClassReference.&lt;init&gt;(JUnit4TestClassReference.java:25)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.createTest(JUnit4TestLoader.java:48)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.loadTests(JUnit4TestLoader.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:452)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+
+</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="model.board.BackingMapTest" time="0.0">
+    <testcase name="initializationError" classname="model.board.BackingMapTest" time="0.0">
+      <error>java.lang.ClassFormatError: Illegal local variable table length 5 in method model.board.BackingMapTest.&lt;init&gt;()V
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2693)
+	at java.lang.Class.privateGetPublicMethods(Class.java:2894)
+	at java.lang.Class.getMethods(Class.java:1607)
+	at org.mockito.internal.runners.util.TestMethodsFinder.hasTestMethods(TestMethodsFinder.java:13)
+	at org.mockito.internal.runners.RunnerFactory.create(RunnerFactory.java:33)
+	at org.mockito.runners.MockitoJUnitRunner.&lt;init&gt;(MockitoJUnitRunner.java:57)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:408)
+	at org.junit.internal.builders.AnnotatedBuilder.buildRunner(AnnotatedBuilder.java:29)
+	at org.junit.internal.builders.AnnotatedBuilder.runnerForClass(AnnotatedBuilder.java:21)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:26)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.requests.ClassRequest.getRunner(ClassRequest.java:26)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.&lt;init&gt;(JUnit4TestReference.java:33)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestClassReference.&lt;init&gt;(JUnit4TestClassReference.java:25)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.createTest(JUnit4TestLoader.java:48)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.loadTests(JUnit4TestLoader.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:452)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+
+</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="model.enums.RankTest" time="0.0">
+    <testcase name="initializationError" classname="model.enums.RankTest" time="0.0">
+      <error>java.lang.ClassFormatError: Illegal local variable table length 5 in method model.enums.RankTest.&lt;init&gt;()V
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2693)
+	at java.lang.Class.privateGetMethodRecursive(Class.java:3040)
+	at java.lang.Class.getMethod0(Class.java:3010)
+	at java.lang.Class.getMethod(Class.java:1776)
+	at org.junit.internal.builders.SuiteMethodBuilder.hasSuiteMethod(SuiteMethodBuilder.java:18)
+	at org.junit.internal.builders.SuiteMethodBuilder.runnerForClass(SuiteMethodBuilder.java:10)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:26)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.requests.ClassRequest.getRunner(ClassRequest.java:26)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.&lt;init&gt;(JUnit4TestReference.java:33)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestClassReference.&lt;init&gt;(JUnit4TestClassReference.java:25)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.createTest(JUnit4TestLoader.java:48)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.loadTests(JUnit4TestLoader.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:452)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+
+</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="model.enums.ViewDistanceTest" time="0.0">
+    <testcase name="initializationError" classname="model.enums.ViewDistanceTest" time="0.0">
+      <error>java.lang.ClassFormatError: Illegal local variable table length 5 in method model.enums.ViewDistanceTest.&lt;init&gt;()V
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2693)
+	at java.lang.Class.privateGetMethodRecursive(Class.java:3040)
+	at java.lang.Class.getMethod0(Class.java:3010)
+	at java.lang.Class.getMethod(Class.java:1776)
+	at org.junit.internal.builders.SuiteMethodBuilder.hasSuiteMethod(SuiteMethodBuilder.java:18)
+	at org.junit.internal.builders.SuiteMethodBuilder.runnerForClass(SuiteMethodBuilder.java:10)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:26)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.requests.ClassRequest.getRunner(ClassRequest.java:26)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.&lt;init&gt;(JUnit4TestReference.java:33)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestClassReference.&lt;init&gt;(JUnit4TestClassReference.java:25)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.createTest(JUnit4TestLoader.java:48)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.loadTests(JUnit4TestLoader.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:452)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+
+</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="model.board.SquareTest" time="0.0">
+    <testcase name="initializationError" classname="model.board.SquareTest" time="0.0">
+      <error>java.lang.VerifyError: Expecting a stackmap frame at branch target 11
+Exception Details:
+  Location:
+    model/board/SquareTest.&lt;init&gt;()V @4: ifnonnull
+  Reason:
+    Expected stackmap frame at this location.
+  Bytecode:
+    0x0000000: b200 8259 c700 0757 b800 8c03 324c 2ab7
+    0x0000010: 000a 2abb 000c 59b2 000e b200 14b7 001a
+    0x0000020: b500 1d2b 0304 54b1                    
+
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2693)
+	at java.lang.Class.privateGetMethodRecursive(Class.java:3040)
+	at java.lang.Class.getMethod0(Class.java:3010)
+	at java.lang.Class.getMethod(Class.java:1776)
+	at org.junit.internal.builders.SuiteMethodBuilder.hasSuiteMethod(SuiteMethodBuilder.java:18)
+	at org.junit.internal.builders.SuiteMethodBuilder.runnerForClass(SuiteMethodBuilder.java:10)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:26)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.requests.ClassRequest.getRunner(ClassRequest.java:26)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.&lt;init&gt;(JUnit4TestReference.java:33)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestClassReference.&lt;init&gt;(JUnit4TestClassReference.java:25)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.createTest(JUnit4TestLoader.java:48)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.loadTests(JUnit4TestLoader.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:452)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+
+</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="model.board.ChessBoardTest" time="0.001">
+    <testcase name="initializationError" classname="model.board.ChessBoardTest" time="0.001">
+      <error>java.lang.VerifyError: Expecting a stackmap frame at branch target 11
+Exception Details:
+  Location:
+    model/board/ChessBoardTest.&lt;init&gt;()V @4: ifnonnull
+  Reason:
+    Expected stackmap frame at this location.
+  Bytecode:
+    0x0000000: b201 5e59 c700 0757 b801 6803 324c 2ab7
+    0x0000010: 0022 2abb 0024 59b2 0026 b200 2cb7 0032
+    0x0000020: b500 352a bb00 2459 b200 26b2 0037 b700
+    0x0000030: 32b5 003a 2abb 0024 59b2 003c b200 3fb7
+    0x0000040: 0032 b500 422a bb00 2459 b200 44b2 0037
+    0x0000050: b700 32b5 0047 2abb 0024 59b2 0044 b200
+    0x0000060: 3fb7 0032 b500 492a bb00 2459 b200 44b2
+    0x0000070: 004b b700 32b5 004e 2abb 0024 59b2 0044
+    0x0000080: b200 50b7 0032 b500 532a 01b5 0055 2a01
+    0x0000090: b500 572a 01b5 0059 2a01 b500 5b2a 01b5
+    0x00000a0: 005d 2a01 b500 5f2a 01b5 0061 2a01 b500
+    0x00000b0: 632a 01b5 0065 2a01 b500 672a 01b5 0069
+    0x00000c0: 2b03 0454 b1                           
+
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2693)
+	at java.lang.Class.privateGetPublicMethods(Class.java:2894)
+	at java.lang.Class.getMethods(Class.java:1607)
+	at org.mockito.internal.runners.util.TestMethodsFinder.hasTestMethods(TestMethodsFinder.java:13)
+	at org.mockito.internal.runners.RunnerFactory.create(RunnerFactory.java:33)
+	at org.mockito.runners.MockitoJUnitRunner.&lt;init&gt;(MockitoJUnitRunner.java:57)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:408)
+	at org.junit.internal.builders.AnnotatedBuilder.buildRunner(AnnotatedBuilder.java:29)
+	at org.junit.internal.builders.AnnotatedBuilder.runnerForClass(AnnotatedBuilder.java:21)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:26)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.requests.ClassRequest.getRunner(ClassRequest.java:26)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.&lt;init&gt;(JUnit4TestReference.java:33)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestClassReference.&lt;init&gt;(JUnit4TestClassReference.java:25)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.createTest(JUnit4TestLoader.java:48)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.loadTests(JUnit4TestLoader.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:452)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+
+</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="model.board.views.KingViewTest" time="0.0">
+    <testcase name="initializationError" classname="model.board.views.KingViewTest" time="0.0">
+      <error>java.lang.VerifyError: Expecting a stackmap frame at branch target 11
+Exception Details:
+  Location:
+    model/board/views/KingViewTest.&lt;init&gt;()V @4: ifnonnull
+  Reason:
+    Expected stackmap frame at this location.
+  Bytecode:
+    0x0000000: b201 4f59 c700 0757 b801 5903 324c 2ab7
+    0x0000010: 0028 2a01 b500 2a2a 01b5 002c 2abb 002e
+    0x0000020: 59b2 0030 b200 36b7 003c b500 3f2a bb00
+    0x0000030: 2e59 b200 41b2 0036 b700 3cb5 0044 2abb
+    0x0000040: 002e 59b2 0041 b200 46b7 003c b500 492a
+    0x0000050: bb00 2e59 b200 41b2 004b b700 3cb5 004e
+    0x0000060: 2abb 002e 59b2 0030 b200 4bb7 003c b500
+    0x0000070: 502a bb00 2e59 b200 52b2 004b b700 3cb5
+    0x0000080: 0055 2abb 002e 59b2 0052 b200 46b7 003c
+    0x0000090: b500 572a bb00 2e59 b200 52b2 0036 b700
+    0x00000a0: 3cb5 0059 2abb 002e 59b2 0030 b200 5bb7
+    0x00000b0: 003c b500 5e2a bb00 2e59 b200 41b2 005b
+    0x00000c0: b700 3cb5 0060 2abb 002e 59b2 0062 b200
+    0x00000d0: 5bb7 003c b500 652a bb00 2e59 b200 62b2
+    0x00000e0: 0036 b700 3cb5 0067 2abb 002e 59b2 0062
+    0x00000f0: b200 46b7 003c b500 692a bb00 2e59 b200
+    0x0000100: 62b2 004b b700 3cb5 006b 2abb 002e 59b2
+    0x0000110: 0062 b200 6db7 003c b500 702a bb00 2e59
+    0x0000120: b200 41b2 006d b700 3cb5 0072 2abb 002e
+    0x0000130: 59b2 0030 b200 6db7 003c b500 742a bb00
+    0x0000140: 2e59 b200 52b2 006d b700 3cb5 0076 2abb
+    0x0000150: 002e 59b2 0078 b200 6db7 003c b500 7b2a
+    0x0000160: bb00 2e59 b200 78b2 004b b700 3cb5 007d
+    0x0000170: 2abb 002e 59b2 0078 b200 46b7 003c b500
+    0x0000180: 7f2a bb00 2e59 b200 78b2 0036 b700 3cb5
+    0x0000190: 0081 2abb 002e 59b2 0078 b200 5bb7 003c
+    0x00001a0: b500 832a bb00 2e59 b200 52b2 005b b700
+    0x00001b0: 3cb5 0085 2b03 0454 b1                 
+
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2693)
+	at java.lang.Class.privateGetMethodRecursive(Class.java:3040)
+	at java.lang.Class.getMethod0(Class.java:3010)
+	at java.lang.Class.getMethod(Class.java:1776)
+	at org.junit.internal.builders.SuiteMethodBuilder.hasSuiteMethod(SuiteMethodBuilder.java:18)
+	at org.junit.internal.builders.SuiteMethodBuilder.runnerForClass(SuiteMethodBuilder.java:10)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:26)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.requests.ClassRequest.getRunner(ClassRequest.java:26)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.&lt;init&gt;(JUnit4TestReference.java:33)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestClassReference.&lt;init&gt;(JUnit4TestClassReference.java:25)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.createTest(JUnit4TestLoader.java:48)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.loadTests(JUnit4TestLoader.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:452)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+
+</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="model.board.views.KnightViewTest" time="0.0">
+    <testcase name="initializationError" classname="model.board.views.KnightViewTest" time="0.0">
+      <error>java.lang.VerifyError: Expecting a stackmap frame at branch target 11
+Exception Details:
+  Location:
+    model/board/views/KnightViewTest.&lt;init&gt;()V @4: ifnonnull
+  Reason:
+    Expected stackmap frame at this location.
+  Bytecode:
+    0x0000000: b201 4d59 c700 0757 b801 5703 324c 2ab7
+    0x0000010: 0028 2a01 b500 2a2a 01b5 002c 2abb 002e
+    0x0000020: 59b2 0030 b200 36b7 003c b500 3f2a bb00
+    0x0000030: 2e59 b200 41b2 0036 b700 3cb5 0044 2abb
+    0x0000040: 002e 59b2 0041 b200 46b7 003c b500 492a
+    0x0000050: bb00 2e59 b200 41b2 004b b700 3cb5 004e
+    0x0000060: 2abb 002e 59b2 0030 b200 4bb7 003c b500
+    0x0000070: 502a bb00 2e59 b200 52b2 004b b700 3cb5
+    0x0000080: 0055 2abb 002e 59b2 0052 b200 46b7 003c
+    0x0000090: b500 572a bb00 2e59 b200 52b2 0036 b700
+    0x00000a0: 3cb5 0059 2abb 002e 59b2 0030 b200 5bb7
+    0x00000b0: 003c b500 5e2a bb00 2e59 b200 41b2 005b
+    0x00000c0: b700 3cb5 0060 2abb 002e 59b2 0062 b200
+    0x00000d0: 5bb7 003c b500 652a bb00 2e59 b200 62b2
+    0x00000e0: 0036 b700 3cb5 0067 2abb 002e 59b2 0062
+    0x00000f0: b200 46b7 003c b500 692a bb00 2e59 b200
+    0x0000100: 62b2 004b b700 3cb5 006b 2abb 002e 59b2
+    0x0000110: 0062 b200 6db7 003c b500 702a bb00 2e59
+    0x0000120: b200 41b2 006d b700 3cb5 0072 2abb 002e
+    0x0000130: 59b2 0030 b200 6db7 003c b500 742a bb00
+    0x0000140: 2e59 b200 52b2 006d b700 3cb5 0076 2abb
+    0x0000150: 002e 59b2 0078 b200 6db7 003c b500 7b2a
+    0x0000160: bb00 2e59 b200 78b2 004b b700 3cb5 007d
+    0x0000170: 2abb 002e 59b2 0078 b200 46b7 003c b500
+    0x0000180: 7f2a bb00 2e59 b200 78b2 0036 b700 3cb5
+    0x0000190: 0081 2abb 002e 59b2 0078 b200 5bb7 003c
+    0x00001a0: b500 832a bb00 2e59 b200 52b2 005b b700
+    0x00001b0: 3cb5 0085 2b03 0454 b1                 
+
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2693)
+	at java.lang.Class.privateGetMethodRecursive(Class.java:3040)
+	at java.lang.Class.getMethod0(Class.java:3010)
+	at java.lang.Class.getMethod(Class.java:1776)
+	at org.junit.internal.builders.SuiteMethodBuilder.hasSuiteMethod(SuiteMethodBuilder.java:18)
+	at org.junit.internal.builders.SuiteMethodBuilder.runnerForClass(SuiteMethodBuilder.java:10)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:26)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.requests.ClassRequest.getRunner(ClassRequest.java:26)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.&lt;init&gt;(JUnit4TestReference.java:33)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestClassReference.&lt;init&gt;(JUnit4TestClassReference.java:25)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.createTest(JUnit4TestLoader.java:48)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.loadTests(JUnit4TestLoader.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:452)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+
+</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="model.board.views.PawnViewTest" time="0.0">
+    <testcase name="initializationError" classname="model.board.views.PawnViewTest" time="0.0">
+      <error>java.lang.VerifyError: Expecting a stackmap frame at branch target 11
+Exception Details:
+  Location:
+    model/board/views/PawnViewTest.&lt;init&gt;()V @4: ifnonnull
+  Reason:
+    Expected stackmap frame at this location.
+  Bytecode:
+    0x0000000: b201 5459 c700 0757 b801 5e03 324c 2ab7
+    0x0000010: 0029 2a01 b500 2b2a 01b5 002d 2abb 002f
+    0x0000020: 59b2 0031 b200 37b7 003d b500 402a bb00
+    0x0000030: 2f59 b200 42b2 0037 b700 3db5 0045 2abb
+    0x0000040: 002f 59b2 0042 b200 47b7 003d b500 4a2a
+    0x0000050: bb00 2f59 b200 42b2 004c b700 3db5 004f
+    0x0000060: 2abb 002f 59b2 0031 b200 4cb7 003d b500
+    0x0000070: 512a bb00 2f59 b200 53b2 004c b700 3db5
+    0x0000080: 0056 2abb 002f 59b2 0053 b200 47b7 003d
+    0x0000090: b500 582a bb00 2f59 b200 53b2 0037 b700
+    0x00000a0: 3db5 005a 2abb 002f 59b2 0031 b200 5cb7
+    0x00000b0: 003d b500 5f2a bb00 2f59 b200 42b2 005c
+    0x00000c0: b700 3db5 0061 2abb 002f 59b2 0063 b200
+    0x00000d0: 5cb7 003d b500 662a bb00 2f59 b200 63b2
+    0x00000e0: 0037 b700 3db5 0068 2abb 002f 59b2 0063
+    0x00000f0: b200 47b7 003d b500 6a2a bb00 2f59 b200
+    0x0000100: 63b2 004c b700 3db5 006c 2abb 002f 59b2
+    0x0000110: 0063 b200 6eb7 003d b500 712a bb00 2f59
+    0x0000120: b200 42b2 006e b700 3db5 0073 2abb 002f
+    0x0000130: 59b2 0031 b200 6eb7 003d b500 752a bb00
+    0x0000140: 2f59 b200 53b2 006e b700 3db5 0077 2abb
+    0x0000150: 002f 59b2 0079 b200 6eb7 003d b500 7c2a
+    0x0000160: bb00 2f59 b200 79b2 004c b700 3db5 007e
+    0x0000170: 2abb 002f 59b2 0079 b200 47b7 003d b500
+    0x0000180: 802a bb00 2f59 b200 79b2 0037 b700 3db5
+    0x0000190: 0082 2abb 002f 59b2 0079 b200 5cb7 003d
+    0x00001a0: b500 842a bb00 2f59 b200 53b2 005c b700
+    0x00001b0: 3db5 0086 2abb 002f 59b2 0031 b200 47b7
+    0x00001c0: 003d b500 882b 0304 54b1               
+
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2693)
+	at java.lang.Class.privateGetMethodRecursive(Class.java:3040)
+	at java.lang.Class.getMethod0(Class.java:3010)
+	at java.lang.Class.getMethod(Class.java:1776)
+	at org.junit.internal.builders.SuiteMethodBuilder.hasSuiteMethod(SuiteMethodBuilder.java:18)
+	at org.junit.internal.builders.SuiteMethodBuilder.runnerForClass(SuiteMethodBuilder.java:10)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:26)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.requests.ClassRequest.getRunner(ClassRequest.java:26)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.&lt;init&gt;(JUnit4TestReference.java:33)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestClassReference.&lt;init&gt;(JUnit4TestClassReference.java:25)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.createTest(JUnit4TestLoader.java:48)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.loadTests(JUnit4TestLoader.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:452)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+
+</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="model.enums.ColumnTest" time="0.001">
+    <testcase name="initializationError" classname="model.enums.ColumnTest" time="0.001">
+      <error>java.lang.ClassFormatError: Illegal local variable table length 5 in method model.enums.ColumnTest.&lt;init&gt;()V
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2693)
+	at java.lang.Class.privateGetMethodRecursive(Class.java:3040)
+	at java.lang.Class.getMethod0(Class.java:3010)
+	at java.lang.Class.getMethod(Class.java:1776)
+	at org.junit.internal.builders.SuiteMethodBuilder.hasSuiteMethod(SuiteMethodBuilder.java:18)
+	at org.junit.internal.builders.SuiteMethodBuilder.runnerForClass(SuiteMethodBuilder.java:10)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:26)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.requests.ClassRequest.getRunner(ClassRequest.java:26)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.&lt;init&gt;(JUnit4TestReference.java:33)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestClassReference.&lt;init&gt;(JUnit4TestClassReference.java:25)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.createTest(JUnit4TestLoader.java:48)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.loadTests(JUnit4TestLoader.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:452)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+
+</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="model.enums.DirectionTest" time="0.0">
+    <testcase name="initializationError" classname="model.enums.DirectionTest" time="0.0">
+      <error>java.lang.ClassFormatError: Illegal local variable table length 5 in method model.enums.DirectionTest.&lt;init&gt;()V
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2693)
+	at java.lang.Class.privateGetMethodRecursive(Class.java:3040)
+	at java.lang.Class.getMethod0(Class.java:3010)
+	at java.lang.Class.getMethod(Class.java:1776)
+	at org.junit.internal.builders.SuiteMethodBuilder.hasSuiteMethod(SuiteMethodBuilder.java:18)
+	at org.junit.internal.builders.SuiteMethodBuilder.runnerForClass(SuiteMethodBuilder.java:10)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:26)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.requests.ClassRequest.getRunner(ClassRequest.java:26)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.&lt;init&gt;(JUnit4TestReference.java:33)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestClassReference.&lt;init&gt;(JUnit4TestClassReference.java:25)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.createTest(JUnit4TestLoader.java:48)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.loadTests(JUnit4TestLoader.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:452)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+
+</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="model.ChessPieceTest" time="0.001">
+    <testcase name="initializationError" classname="model.ChessPieceTest" time="0.001">
+      <error>java.lang.VerifyError: Expecting a stackmap frame at branch target 11
+Exception Details:
+  Location:
+    model/ChessPieceTest.&lt;init&gt;()V @4: ifnonnull
+  Reason:
+    Expected stackmap frame at this location.
+  Bytecode:
+    0x0000000: b201 6159 c700 0757 b801 6b03 324c 2ab7
+    0x0000010: 0030 2abb 0032 59b2 0034 b200 3ab7 0040
+    0x0000020: b500 432a bb00 3259 b200 34b2 0045 b700
+    0x0000030: 40b5 0048 2abb 0032 59b2 0034 b200 4ab7
+    0x0000040: 0040 b500 4d2a bb00 3259 b200 4fb2 0052
+    0x0000050: b700 40b5 0055 2abb 0032 59b2 0034 b200
+    0x0000060: 57b7 0040 b500 5a2a bb00 3259 b200 5cb2
+    0x0000070: 0052 b700 40b5 005f 2abb 0032 59b2 004f
+    0x0000080: b200 57b7 0040 b500 612a bb00 3259 b200
+    0x0000090: 5cb2 0057 b700 40b5 0063 2abb 0032 59b2
+    0x00000a0: 0065 b200 57b7 0040 b500 682a bb00 3259
+    0x00000b0: b200 6ab2 0057 b700 40b5 006d 2abb 0032
+    0x00000c0: 59b2 006f b200 52b7 0040 b500 722a bb00
+    0x00000d0: 3259 b200 34b2 0052 b700 40b5 0074 2abb
+    0x00000e0: 0032 59b2 0076 b200 52b7 0040 b500 792a
+    0x00000f0: bb00 3259 b200 4fb2 003a b700 40b5 007b
+    0x0000100: 2abb 0032 59b2 005c b200 3ab7 0040 b500
+    0x0000110: 7d2a bb00 3259 b200 65b2 0045 b700 40b5
+    0x0000120: 007f 2abb 0032 59b2 006f b200 45b7 0040
+    0x0000130: b500 812a bb00 3259 b200 4fb2 0045 b700
+    0x0000140: 40b5 0083 2abb 0032 59b2 005c b200 45b7
+    0x0000150: 0040 b500 852a bb00 3259 b200 76b2 0045
+    0x0000160: b700 40b5 0087 2abb 0032 59b2 006a b200
+    0x0000170: 45b7 0040 b500 892a bb00 3259 b200 8bb2
+    0x0000180: 0045 b700 40b5 008e 2abb 0032 59b2 004f
+    0x0000190: b200 90b7 0040 b500 932a bb00 3259 b200
+    0x00001a0: 6fb2 004a b700 40b5 0095 2abb 0032 59b2
+    0x00001b0: 0034 b200 90b7 0040 b500 972a bb00 3259
+    0x00001c0: b200 5cb2 0090 b700 40b5 0099 2abb 0032
+    0x00001d0: 59b2 0076 b200 4ab7 0040 b500 9b2b 0304
+    0x00001e0: 54b1                                   
+
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2693)
+	at java.lang.Class.privateGetPublicMethods(Class.java:2894)
+	at java.lang.Class.getMethods(Class.java:1607)
+	at org.mockito.internal.runners.util.TestMethodsFinder.hasTestMethods(TestMethodsFinder.java:13)
+	at org.mockito.internal.runners.RunnerFactory.create(RunnerFactory.java:33)
+	at org.mockito.runners.MockitoJUnitRunner.&lt;init&gt;(MockitoJUnitRunner.java:57)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:408)
+	at org.junit.internal.builders.AnnotatedBuilder.buildRunner(AnnotatedBuilder.java:29)
+	at org.junit.internal.builders.AnnotatedBuilder.runnerForClass(AnnotatedBuilder.java:21)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:26)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.requests.ClassRequest.getRunner(ClassRequest.java:26)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.&lt;init&gt;(JUnit4TestReference.java:33)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestClassReference.&lt;init&gt;(JUnit4TestClassReference.java:25)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.createTest(JUnit4TestLoader.java:48)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.loadTests(JUnit4TestLoader.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:452)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+
+</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="model.board.views.QueenViewTest" time="0.0">
+    <testcase name="initializationError" classname="model.board.views.QueenViewTest" time="0.0">
+      <error>java.lang.VerifyError: Expecting a stackmap frame at branch target 11
+Exception Details:
+  Location:
+    model/board/views/QueenViewTest.&lt;init&gt;()V @4: ifnonnull
+  Reason:
+    Expected stackmap frame at this location.
+  Bytecode:
+    0x0000000: b201 8059 c700 0757 b801 8a03 324c 2ab7
+    0x0000010: 0033 2a01 b500 352a 01b5 0037 2abb 0039
+    0x0000020: 59b2 003b b200 41b7 0047 b500 4a2a bb00
+    0x0000030: 3959 b200 4cb2 0041 b700 47b5 004f 2abb
+    0x0000040: 0039 59b2 004c b200 51b7 0047 b500 542a
+    0x0000050: bb00 3959 b200 4cb2 0056 b700 47b5 0059
+    0x0000060: 2abb 0039 59b2 003b b200 56b7 0047 b500
+    0x0000070: 5b2a bb00 3959 b200 5db2 0056 b700 47b5
+    0x0000080: 0060 2abb 0039 59b2 005d b200 51b7 0047
+    0x0000090: b500 622a bb00 3959 b200 5db2 0041 b700
+    0x00000a0: 47b5 0064 2abb 0039 59b2 003b b200 66b7
+    0x00000b0: 0047 b500 692a bb00 3959 b200 4cb2 0066
+    0x00000c0: b700 47b5 006b 2abb 0039 59b2 006d b200
+    0x00000d0: 66b7 0047 b500 702a bb00 3959 b200 6db2
+    0x00000e0: 0041 b700 47b5 0072 2abb 0039 59b2 006d
+    0x00000f0: b200 51b7 0047 b500 742a bb00 3959 b200
+    0x0000100: 6db2 0056 b700 47b5 0076 2abb 0039 59b2
+    0x0000110: 006d b200 78b7 0047 b500 7b2a bb00 3959
+    0x0000120: b200 4cb2 0078 b700 47b5 007d 2abb 0039
+    0x0000130: 59b2 003b b200 78b7 0047 b500 7f2a bb00
+    0x0000140: 3959 b200 5db2 0078 b700 47b5 0081 2abb
+    0x0000150: 0039 59b2 0083 b200 78b7 0047 b500 862a
+    0x0000160: bb00 3959 b200 83b2 0056 b700 47b5 0088
+    0x0000170: 2abb 0039 59b2 0083 b200 51b7 0047 b500
+    0x0000180: 8a2a bb00 3959 b200 83b2 0041 b700 47b5
+    0x0000190: 008c 2abb 0039 59b2 0083 b200 66b7 0047
+    0x00001a0: b500 8e2a bb00 3959 b200 5db2 0066 b700
+    0x00001b0: 47b5 0090 2abb 0039 59b2 003b b200 92b7
+    0x00001c0: 0047 b500 952a bb00 3959 b200 3bb2 0097
+    0x00001d0: b700 47b5 009a 2abb 0039 59b2 009c b200
+    0x00001e0: 92b7 0047 b500 9f2a bb00 3959 b200 9cb2
+    0x00001f0: 0051 b700 47b5 00a1 2abb 0039 59b2 009c
+    0x0000200: b200 a3b7 0047 b500 a62a bb00 3959 b200
+    0x0000210: a8b2 00a3 b700 47b5 00ab 2abb 0039 59b2
+    0x0000220: 003b b200 a3b7 0047 b500 ad2a bb00 3959
+    0x0000230: b200 a8b2 0092 b700 47b5 00af 2abb 0039
+    0x0000240: 59b2 00b1 b200 97b7 0047 b500 b42a bb00
+    0x0000250: 3959 b200 a8b2 0051 b700 47b5 00b6 2abb
+    0x0000260: 0039 59b2 00b1 b200 51b7 0047 b500 b82b
+    0x0000270: 0304 54b1                              
+
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2693)
+	at java.lang.Class.privateGetMethodRecursive(Class.java:3040)
+	at java.lang.Class.getMethod0(Class.java:3010)
+	at java.lang.Class.getMethod(Class.java:1776)
+	at org.junit.internal.builders.SuiteMethodBuilder.hasSuiteMethod(SuiteMethodBuilder.java:18)
+	at org.junit.internal.builders.SuiteMethodBuilder.runnerForClass(SuiteMethodBuilder.java:10)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:26)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.requests.ClassRequest.getRunner(ClassRequest.java:26)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.&lt;init&gt;(JUnit4TestReference.java:33)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestClassReference.&lt;init&gt;(JUnit4TestClassReference.java:25)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.createTest(JUnit4TestLoader.java:48)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.loadTests(JUnit4TestLoader.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:452)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+
+</error>
+    </testcase>
+  </testsuite>
+</testrun>

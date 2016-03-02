@@ -1,0 +1,14 @@
+package strategy;
+
+import org.junit.Test;
+
+public class BoardGradeTest {
+
+    BoardGrade boardGrade = null;
+    
+    @Test
+    public void test() {
+        boardGrade = new BoardGrade(0,0,0,0);
+    }
+
+}

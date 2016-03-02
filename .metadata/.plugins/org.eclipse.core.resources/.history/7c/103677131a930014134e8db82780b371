@@ -1,0 +1,41 @@
+package model.board.views;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import model.board.BoardPosition;
+import model.board.ChessBoard;
+import model.board.Square;
+import model.enums.Color;
+import model.enums.ViewDirection;
+import model.enums.ViewDistance;
+
+public final class KingView extends RadiatingView {
+
+    private static final ViewDirection[] KING_MOVES = { ViewDirection.UP, ViewDirection.RIGHT_UP, ViewDirection.RIGHT,
+            ViewDirection.RIGHT_DOWN, ViewDirection.DOWN, ViewDirection.LEFT_DOWN, ViewDirection.LEFT, ViewDirection.LEFT_UP };
+    private Color color;
+    private ChessBoard chessBoard;
+
+    KingView(BoardPosition boardPosition, Color color) {
+        super(boardPosition, color, KING_MOVES, ViewDistance.SINGLE_UNIT);
+
+        this.color = color;
+        this.chessBoard = boardPosition.chessBoard();
+    }
+
+    @Override
+    public List<Square> moveToSquares() {
+        List<Square> moveToSquares = new ArrayList<Square>();
+        List<Square> availableSquares = super.moveToSquares();
+
+        for (Square availableSquares : availableSquares) {
+            if (chessBoard.piecesAttackingAt(availableSquares, color).size() == 0) {
+                moveToSquares.add(availableSquares);
+            }
+        }
+
+        return moveToSquares;
+    }
+
+}

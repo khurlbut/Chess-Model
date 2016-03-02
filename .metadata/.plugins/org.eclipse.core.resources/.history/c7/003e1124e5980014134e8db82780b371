@@ -1,0 +1,19 @@
+package model.piece;
+
+import model.board.Square;
+import model.enums.Color;
+import model.enums.Rank;
+
+public class PieceFactory {
+
+    public static Piece newPiece(Rank rank, Color color) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public static Piece newPiece(Rank rank, Color color, Square homeSquare) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+}

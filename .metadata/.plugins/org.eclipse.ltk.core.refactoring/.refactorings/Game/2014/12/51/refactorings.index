@@ -1,0 +1,39 @@
+1418705859471	Rename method 'test'
+1418707996428	Rename local variable 'piece'
+1418708449892	Extract local variable 'square'
+1418709168247	Convert local variable 'w_queen' to field
+1418709182593	Convert local variable 'b_queen' to field
+1418709808735	Rename method 'score'
+1418712205168	Rename local variable 'score'
+1418789246862	Extract local variable 'whiteThreatenedSquares'
+1418789286672	Convert local variable 'whiteThreatenedSquares' to field
+1418789294753	Convert local variable 'blackThreatenedSquares' to field
+1418795291950	Extract method 'materialScore'
+1418795520496	Rename local variable 'materialScore'
+1418795589572	Rename local variable 'material'
+1418795653917	Change method 'territory'
+1418795721125	Rename local variable 'terriroty'
+1418795737964	Rename local variable 'opponentMaterial'
+1418876210355	Rename field 'blackThreatenedSquare'
+1418876223405	Rename field 'whiteThreatenedSquare'
+1418876283032	Rename field 'whiteThreatenedSquares'
+1418876298067	Rename field 'blackThreatenedSquares'
+1419100754062	Change method 'ChessScore'
+1419101661512	Extract local variable 'positionScore'
+1419101675690	Rename local variable 'positionScore'
+1419101806477	Change method 'positionScore'
+1419102511187	Rename field 'w_pawn'
+1419102844950	Extract local variable 'attackerCount'
+1419102869679	Extract local variable 'defenderCount'
+1419109951810	Rename local variable 'pieceAttacked'
+1419112127493	Change method 'ChessScore'
+1419112684147	Rename method 'materialScore'
+1419112694652	Rename method 'positionScore'
+1419112708368	Rename method 'collaboratorScore'
+1419112730396	Rename local variable 'collaborator'
+1419112742523	Rename method 'collaborator'
+1419112868171	Convert local variable 'material' to field
+1419112886205	Convert local variable 'territory' to field
+1419112894353	Convert local variable 'position' to field
+1419112903893	Convert local variable 'collaboration' to field
+1419118876162	Change method 'evaluateMoves'

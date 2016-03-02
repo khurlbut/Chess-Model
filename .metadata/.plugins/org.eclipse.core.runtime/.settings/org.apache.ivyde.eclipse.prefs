@@ -1,0 +1,12 @@
+acceptedTypes=jar, test, dbext
+autoResolve.close=false
+autoResolve.open=false
+do.retreive=false
+eclipse.preferences.version=1
+ivy_conf_path=file\:////Users/ke015t7/Workspace/branch15.0113/buildrb15.0113/buildeng/ivysettings.xml
+loadSettingsOnDemand=true
+propertyFiles=/Users/ke015t7/Workspace/chessgame/ivyde.properties
+resolveInWorkspace=true
+resolveOnStartup=1
+retrieve.pattern=ivylib/[type]/[artifact]-[revision].[ext]
+workspaceResolver.ignoreVersion=true

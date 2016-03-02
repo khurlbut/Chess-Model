@@ -1,0 +1,17 @@
+package strategy;
+
+import static org.junit.Assert.*;
+import model.board.ChessBoard;
+
+import org.junit.Test;
+
+public class BruteForceGameStrategyTest {
+
+    @Test
+    public void test() {
+        ChessBoard chessBoard = new ChessBoard();
+        
+        fail("Not yet implemented");
+    }
+
+}

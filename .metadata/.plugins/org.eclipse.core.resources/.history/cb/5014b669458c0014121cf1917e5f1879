@@ -1,0 +1,30 @@
+package strategy;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.assertThat;
+
+import org.junit.Test;
+
+public class BoardGradeTest {
+
+    BoardGrade boardGrade = null;
+
+    @Test
+    public void test() {
+        boardGrade = new BoardGrade(0, 0, 0, 0);
+        assertThat(boardGrade.finalGrade(), equalTo(0));
+
+        boardGrade = new BoardGrade(1, 0, 0, 0);
+        assertThat(boardGrade.finalGrade(), equalTo(1));
+        
+        boardGrade = new BoardGrade(0,1, 0, 0);
+        assertThat(boardGrade.finalGrade(), equalTo(1));
+        
+        boardGrade = new BoardGrade(0, 0, 1, 0);
+        assertThat(boardGrade.finalGrade(), equalTo(1));
+        
+        boardGrade = new BoardGrade(0, 0, 0, 1);
+        assertThat(boardGrade.finalGrade(), equalTo(1));
+    }
+
+}

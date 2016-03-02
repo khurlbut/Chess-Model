@@ -1,0 +1,194 @@
+package model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import model.board.CaptureEvent;
+import model.board.ChessBoard;
+import model.board.GameEvent;
+import model.board.MoveEvent;
+import model.board.Square;
+import model.board.views.RankView;
+import model.board.views.RankViewFactory;
+import model.enums.Color;
+import model.enums.Rank;
+
+public class ChessPiece implements Piece {
+
+    private final Rank rank;
+    private final Color color;
+    private final Square homeSquare;
+
+    public ChessPiece(Rank rank, Color color, Square homeSquare) {
+        if (rank == null || color == null || homeSquare == null) {
+            throw new IllegalArgumentException("Constructor does not allow null(s)!");
+        }
+        this.rank = rank;
+        this.color = color;
+        this.homeSquare = homeSquare;
+    }
+
+    @Override
+    public Rank rank() {
+        return rank;
+    }
+
+    @Override
+    public Color color() {
+        return color;
+    }
+
+    @Override
+    public Square homeSquare() {
+        return homeSquare;
+    }
+
+    @Override
+    public List<GameEvent> potentialGameEvents(ChessBoard chessBoard) {
+        List<GameEvent> potentialGameEvents = new ArrayList<GameEvent>();
+
+        Square mySquare = chessBoard.squareHolding(this);
+
+        for (Square targetSquare : moveToSquares(chessBoard)) {
+            potentialGameEvents.add(new MoveEvent(mySquare, targetSquare));
+        }
+
+        for (Piece pieceAttacked : piecesAttacked(chessBoard)) {
+            Square targetSquare = chessBoard.squareHolding(pieceAttacked);
+            potentialGameEvents.add(new CaptureEvent(mySquare, targetSquare, pieceAttacked));
+        }
+
+        return potentialGameEvents;
+    }
+
+    @Override
+    public List<Piece> piecesAttacked(ChessBoard chessBoard) {
+        List<Piece> attackedPieces = new ArrayList<Piece>();
+
+        Square mySquare = chessBoard.squareHolding(this);
+        RankView myView = RankViewFactory.rankView(this, chessBoard, mySquare);
+
+        List<Piece> opponentPieces = chessBoard.piecesFor(color.opponentColor());
+        List<Square> squaresHoldingPiecesAttacked = myView.squaresHoldingPiecesAttacked();
+        
+        for (Piece piece : opponentPieces) {
+            if (squaresHoldingPiecesAttacked.contains(chessBoard.squareHolding(piece))) {
+                attackedPieces.add(piece);
+            }
+        }
+        return attackedPieces;
+    }
+
+    @Override
+    public List<Piece> piecesDefended(ChessBoard chessBoard) {
+        List<Piece> defendedPieces = new ArrayList<Piece>();
+
+        Square mySquare = chessBoard.squareHolding(this);
+        RankView myView = RankViewFactory.rankView(this, chessBoard, mySquare);
+
+        List<Piece> collaboratingPieces = chessBoard.piecesFor(color);
+        for (Piece piece : collaboratingPieces) {
+            if (myView.squaresHoldingPiecesDefended().contains(chessBoard.squareHolding(piece))) {
+                defendedPieces.add(piece);
+            }
+        }
+        return defendedPieces;
+    }
+
+    @Override
+    public List<Piece> opponentAttackers(ChessBoard chessBoard) {
+        List<Piece> opponentAttackers = new ArrayList<Piece>();
+        List<Piece> opponentPieces = chessBoard.piecesFor(color.opponentColor());
+        Square mySquare = chessBoard.squareHolding(this);
+
+        for (Piece opponentPiece : opponentPieces) {
+            Square opponentSquare = chessBoard.squareHolding(opponentPiece);
+            RankView opponentView = RankViewFactory.rankView(opponentPiece, chessBoard, opponentSquare);
+
+            if (opponentView.squaresHoldingPiecesAttacked().contains(mySquare)) {
+                opponentAttackers.add(opponentPiece);
+            }
+        }
+        return opponentAttackers;
+    }
+
+    @Override
+    public List<Piece> collaboratorDefenders(ChessBoard chessBoard) {
+        List<Piece> collaboratorDefenders = new ArrayList<Piece>();
+        List<Piece> collaborators = chessBoard.piecesFor(color);
+        Square mySquare = chessBoard.squareHolding(this);
+
+        for (Piece collaboratorPiece : collaborators) {
+            if (collaboratorPiece.equals(this)) {
+                continue;
+            }
+
+            Square collaboratorSquare = chessBoard.squareHolding(collaboratorPiece);
+            RankView collaboratorView = RankViewFactory.rankView(collaboratorPiece, chessBoard, collaboratorSquare);
+
+            if (collaboratorView.squaresHoldingPiecesDefended().contains(mySquare)) {
+                collaboratorDefenders.add(collaboratorPiece);
+            }
+
+        }
+        return collaboratorDefenders;
+    }
+
+    @Override
+    public List<Square> threatenedSquares(ChessBoard chessBoard) {
+        Square mySquare = chessBoard.squareHolding(this);
+        RankView myView = RankViewFactory.rankView(this, chessBoard, mySquare);
+
+        return myView.threatenedSquares();
+    }
+
+    @Override
+    public List<Square> moveToSquares(ChessBoard chessBoard) {
+        Square mySquare = chessBoard.squareHolding(this);
+        RankView myView = RankViewFactory.rankView(this, chessBoard, mySquare);
+
+        return myView.moveToSquares();
+    }
+
+    @Override
+    public int points() {
+        return rank.value();
+    }
+
+    @Override
+    public String toString() {
+        return color + " " + rank;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((color == null) ? 0 : color.hashCode());
+        result = prime * result + ((homeSquare == null) ? 0 : homeSquare.hashCode());
+        result = prime * result + ((rank == null) ? 0 : rank.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        ChessPiece other = (ChessPiece) obj;
+        if (color != other.color)
+            return false;
+        if (homeSquare == null) {
+            if (other.homeSquare != null)
+                return false;
+        } else if (!homeSquare.equals(other.homeSquare))
+            return false;
+        if (rank != other.rank)
+            return false;
+        return true;
+    }
+
+}

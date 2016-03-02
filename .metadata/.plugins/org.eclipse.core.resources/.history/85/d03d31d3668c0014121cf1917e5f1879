@@ -1,0 +1,23 @@
+package strategy;
+
+import static org.junit.Assert.fail;
+import model.ChessPiece;
+import model.Piece;
+import model.board.ChessBoard;
+import model.enums.Rank;
+
+import org.junit.Test;
+
+import com.sun.prism.paint.Color;
+
+public class BruteForceGameStrategyTest {
+
+    @Test
+    public void test() {
+        ChessBoard chessBoard = new ChessBoard();
+        Piece w_pawn_a = new ChessPiece(Rank.Pawn, Color.WHITE);
+
+        fail("Not yet implemented");
+    }
+
+}

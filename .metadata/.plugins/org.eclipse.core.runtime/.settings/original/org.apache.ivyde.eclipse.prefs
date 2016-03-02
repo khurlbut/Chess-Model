@@ -1,0 +1,12 @@
+#Fri Dec 05 16:00:10 PST 2014
+resolveInWorkspace=true
+loadSettingsOnDemand=true
+workspaceResolver.ignoreVersion=true
+do.retreive=false
+acceptedTypes=jar, test, dbext
+retreive.pattern=ivylib/[type]/[artifact]-[revision].[ext]
+autoResolve.open=false
+resolveOnStartup=1
+propertyFiles=/Users/ke015t7/Workspace/chessgame/ivyde.properties
+autoResolve.close=false
+ivy_conf_path=file\:////Users/ke015t7/Workspace/branch15.0113/buildrb15.0113/buildeng/ivysettings.xml

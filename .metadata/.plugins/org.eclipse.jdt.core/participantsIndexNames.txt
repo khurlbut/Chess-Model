@@ -1,0 +1,5 @@
+INDEX VERSION 1.126
+/Users/ke015t7/Workspace/chessgame/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2096182822.index
+/_build/target/lcfg
+/Users/ke015t7/Workspace/chessgame/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2013906424.index
+/_build/target/lcfg

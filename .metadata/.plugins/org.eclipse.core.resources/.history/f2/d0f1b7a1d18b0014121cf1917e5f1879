@@ -1,0 +1,6 @@
+package strategy;
+
+public interface GameStrategy {
+    
+    GameEvent nextMove(Color color, ChessBoard chessBoard);
+}

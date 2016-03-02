@@ -1,0 +1,3 @@
+#Fri Dec 05 16:00:10 PST 2014
+extraArgs=sonar.projectDate\=2023-01-01T00\:00\:00-0700\r\nsonar.scm.enabled\=false\r\nsonar.scm-stats.enabled\=false\r\nsonar.buildbreaker.skip\=true
+eclipse.preferences.version=1

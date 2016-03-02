@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Rerun model.board.BackingMapTest" project="Model" tests="15" started="15" failures="0" errors="0" ignored="0">
+  <testsuite name="model.board.BackingMapTest" time="0.0">
+    <testcase name="illegalArgumentException_is_thrown_when_an_attemp_is_made_to_move_to_an_occupied_square" classname="model.board.BackingMapTest" time="0.0"/>
+    <testcase name="illegalArgumentException_is_thrown_when_attempting_to_set_a_piece_on_a_square_that_is_occupied_by_the_same_piece" classname="model.board.BackingMapTest" time="0.0"/>
+    <testcase name="illegalArgumentException_is_thrown_when_an_attemp_is_made_to_move_to_the_same_square" classname="model.board.BackingMapTest" time="0.0"/>
+    <testcase name="it_returns_the_square_holding_a_piece" classname="model.board.BackingMapTest" time="0.0"/>
+    <testcase name="it_can_replace_the_piece_on_square2_with_the_piece_on_square1" classname="model.board.BackingMapTest" time="0.0"/>
+    <testcase name="illegalArgumentException_is_thrown_when_an_attempt_is_made_to_remove_from_an_empty_square" classname="model.board.BackingMapTest" time="0.0"/>
+    <testcase name="illegalArgumentException_is_thrown_when_an_attempt_is_made_to_replace_from_an_empty_square" classname="model.board.BackingMapTest" time="0.0"/>
+    <testcase name="illegalArgumentException_is_thrown_when_attempting_to_set_a_piece_on_a_square_that_is_occupied_by_a_new_piece" classname="model.board.BackingMapTest" time="0.0"/>
+    <testcase name="illegalArgumentException_is_thrown_when_an_attemp_is_made_to_a_piece_in_twice" classname="model.board.BackingMapTest" time="0.0"/>
+    <testcase name="it_remembers_previous_pieces_when_a_new_piece_is_set" classname="model.board.BackingMapTest" time="0.0"/>
+    <testcase name="it_returns_the_piece_set_on_a_square" classname="model.board.BackingMapTest" time="0.0"/>
+    <testcase name="illegalArgumentException_is_thrown_when_an_attempt_is_made_to_replace_on_an_empty_square" classname="model.board.BackingMapTest" time="0.0"/>
+    <testcase name="it_returns_null_when_for_an_empty_square" classname="model.board.BackingMapTest" time="0.0"/>
+    <testcase name="it_can_move_a_piece_from_square1_to_square2" classname="model.board.BackingMapTest" time="0.0"/>
+    <testcase name="illegalArgumentException_is_thrown_when_an_attempt_is_made_to_move_from_an_empty_square" classname="model.board.BackingMapTest" time="0.0"/>
+  </testsuite>
+</testrun>

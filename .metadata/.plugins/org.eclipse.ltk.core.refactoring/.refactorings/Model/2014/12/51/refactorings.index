@@ -1,0 +1,100 @@
+1418520270149	Copy compilation unit
+1418520298606	Rename field 'w_bishopView_e_4'
+1418520306065	Rename field 'b_bishopView_e_4'
+1418520773647	Rename field 'w_rookView_e_4'
+1418520781951	Rename field 'b_rookView_e_4'
+1418521020129	Rename field 'w_bishopView_e_4'
+1418521035089	Rename field 'b_bishopView_e_4'
+1418521282162	Copy compilation unit
+1418521312167	Rename field 'w_rookView_e_4'
+1418521327517	Rename field 'b_rookView_e_4'
+1418521629309	Rename field 'b_pawnView_e_2'
+1418522212103	Rename local variable 'moveToSquares'
+1418522232171	Rename method 'moveToSquares'
+1418595135368	Extract local variable 'moveToSquares'
+1418595219717	Convert local variable 'moveToSquares' to field
+1418595351587	Extract local variable 'squaresHoldingPiecesAttacked'
+1418595359160	Convert local variable 'squaresHoldingPiecesAttacked' to field
+1418595463811	Extract local variable 'squaresHoldingPiecesDefended'
+1418595468647	Convert local variable 'squaresHoldingPiecesDefended' to field
+1418595919786	Rename method 'threatenedPieces'
+1418608922988	Extract method 'init'
+1418609993897	Rename local variable 'boardPosition'
+1418610101189	Rename local variable 'position_e_4'
+1418610119571	Rename local variable 'boardPosition_e_4'
+1418610133324	Convert local variable 'position_e_4' to field
+1418610533694	Rename local variable 'position_e_4'
+1418610540222	Rename local variable 'white'
+1418613152807	Rename field 'position_e_4'
+1418613586196	Rename local variable 'holdingSquare'
+1418614688351	Rename field 'radii'
+1418615040439	Extract method 'evaluateLine'
+1418615465625	Rename local variable 'boardMove'
+1418615614878	Rename local variable 'radii'
+1418615629925	Rename field 'boardMoves'
+1418615695224	Rename type 'BoardMove'
+1418615712270	Rename type 'MoveDirections'
+1418615724586	Rename local variable 'moveDirections'
+1418615744146	Rename field 'moveDirections'
+1418615756148	Rename local variable 'radii'
+1418615778709	Rename local variable 'moveDirection'
+1418615787432	Rename type 'ViewDirections'
+1418615843845	Rename method 'init'
+1418616023091	Rename field 'color'
+1418616036606	Rename local variable 'color'
+1418616048153	Rename local variable 'color'
+1418616498626	Change method 'populateSquareLists'
+1418616916615	Rename method 'populateSquareLists'
+1418616935668	Rename method 'addSquaresInLinetoLists'
+1418617130067	Move compilation unit
+1418617154060	Move compilation unit
+1418617290375	Move compilation units
+1418617306169	Move compilation unit
+1418617327410	Move compilation units
+1418617339224	Move compilation unit
+1418617363801	Delete element
+1418617377629	Delete element
+1418619205785	Delete element
+1418621253031	Extract method 'addMoveToSquares'
+1418621318656	Rename field 'dir'
+1418621338652	Rename field 'viewDirection'
+1418621597949	Rename local variable 'step'
+1418621614110	Rename local variable 'stepForard'
+1418622602881	Rename type 'RadiatingViewSquare'
+1418622737213	Rename local variable 'color'
+1418624307077	Rename method 'backingMapAfterPut'
+1418624319679	Rename method 'backingMapAfterRemove'
+1418624328827	Rename method 'backingMapAfterMove'
+1418625690035	Extract method 'mySquare'
+1418625716557	Extract local variable 'targetSquare'
+1418625756624	Extract local variable 'mySquare'
+1418626106640	Rename local variable 'captureEvent'
+1418626803117	Rename local variable 'square'
+1418660854966	Extract local variable 'b_pawn_a_7'
+1418660914253	Extract local variable 'targetSquare'
+1418661069894	Extract local variable 'captureEvent'
+1418661142013	Extract method 'newCaptureEvent'
+1418661190551	Rename local variable 'w_queen_d_4'
+1418661198100	Rename local variable 'b_pawn_a_7'
+1418670337822	Rename method 'all_potental_game_events_are_legal'
+1418670525912	Rename local variable 'target'
+1418695633077	Rename package 'onceagain'
+1418695673393	Rename package 'onceagain'
+1418695729809	Rename package 'events'
+1418695753664	Rename package 'events'
+1418695790512	Rename package 'exceptions'
+1418695916575	Move compilation unit
+1418695955896	Move compilation unit
+1418695974691	Move compilation unit
+1418695991616	Move compilation units
+1418696018635	Delete elements
+1418696038160	Move compilation unit
+1418696047184	Delete element
+1418696528160	Rename method 'attackingPieces'
+1418696543788	Change method 'piecesAttackingAt'
+1418698186195	Rename local variable 'square'
+1418698754585	Rename local variable 'singleUnit'
+1418699576794	Rename method 'pieces'
+1418699981100	Rename local variable 'piece'
+1418704679436	Rename local variable 'cb'
+1419119464712	Extract local variable 'potentialGameEvents'

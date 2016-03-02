@@ -1,0 +1,17 @@
+package strategy;
+
+public interface BoardGrade {
+
+    Integer finalGrade();
+
+    Integer materialGrade();
+
+    Integer territoryGrade();
+
+    Integer positionGrade();
+
+    Integer collaboratorGrade();
+
+    BoardGrade lowerGrade(BoardGrade lowerScore);
+
+}

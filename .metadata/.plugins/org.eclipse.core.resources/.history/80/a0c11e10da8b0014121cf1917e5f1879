@@ -1,0 +1,17 @@
+package strategy;
+
+public interface PositionAnalysis {
+
+    Integer materialGrade();
+
+    Integer totalScore();
+
+    Integer territoryGrade();
+
+    Integer positionGrade();
+
+    Integer collaboratorGrade();
+
+    PositionAnalysis lowestScore(PositionAnalysis lowerScore);
+
+}

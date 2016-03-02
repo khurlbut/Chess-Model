@@ -1,0 +1,5 @@
+1419535806797	Extract local variable 'leftAttack'
+1419535830946	Extract local variable 'rightAttack'
+1419537724306	Rename method 'threatenedSquares'
+1419537752420	Rename method 'availableMoves'
+1419537837780	Rename method 'availableMoves'
