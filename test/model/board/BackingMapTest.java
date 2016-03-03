@@ -70,7 +70,7 @@ public class BackingMapTest {
         backingMap = backingMap.put(square1, piece1);
         backingMap = backingMap.put(square2, piece2);
 
-        backingMap = backingMap.replace(square1, square2);
+        backingMap = backingMap.capture(square1, square2);
 
         assertNull(backingMap.getPieceAt(square1));
         assertThat(backingMap.getPieceAt(square2), equalTo(piece1));
@@ -110,7 +110,7 @@ public class BackingMapTest {
     @Test(expected = IllegalArgumentException.class)
     public void illegalArgumentException_is_thrown_when_an_attempt_is_made_to_replace_on_an_empty_square() {
         backingMap = backingMap.put(square1, piece1);
-        backingMap = backingMap.replace(square1, square2);
+        backingMap = backingMap.capture(square1, square2);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -121,7 +121,7 @@ public class BackingMapTest {
     @Test(expected = IllegalArgumentException.class)
     public void illegalArgumentException_is_thrown_when_an_attempt_is_made_to_replace_from_an_empty_square() {
         backingMap = backingMap.put(square2, piece1);
-        backingMap = backingMap.replace(square1, square2);
+        backingMap = backingMap.capture(square1, square2);
     }
 
     @Test(expected = IllegalArgumentException.class)
