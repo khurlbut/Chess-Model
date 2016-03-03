@@ -26,7 +26,6 @@ INDEX VERSION 1.126+/Users/ke015t7/Workspace/chessgame/.metadata/.plugins/org.ec
 1542969262.index
 4238209716.index
 2211732093.index
-2538519680.index
 3266567714.index
 4259282187.index
 156905802.index

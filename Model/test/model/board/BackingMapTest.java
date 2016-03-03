@@ -31,7 +31,7 @@ public class BackingMapTest {
     }
 
     @Test
-    public void it_returns_null_when_for_an_empty_square() {
+    public void it_returns_null_when_requesting_a_piece_from_an_empty_square() {
         assertNull(backingMap.getPieceAt(square1));
     }
 
