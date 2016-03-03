@@ -9,15 +9,15 @@ import model.board.BoardPosition;
 import model.board.ChessBoard;
 import model.board.Square;
 import model.enums.Color;
-import model.enums.ViewDirection;
+import model.enums.ViewVector;
 import model.piece.Piece;
 
 public class PawnView implements RankView {
 
-    private static final ViewDirection[] UP_ATTACKS = { ViewDirection.RIGHT_UP, ViewDirection.LEFT_UP };
-    private static final ViewDirection[] DOWN_ATTACKS = { ViewDirection.RIGHT_DOWN, ViewDirection.LEFT_DOWN };
+    private static final ViewVector[] UP_ATTACKS = { ViewVector.RIGHT_UP, ViewVector.LEFT_UP };
+    private static final ViewVector[] DOWN_ATTACKS = { ViewVector.RIGHT_DOWN, ViewVector.LEFT_DOWN };
     private final Color viewColor;
-    private final ViewDirection pawnDirection;
+    private final ViewVector pawnDirection;
 
     private final List<Square> moveToSquares;
     private final List<Square> squaresHoldingPiecesAttacked;
@@ -41,8 +41,8 @@ public class PawnView implements RankView {
         addSquaresToLists();
     }
 
-    private ViewDirection pawnDirection() {
-        return viewColor.equals(Color.WHITE) ? ViewDirection.UP : ViewDirection.DOWN;
+    private ViewVector pawnDirection() {
+        return viewColor.equals(Color.WHITE) ? ViewVector.UP : ViewVector.DOWN;
     }
 
     @Override
@@ -109,8 +109,8 @@ public class PawnView implements RankView {
         }
     }
 
-    private ViewDirection[] pawnAttacks() {
-        if (ViewDirection.UP.equals(pawnDirection)) {
+    private ViewVector[] pawnAttacks() {
+        if (ViewVector.UP.equals(pawnDirection)) {
             return UP_ATTACKS;
         } else {
             return DOWN_ATTACKS;

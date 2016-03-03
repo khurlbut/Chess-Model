@@ -2,11 +2,11 @@ package model.board.views;
 
 import model.board.BoardPosition;
 import model.enums.Color;
-import model.enums.ViewDirection;
+import model.enums.ViewVector;
 
 public final class RookView extends RadiatingView {
 
-    private static final ViewDirection[] ROOK_MOVES = { ViewDirection.UP, ViewDirection.DOWN, ViewDirection.LEFT, ViewDirection.RIGHT };
+    private static final ViewVector[] ROOK_MOVES = { ViewVector.UP, ViewVector.DOWN, ViewVector.LEFT, ViewVector.RIGHT };
 
     public RookView(BoardPosition boardPosition, Color color) {
         super(boardPosition, color, ROOK_MOVES);

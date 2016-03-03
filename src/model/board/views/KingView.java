@@ -7,14 +7,14 @@ import model.board.BoardPosition;
 import model.board.ChessBoard;
 import model.board.Square;
 import model.enums.Color;
-import model.enums.ViewDirection;
+import model.enums.ViewVector;
 import model.enums.ViewDistance;
 import model.piece.Piece;
 
 public final class KingView extends RadiatingView {
 
-    private static final ViewDirection[] KING_MOVES = { ViewDirection.UP, ViewDirection.RIGHT_UP, ViewDirection.RIGHT,
-            ViewDirection.RIGHT_DOWN, ViewDirection.DOWN, ViewDirection.LEFT_DOWN, ViewDirection.LEFT, ViewDirection.LEFT_UP };
+    private static final ViewVector[] KING_MOVES = { ViewVector.UP, ViewVector.RIGHT_UP, ViewVector.RIGHT,
+            ViewVector.RIGHT_DOWN, ViewVector.DOWN, ViewVector.LEFT_DOWN, ViewVector.LEFT, ViewVector.LEFT_UP };
     private Color color;
     private ChessBoard chessBoard;
 

@@ -2,7 +2,7 @@ package model.board;
 
 import model.enums.Column;
 import model.enums.Row;
-import model.enums.ViewDirection;
+import model.enums.ViewVector;
 import model.exceptions.ConstructorArgsExcetpion;
 
 public class Square {
@@ -26,7 +26,7 @@ public class Square {
         return col;
     }
 
-    public Square neighbor(ViewDirection boardMove) {
+    public Square neighbor(ViewVector boardMove) {
         Column c = horizontalNeighbor(boardMove);
         Row r = verticalNeighbor(boardMove);
 
@@ -36,11 +36,11 @@ public class Square {
         return new Square(c, r);
     }
 
-    private Column horizontalNeighbor(ViewDirection boardMove) {
+    private Column horizontalNeighbor(ViewVector boardMove) {
         return col.horizontalNeighbor(boardMove.horizontalDelta());
     }
 
-    private Row verticalNeighbor(ViewDirection boardMove) {
+    private Row verticalNeighbor(ViewVector boardMove) {
         return row.verticalNeighbor(boardMove.verticalDelta());
     }
 
