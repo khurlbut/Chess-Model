@@ -66,7 +66,7 @@ public class BackingMapTest {
     }
 
     @Test
-    public void it_can_replace_the_piece_on_square2_with_the_piece_on_square1() {
+    public void it_can_capture_the_piece_on_square2_with_the_piece_on_square1() {
         backingMap = backingMap.put(square1, piece1);
         backingMap = backingMap.put(square2, piece2);
 
