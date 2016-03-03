@@ -1,5 +1,7 @@
 package model.board;
 
+import static model.enums.GameEventType.MOVE;
+import model.enums.GameEventType;
 import model.exceptions.ConstructorArgsExcetpion;
 
 public class MoveEvent implements GameEvent {
@@ -36,8 +38,8 @@ public class MoveEvent implements GameEvent {
     }
 
     @Override
-    public int type() {
-        return 1;
+    public GameEventType type() {
+        return MOVE;
     }
 
     @Override

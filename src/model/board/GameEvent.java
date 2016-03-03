@@ -1,5 +1,6 @@
 package model.board;
 
+import model.enums.GameEventType;
 
 public interface GameEvent {
 
@@ -9,6 +10,6 @@ public interface GameEvent {
 
     ChessBoard playEvent(ChessBoard chessBoard);
 
-    int type();
+    GameEventType type();
 
 }

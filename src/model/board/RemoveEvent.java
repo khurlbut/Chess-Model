@@ -1,5 +1,7 @@
 package model.board;
 
+import static model.enums.GameEventType.REMOVE;
+import model.enums.GameEventType;
 import model.exceptions.ConstructorArgsExcetpion;
 
 public class RemoveEvent implements GameEvent {
@@ -42,6 +44,11 @@ public class RemoveEvent implements GameEvent {
     }
 
     @Override
+    public GameEventType type() {
+        return REMOVE;
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
@@ -56,11 +63,6 @@ public class RemoveEvent implements GameEvent {
         } else if (!source.equals(other.source))
             return false;
         return true;
-    }
-
-    @Override
-    public int type() {
-        return 3;
     }
 
 }

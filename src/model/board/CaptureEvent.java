@@ -1,5 +1,7 @@
 package model.board;
 
+import static model.enums.GameEventType.CAPTURE;
+import model.enums.GameEventType;
 import model.exceptions.ConstructorArgsExcetpion;
 import model.piece.Piece;
 
@@ -43,8 +45,8 @@ public class CaptureEvent implements GameEvent {
     }
 
     @Override
-    public int type() {
-        return 0;
+    public GameEventType type() {
+        return CAPTURE;
     }
 
     @Override

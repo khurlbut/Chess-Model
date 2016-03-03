@@ -1,5 +1,7 @@
 package model.board;
 
+import static model.enums.GameEventType.PUT;
+import model.enums.GameEventType;
 import model.exceptions.ConstructorArgsExcetpion;
 import model.piece.Piece;
 
@@ -41,6 +43,11 @@ public class PutEvent implements GameEvent {
     }
 
     @Override
+    public GameEventType type() {
+        return PUT;
+    }
+
+    @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
@@ -69,11 +76,6 @@ public class PutEvent implements GameEvent {
         } else if (!target.equals(other.target))
             return false;
         return true;
-    }
-
-    @Override
-    public int type() {
-        return 2;
     }
 
 }
