@@ -4,7 +4,7 @@
 	<item value="false" key="TypeHierarchyViewPart.qualifiednames"/>
 	<item value="3" key="TypeHierarchyViewPart.orientation"/>
 	<item value="false" key="TypeHierarchyViewPart.linkeditors"/>
-	<item value="/Users/ke015t7/Workspace/build/target/ivy/repo-cache/google/guava/jars" key="org.eclipse.jdt.ui.lastextjar"/>
+	<item value="/Users/ke015t7/Workspace/build/target/ivy/repo-cache/mockito/mockito-all/jars" key="org.eclipse.jdt.ui.lastextjar"/>
 	<item value="filter_imports;" key="filters_last_used"/>
 	<item value="2" key="TypeHierarchyViewPart.hierarchyview"/>
 	<item value="false" key="delegateUpdating"/>

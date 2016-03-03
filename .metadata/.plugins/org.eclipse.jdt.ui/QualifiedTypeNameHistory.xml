@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="exceptions.IllegalStrategyException"/>
-<fullyQualifiedTypeName name="org.mockito.runners.MockitoJUnitRunner"/>
 <fullyQualifiedTypeName name="com.sun.javafx.scene.traversal.Direction"/>
 <fullyQualifiedTypeName name="onceagain.movements.QueenMoveStrategy"/>
 <fullyQualifiedTypeName name="org.mockito.MockitoAnnotations"/>
@@ -36,7 +35,6 @@
 <fullyQualifiedTypeName name="onceagain.enums.BoardMove"/>
 <fullyQualifiedTypeName name="events.CaptureEvent"/>
 <fullyQualifiedTypeName name="events.MoveEvent"/>
-<fullyQualifiedTypeName name="org.mockito.Mock"/>
 <fullyQualifiedTypeName name="org.mockito.Mockito"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="model.ChessPiece"/>
@@ -60,4 +58,6 @@
 <fullyQualifiedTypeName name="org.junit.Assert"/>
 <fullyQualifiedTypeName name="model.board.GameEvent"/>
 <fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="org.mockito.Mock"/>
+<fullyQualifiedTypeName name="org.mockito.runners.MockitoJUnitRunner"/>
 </qualifiedTypeNameHistroy>

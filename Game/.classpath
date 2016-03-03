@@ -5,6 +5,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="src" path="/Model"/>
-	<classpathentry kind="lib" path="/Users/ke015t7/Workspace/branch15.0113/buildrb15.0113/target/ivy/repo-cache/mockito/mockito-all/jars/mockito-all-1.8.5.jar"/>
+	<classpathentry kind="lib" path="/Users/ke015t7/Workspace/build/target/ivy/repo-cache/mockito/mockito-all/jars/mockito-all-1.9.5.jar"/>
 	<classpathentry kind="output" path="classes/main"/>
 </classpath>
