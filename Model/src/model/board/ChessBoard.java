@@ -35,8 +35,8 @@ public class ChessBoard {
     }
 
     private ChessBoard(BackingMap backingMap, List<GameEvent> gameEvents, boolean boardIsSet) {
-        this.gameEvents = gameEvents;
         this.backingMap = backingMap;
+        this.gameEvents = gameEvents;
         this.boardIsSet = boardIsSet;
     }
 
@@ -74,43 +74,45 @@ public class ChessBoard {
     }
 
     ChessBoard capture(CaptureEvent capture) {
-        guard_CaptureMustBeLegal(capture);
-
-        List<GameEvent> afterCaptureEvents = new ArrayList<GameEvent>(gameEvents);
-        afterCaptureEvents.add(capture);
-        BackingMap afterCaptureMap = backingMap.replace(capture.source(), capture.target());
-
-        return new ChessBoard(afterCaptureMap, afterCaptureEvents, boardIsSet);
+        guard(capture);
+        return new ChessBoard(newBackingMap(capture), newGameEventsList(capture), boardIsSet);
     }
 
     ChessBoard move(MoveEvent move) {
-        guard_MoveMustBeLegal(move);
-
-        BackingMap afterMoveMap = backingMap.move(move.source(), move.target());
-        List<GameEvent> afterMoveEvents = new ArrayList<GameEvent>(gameEvents);
-        afterMoveEvents.add(move);
-
-        return new ChessBoard(afterMoveMap, afterMoveEvents, boardIsSet);
+        guard(move);
+        return new ChessBoard(newBackingMap(move), newGameEventsList(move), boardIsSet);
     }
 
     ChessBoard put(PutEvent put) {
         guard(put);
-
-        List<GameEvent> afterPutEvents = new ArrayList<GameEvent>(gameEvents);
-        afterPutEvents.add(put);
-        BackingMap afterPutMap = backingMap.put(put.target(), put.piece());
-
-        return new ChessBoard(afterPutMap, afterPutEvents, boardIsSet);
+        return new ChessBoard(newBackingMap(put), newGameEventsList(put), boardIsSet);
     }
 
     ChessBoard remove(RemoveEvent remove) {
         guard(remove);
+        return new ChessBoard(newBackingMap(remove), newGameEventsList(remove), boardIsSet);
+    }
 
-        List<GameEvent> afterRemoveEvents = new ArrayList<GameEvent>(gameEvents);
-        afterRemoveEvents.add(remove);
-        BackingMap afterRemoveMap = backingMap.remove(remove.source());
+    private BackingMap newBackingMap(GameEvent event) {
+        switch (event.type()) {
+            case 0:
+                return backingMap.replace(event.source(), event.target());
+            case 1:
+                return backingMap.move(event.source(), event.target());
+            case 2:
+                return backingMap.put(event.target(), ((PutEvent) event).piece());
+            case 3:
+                return backingMap.remove(event.source());
+            default:
+                throw new RuntimeException();
+        }
+    }
 
-        return new ChessBoard(afterRemoveMap, afterRemoveEvents, boardIsSet);
+    private List<GameEvent> newGameEventsList(GameEvent event) {
+        List<GameEvent> afterGameEvents = new ArrayList<GameEvent>(gameEvents);
+        afterGameEvents.add(event);
+
+        return afterGameEvents;
     }
 
     private void guard(PutEvent put) {
@@ -148,14 +150,14 @@ public class ChessBoard {
         }
     }
 
-    private void guard_MoveMustBeLegal(MoveEvent move) {
+    private void guard(MoveEvent move) {
         guard_BoardMustBeSet();
         if (isNotLegalMove(move)) {
             throw new IllegalGameEventException("Move is Illegal!");
         }
     }
 
-    private void guard_CaptureMustBeLegal(CaptureEvent capture) {
+    private void guard(CaptureEvent capture) {
         guard_BoardMustBeSet();
         if (isNotLegalCapture(capture)) {
             throw new IllegalGameEventException("Capture is Illegal!");

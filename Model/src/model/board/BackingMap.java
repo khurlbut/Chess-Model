@@ -13,11 +13,11 @@ import com.google.common.collect.ImmutableMap;
 final class BackingMap {
 
     private ImmutableMap<Square, Piece> backingMap = null;
-    private ImmutableMap<Piece, Square> reverseBackingMap;
+    private ImmutableMap<Piece, Square> invertedBackingMap;
 
     BackingMap() {
         this.backingMap = new ImmutableMap.Builder<Square, Piece>().build();
-        this.reverseBackingMap = new ImmutableMap.Builder<Piece, Square>().build();
+        this.invertedBackingMap = new ImmutableMap.Builder<Piece, Square>().build();
     }
 
     Piece getPieceAt(Square square) {
@@ -25,13 +25,13 @@ final class BackingMap {
     }
 
     Square getSquareHolding(Piece piece) {
-        return reverseBackingMap.get(piece);
+        return invertedBackingMap.get(piece);
     }
 
     List<Piece> pieces(Color color) {
         List<Piece> pieces = new ArrayList<Piece>();
 
-        for (Piece piece : reverseBackingMap.keySet()) {
+        for (Piece piece : invertedBackingMap.keySet()) {
             if (piece.color().equals(color)) {
                 pieces.add(piece);
             }
@@ -56,21 +56,21 @@ final class BackingMap {
     }
 
     BackingMap replace(Square source, Square target) {
-        validateReplaceArgs(source, target);
+        validateMoveAndReplaceArgs(source, target);
         return new BackingMap(newBackingMapAfterMove(source, target));
     }
 
     private BackingMap(Map<Square, Piece> mutableMap) {
         this.backingMap = new ImmutableMap.Builder<Square, Piece>().putAll(mutableMap).build();
-        this.reverseBackingMap = new ImmutableMap.Builder<Piece, Square>().putAll(reverseMap()).build();
+        this.invertedBackingMap = new ImmutableMap.Builder<Piece, Square>().putAll(invertMap()).build();
     }
 
-    private Map<Piece, Square> reverseMap() {
-        Map<Piece, Square> reverseMap = new HashMap<Piece, Square>();
+    private Map<Piece, Square> invertMap() {
+        Map<Piece, Square> invertedMap = new HashMap<Piece, Square>();
         for (Square square : backingMap.keySet()) {
-            reverseMap.put(backingMap.get(square), square);
+            invertedMap.put(backingMap.get(square), square);
         }
-        return reverseMap;
+        return invertedMap;
     }
 
     private Map<Square, Piece> newBackingMapAfterPut(Square square, Piece piece) {
@@ -141,7 +141,7 @@ final class BackingMap {
         }
     }
 
-    private void validateReplaceArgs(Square source, Square target) {
+    private void validateMoveAndReplaceArgs(Square source, Square target) {
         if (isNotOccupied(source)) {
             throw new IllegalArgumentException("Attempted to replace from an empty square!");
         }
@@ -155,7 +155,7 @@ final class BackingMap {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((backingMap == null) ? 0 : backingMap.hashCode());
-        result = prime * result + ((reverseBackingMap == null) ? 0 : reverseBackingMap.hashCode());
+        result = prime * result + ((invertedBackingMap == null) ? 0 : invertedBackingMap.hashCode());
         return result;
     }
 
@@ -173,10 +173,10 @@ final class BackingMap {
                 return false;
         } else if (!backingMap.equals(other.backingMap))
             return false;
-        if (reverseBackingMap == null) {
-            if (other.reverseBackingMap != null)
+        if (invertedBackingMap == null) {
+            if (other.invertedBackingMap != null)
                 return false;
-        } else if (!reverseBackingMap.equals(other.reverseBackingMap))
+        } else if (!invertedBackingMap.equals(other.invertedBackingMap))
             return false;
         return true;
     }

@@ -43,6 +43,11 @@ public class CaptureEvent implements GameEvent {
     }
 
     @Override
+    public int type() {
+        return 0;
+    }
+
+    @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;

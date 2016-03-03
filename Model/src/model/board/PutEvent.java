@@ -71,4 +71,9 @@ public class PutEvent implements GameEvent {
         return true;
     }
 
+    @Override
+    public int type() {
+        return 2;
+    }
+
 }

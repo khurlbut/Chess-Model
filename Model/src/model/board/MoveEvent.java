@@ -36,6 +36,11 @@ public class MoveEvent implements GameEvent {
     }
 
     @Override
+    public int type() {
+        return 1;
+    }
+
+    @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;

@@ -9,4 +9,6 @@ public interface GameEvent {
 
     ChessBoard playEvent(ChessBoard chessBoard);
 
+    int type();
+
 }

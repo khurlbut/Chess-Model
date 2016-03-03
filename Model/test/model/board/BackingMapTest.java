@@ -102,7 +102,7 @@ public class BackingMapTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void illegalArgumentException_is_thrown_when_an_attemp_is_made_to_a_piece_in_twice() {
+    public void illegalArgumentException_is_thrown_when_an_attemp_is_made_to_the_same_piece_on_more_than_one_square() {
         backingMap = backingMap.put(square1, piece1);
         backingMap = backingMap.put(square2, piece1);
     }

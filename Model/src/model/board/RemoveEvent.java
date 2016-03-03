@@ -58,4 +58,9 @@ public class RemoveEvent implements GameEvent {
         return true;
     }
 
+    @Override
+    public int type() {
+        return 3;
+    }
+
 }
