@@ -7,7 +7,7 @@ import model.board.BoardPosition;
 import model.board.ChessBoard;
 import model.board.Square;
 import model.enums.Color;
-import model.enums.ViewDirection;
+import model.enums.ViewVector;
 import model.enums.ViewDistance;
 import model.piece.Piece;
 
@@ -16,7 +16,7 @@ public class RadiatingView implements RankView {
     private final Color viewColor;
     private final Square viewPoint;
     private final ViewDistance viewDistance;
-    private final ViewDirection[] viewDirections;
+    private final ViewVector[] viewDirections;
 
     private final ChessBoard chessBoard;
 
@@ -24,11 +24,11 @@ public class RadiatingView implements RankView {
     private final List<Square> squaresHoldingPiecesAttacked;
     private final List<Square> squaresHoldingPiecesDefended;
 
-    public RadiatingView(BoardPosition boardPosition, Color viewColor, ViewDirection[] viewDirections) {
+    public RadiatingView(BoardPosition boardPosition, Color viewColor, ViewVector[] viewDirections) {
         this(boardPosition, viewColor, viewDirections, ViewDistance.EDGE_OF_BOARD);
     }
 
-    public RadiatingView(BoardPosition boardPosition, Color viewColor, ViewDirection[] viewDirections,
+    public RadiatingView(BoardPosition boardPosition, Color viewColor, ViewVector[] viewDirections,
         ViewDistance viewDistance) {
 
         if (boardPosition == null || viewColor == null || viewDirections == null || viewDistance == null) {
@@ -71,7 +71,7 @@ public class RadiatingView implements RankView {
 
     private void addSquaresToLists() {
 
-        for (ViewDirection viewDirection : viewDirections) {
+        for (ViewVector viewDirection : viewDirections) {
             Square nextSquare = viewPoint.neighbor(viewDirection);
 
             while (nextSquare != null) {
