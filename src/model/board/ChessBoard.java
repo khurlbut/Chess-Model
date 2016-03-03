@@ -95,16 +95,16 @@ public class ChessBoard {
 
     private BackingMap newBackingMap(GameEvent event) {
         switch (event.type()) {
-            case 0:
+            case CAPTURE:
                 return backingMap.replace(event.source(), event.target());
-            case 1:
+            case MOVE:
                 return backingMap.move(event.source(), event.target());
-            case 2:
+            case PUT:
                 return backingMap.put(event.target(), ((PutEvent) event).piece());
-            case 3:
+            case REMOVE:
                 return backingMap.remove(event.source());
             default:
-                throw new RuntimeException();
+                throw new IllegalArgumentException("Event Type: " + event.type() + " Not Supported!");
         }
     }
 
