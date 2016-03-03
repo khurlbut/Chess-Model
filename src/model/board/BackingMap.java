@@ -13,7 +13,7 @@ import com.google.common.collect.ImmutableMap;
 final class BackingMap {
 
     private ImmutableMap<Square, Piece> backingMap = null;
-    private ImmutableMap<Piece, Square> invertedBackingMap;
+    private ImmutableMap<Piece, Square> invertedBackingMap = null;
 
     BackingMap() {
         this.backingMap = new ImmutableMap.Builder<Square, Piece>().build();
@@ -55,7 +55,7 @@ final class BackingMap {
         return new BackingMap(newBackingMapAfterMove(source, target));
     }
 
-    BackingMap replace(Square source, Square target) {
+    BackingMap capture(Square source, Square target) {
         validateMoveAndReplaceArgs(source, target);
         return new BackingMap(newBackingMapAfterMove(source, target));
     }
