@@ -1,9 +1,9 @@
 package model.enums;
 
-public enum ViewDistance {
+public enum MovementType {
     SINGLE_UNIT(true), EDGE_OF_BOARD(false);
 
-    ViewDistance(boolean singleUnit) {
+    MovementType(boolean singleUnit) {
         this.singleUnit = singleUnit;
     }
 

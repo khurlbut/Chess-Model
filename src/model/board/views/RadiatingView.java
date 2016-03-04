@@ -8,14 +8,14 @@ import model.board.ChessBoard;
 import model.board.Square;
 import model.enums.Color;
 import model.enums.ViewVector;
-import model.enums.ViewDistance;
+import model.enums.MovementType;
 import model.piece.Piece;
 
 public class RadiatingView implements RankView {
 
     private final Color viewColor;
     private final Square viewPoint;
-    private final ViewDistance viewDistance;
+    private final MovementType viewDistance;
     private final ViewVector[] viewDirections;
 
     private final ChessBoard chessBoard;
@@ -25,11 +25,11 @@ public class RadiatingView implements RankView {
     private final List<Square> squaresHoldingPiecesDefended;
 
     public RadiatingView(BoardPosition boardPosition, Color viewColor, ViewVector[] viewDirections) {
-        this(boardPosition, viewColor, viewDirections, ViewDistance.EDGE_OF_BOARD);
+        this(boardPosition, viewColor, viewDirections, MovementType.EDGE_OF_BOARD);
     }
 
     public RadiatingView(BoardPosition boardPosition, Color viewColor, ViewVector[] viewDirections,
-        ViewDistance viewDistance) {
+        MovementType viewDistance) {
 
         if (boardPosition == null || viewColor == null || viewDirections == null || viewDistance == null) {
             throw new IllegalArgumentException("Constructor does not allow null(s)!");
@@ -85,7 +85,7 @@ public class RadiatingView implements RankView {
                     break;
                 }
                 moveToSquares.add(nextSquare);
-                if (viewDistance.equals(ViewDistance.SINGLE_UNIT)) {
+                if (viewDistance.equals(MovementType.SINGLE_UNIT)) {
                     break;
                 }
                 nextSquare = nextSquare.neighbor(viewDirection);

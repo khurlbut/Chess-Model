@@ -26,9 +26,9 @@ public class Square {
         return col;
     }
 
-    public Square neighbor(ViewVector boardMove) {
-        Column c = horizontalNeighbor(boardMove);
-        Row r = verticalNeighbor(boardMove);
+    public Square neighbor(ViewVector vv) {
+        Column c = horizontalNeighbor(vv);
+        Row r = verticalNeighbor(vv);
 
         if (c == null || r == null) {
             return null;
@@ -36,12 +36,12 @@ public class Square {
         return new Square(c, r);
     }
 
-    private Column horizontalNeighbor(ViewVector boardMove) {
-        return col.horizontalNeighbor(boardMove.horizontalDelta());
+    private Column horizontalNeighbor(ViewVector vv) {
+        return col.horizontalNeighbor(vv.horizontalDelta());
     }
 
-    private Row verticalNeighbor(ViewVector boardMove) {
-        return row.verticalNeighbor(boardMove.verticalDelta());
+    private Row verticalNeighbor(ViewVector vv) {
+        return row.verticalNeighbor(vv.verticalDelta());
     }
 
     @Override

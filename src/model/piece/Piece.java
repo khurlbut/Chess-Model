@@ -19,7 +19,7 @@ public class Piece {
     private final Color color;
     private final Square homeSquare;
 
-    Piece(Rank rank, Color color, Square homeSquare) {
+    Piece(Color color, Rank rank, Square homeSquare) {
         if (rank == null || color == null || homeSquare == null) {
             throw new IllegalArgumentException("Constructor does not allow null(s)!");
         }

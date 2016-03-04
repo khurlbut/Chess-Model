@@ -8,7 +8,7 @@ import model.board.ChessBoard;
 import model.board.Square;
 import model.enums.Color;
 import model.enums.ViewVector;
-import model.enums.ViewDistance;
+import model.enums.MovementType;
 import model.piece.Piece;
 
 public final class KingView extends RadiatingView {
@@ -19,7 +19,7 @@ public final class KingView extends RadiatingView {
     private ChessBoard chessBoard;
 
     KingView(BoardPosition boardPosition, Color color) {
-        super(boardPosition, color, KING_MOVES, ViewDistance.SINGLE_UNIT);
+        super(boardPosition, color, KING_MOVES, MovementType.SINGLE_UNIT);
 
         this.color = color;
         this.chessBoard = boardPosition.chessBoard();

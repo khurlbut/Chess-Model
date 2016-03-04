@@ -3,7 +3,7 @@ package model.board.views;
 import model.board.BoardPosition;
 import model.enums.Color;
 import model.enums.ViewVector;
-import model.enums.ViewDistance;
+import model.enums.MovementType;
 
 public final class KnightView extends RadiatingView {
 
@@ -12,7 +12,7 @@ public final class KnightView extends RadiatingView {
             ViewVector.LEFT_LEFT_DOWN, ViewVector.LEFT_LEFT_UP, ViewVector.LEFT_UP_UP };
 
     KnightView(BoardPosition boardPosition, Color color) {
-        super(boardPosition, color, KNIGHT_DIRECTIONS, ViewDistance.SINGLE_UNIT);
+        super(boardPosition, color, KNIGHT_DIRECTIONS, MovementType.SINGLE_UNIT);
     }
 
 }

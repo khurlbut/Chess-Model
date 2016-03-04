@@ -49,41 +49,41 @@ public class BoardSetterTest {
     private Square g_8 = new Square(Column.G, Row.R8);
     private Square h_8 = new Square(Column.H, Row.R8);
 
-    private Piece w_pawn_a_2 = PieceFactory.newPiece(Rank.Pawn, Color.WHITE, a_2);
-    private Piece w_pawn_b_2 = PieceFactory.newPiece(Rank.Pawn, Color.WHITE, b_2);
-    private Piece w_pawn_c_2 = PieceFactory.newPiece(Rank.Pawn, Color.WHITE, c_2);
-    private Piece w_pawn_d_2 = PieceFactory.newPiece(Rank.Pawn, Color.WHITE, d_2);
-    private Piece w_pawn_e_2 = PieceFactory.newPiece(Rank.Pawn, Color.WHITE, e_2);
-    private Piece w_pawn_f_2 = PieceFactory.newPiece(Rank.Pawn, Color.WHITE, f_2);
-    private Piece w_pawn_g_2 = PieceFactory.newPiece(Rank.Pawn, Color.WHITE, g_2);
-    private Piece w_pawn_h_2 = PieceFactory.newPiece(Rank.Pawn, Color.WHITE, h_2);
+    private Piece w_pawn_a_2 = PieceFactory.newPiece(Color.WHITE, Rank.Pawn, a_2);
+    private Piece w_pawn_b_2 = PieceFactory.newPiece(Color.WHITE, Rank.Pawn, b_2);
+    private Piece w_pawn_c_2 = PieceFactory.newPiece(Color.WHITE, Rank.Pawn, c_2);
+    private Piece w_pawn_d_2 = PieceFactory.newPiece(Color.WHITE, Rank.Pawn, d_2);
+    private Piece w_pawn_e_2 = PieceFactory.newPiece(Color.WHITE, Rank.Pawn, e_2);
+    private Piece w_pawn_f_2 = PieceFactory.newPiece(Color.WHITE, Rank.Pawn, f_2);
+    private Piece w_pawn_g_2 = PieceFactory.newPiece(Color.WHITE, Rank.Pawn, g_2);
+    private Piece w_pawn_h_2 = PieceFactory.newPiece(Color.WHITE, Rank.Pawn, h_2);
 
-    private Piece b_pawn_a_7 = PieceFactory.newPiece(Rank.Pawn, Color.BLACK, a_7);
-    private Piece b_pawn_b_7 = PieceFactory.newPiece(Rank.Pawn, Color.BLACK, b_7);
-    private Piece b_pawn_c_7 = PieceFactory.newPiece(Rank.Pawn, Color.BLACK, c_7);
-    private Piece b_pawn_d_7 = PieceFactory.newPiece(Rank.Pawn, Color.BLACK, d_7);
-    private Piece b_pawn_e_7 = PieceFactory.newPiece(Rank.Pawn, Color.BLACK, e_7);
-    private Piece b_pawn_f_7 = PieceFactory.newPiece(Rank.Pawn, Color.BLACK, f_7);
-    private Piece b_pawn_g_7 = PieceFactory.newPiece(Rank.Pawn, Color.BLACK, g_7);
-    private Piece b_pawn_h_7 = PieceFactory.newPiece(Rank.Pawn, Color.BLACK, h_7);
+    private Piece b_pawn_a_7 = PieceFactory.newPiece(Color.BLACK, Rank.Pawn, a_7);
+    private Piece b_pawn_b_7 = PieceFactory.newPiece(Color.BLACK, Rank.Pawn, b_7);
+    private Piece b_pawn_c_7 = PieceFactory.newPiece(Color.BLACK, Rank.Pawn, c_7);
+    private Piece b_pawn_d_7 = PieceFactory.newPiece(Color.BLACK, Rank.Pawn, d_7);
+    private Piece b_pawn_e_7 = PieceFactory.newPiece(Color.BLACK, Rank.Pawn, e_7);
+    private Piece b_pawn_f_7 = PieceFactory.newPiece(Color.BLACK, Rank.Pawn, f_7);
+    private Piece b_pawn_g_7 = PieceFactory.newPiece(Color.BLACK, Rank.Pawn, g_7);
+    private Piece b_pawn_h_7 = PieceFactory.newPiece(Color.BLACK, Rank.Pawn, h_7);
 
-    private Piece w_rook_a_1 = PieceFactory.newPiece(Rank.Rook, Color.WHITE, a_1);
-    private Piece w_rook_h_1 = PieceFactory.newPiece(Rank.Rook, Color.WHITE, h_1);
-    private Piece w_knight_b_1 = PieceFactory.newPiece(Rank.Knight, Color.WHITE, b_1);
-    private Piece w_knight_g_1 = PieceFactory.newPiece(Rank.Knight, Color.WHITE, g_1);
-    private Piece w_bishop_c_1 = PieceFactory.newPiece(Rank.Bishop, Color.WHITE, c_1);
-    private Piece w_bishop_f_1 = PieceFactory.newPiece(Rank.Bishop, Color.WHITE, f_1);
-    private Piece w_queen = PieceFactory.newPiece(Rank.Queen, Color.WHITE, d_1);
-    private Piece w_king = PieceFactory.newPiece(Rank.King, Color.WHITE, e_1);
+    private Piece w_rook_a_1 = PieceFactory.newPiece(Color.WHITE, Rank.Rook, a_1);
+    private Piece w_rook_h_1 = PieceFactory.newPiece(Color.WHITE, Rank.Rook, h_1);
+    private Piece w_knight_b_1 = PieceFactory.newPiece(Color.WHITE, Rank.Knight, b_1);
+    private Piece w_knight_g_1 = PieceFactory.newPiece(Color.WHITE, Rank.Knight, g_1);
+    private Piece w_bishop_c_1 = PieceFactory.newPiece(Color.WHITE, Rank.Bishop, c_1);
+    private Piece w_bishop_f_1 = PieceFactory.newPiece(Color.WHITE, Rank.Bishop, f_1);
+    private Piece w_queen = PieceFactory.newPiece(Color.WHITE, Rank.Queen, d_1);
+    private Piece w_king = PieceFactory.newPiece(Color.WHITE, Rank.King, e_1);
 
-    private Piece b_rook_a_8 = PieceFactory.newPiece(Rank.Rook, Color.BLACK, a_8);
-    private Piece b_rook_h_8 = PieceFactory.newPiece(Rank.Rook, Color.BLACK, h_8);
-    private Piece b_knight_b_8 = PieceFactory.newPiece(Rank.Knight, Color.BLACK, b_8);
-    private Piece b_knight_g_8 = PieceFactory.newPiece(Rank.Knight, Color.BLACK, g_8);
-    private Piece b_bishop_c_8 = PieceFactory.newPiece(Rank.Bishop, Color.BLACK, c_8);
-    private Piece b_bishop_f_8 = PieceFactory.newPiece(Rank.Bishop, Color.BLACK, f_8);
-    private Piece b_queen = PieceFactory.newPiece(Rank.Queen, Color.BLACK, d_8);
-    private Piece b_king = PieceFactory.newPiece(Rank.King, Color.BLACK, e_8);
+    private Piece b_rook_a_8 = PieceFactory.newPiece(Color.BLACK, Rank.Rook, a_8);
+    private Piece b_rook_h_8 = PieceFactory.newPiece(Color.BLACK, Rank.Rook, h_8);
+    private Piece b_knight_b_8 = PieceFactory.newPiece(Color.BLACK, Rank.Knight, b_8);
+    private Piece b_knight_g_8 = PieceFactory.newPiece(Color.BLACK, Rank.Knight, g_8);
+    private Piece b_bishop_c_8 = PieceFactory.newPiece(Color.BLACK, Rank.Bishop, c_8);
+    private Piece b_bishop_f_8 = PieceFactory.newPiece(Color.BLACK, Rank.Bishop, f_8);
+    private Piece b_queen = PieceFactory.newPiece(Color.BLACK, Rank.Queen, d_8);
+    private Piece b_king = PieceFactory.newPiece(Color.BLACK, Rank.King, e_8);
 
     private BoardSetter boardSetter;
 

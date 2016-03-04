@@ -70,10 +70,10 @@ public class ChessPieceTest {
 
     @Before
     public void setUp() {
-        w_queen_d_3 = PieceFactory.newPiece(Rank.Queen, Color.WHITE, d_3);
-        w_queen_d_4 = PieceFactory.newPiece(Rank.Queen, Color.WHITE, d_4);
-        w_queen_d_6 = PieceFactory.newPiece(Rank.Queen, Color.WHITE, d_6);
-        b_queen_d_7 = PieceFactory.newPiece(Rank.Queen, Color.BLACK, d_7);
+        w_queen_d_3 = PieceFactory.newPiece(Color.WHITE, Rank.Queen, d_3);
+        w_queen_d_4 = PieceFactory.newPiece(Color.WHITE, Rank.Queen, d_4);
+        w_queen_d_6 = PieceFactory.newPiece(Color.WHITE, Rank.Queen, d_6);
+        b_queen_d_7 = PieceFactory.newPiece(Color.BLACK, Rank.Queen, d_7);
 
         put_w_queen_d_4 = new PutEvent(w_queen_d_4);
         put_b_queen_d_7 = new PutEvent(b_queen_d_7);
@@ -101,9 +101,9 @@ public class ChessPieceTest {
 
         assertThat(potentialGameEvents.size(), equalTo(19));
 
-        Piece b_pawn_a_7 = PieceFactory.newPiece(Rank.Pawn, Color.BLACK, a_7);
-        Piece b_pawn_d_7 = PieceFactory.newPiece(Rank.Pawn, Color.BLACK, a_7);
-        Piece b_pawn_g_7 = PieceFactory.newPiece(Rank.Pawn, Color.BLACK, a_7);
+        Piece b_pawn_a_7 = PieceFactory.newPiece(Color.BLACK, Rank.Pawn, a_7);
+        Piece b_pawn_d_7 = PieceFactory.newPiece(Color.BLACK, Rank.Pawn, a_7);
+        Piece b_pawn_g_7 = PieceFactory.newPiece(Color.BLACK, Rank.Pawn, a_7);
 
         assertTrue(potentialGameEvents.contains(newCaptureEvent(mySquare, b_pawn_a_7)));
         assertTrue(potentialGameEvents.contains(newCaptureEvent(mySquare, b_pawn_d_7)));
@@ -160,9 +160,9 @@ public class ChessPieceTest {
         List<Piece> capturePieces = w_queen_d_4.piecesAttacked(chessBoard);
 
         assertThat(capturePieces.size(), equalTo(3));
-        assertTrue(capturePieces.contains(PieceFactory.newPiece(Rank.Pawn, Color.BLACK, a_7)));
-        assertTrue(capturePieces.contains(PieceFactory.newPiece(Rank.Pawn, Color.BLACK, d_7)));
-        assertTrue(capturePieces.contains(PieceFactory.newPiece(Rank.Pawn, Color.BLACK, g_7)));
+        assertTrue(capturePieces.contains(PieceFactory.newPiece(Color.BLACK, Rank.Pawn, a_7)));
+        assertTrue(capturePieces.contains(PieceFactory.newPiece(Color.BLACK, Rank.Pawn, d_7)));
+        assertTrue(capturePieces.contains(PieceFactory.newPiece(Color.BLACK, Rank.Pawn, g_7)));
     }
 
     @Test
@@ -174,9 +174,9 @@ public class ChessPieceTest {
         List<Piece> capturePieces = w_queen_d_4.piecesDefended(chessBoard);
 
         assertThat(capturePieces.size(), equalTo(3));
-        assertTrue(capturePieces.contains(PieceFactory.newPiece(Rank.Pawn, Color.WHITE, b_2)));
-        assertTrue(capturePieces.contains(PieceFactory.newPiece(Rank.Pawn, Color.WHITE, d_2)));
-        assertTrue(capturePieces.contains(PieceFactory.newPiece(Rank.Pawn, Color.WHITE, f_2)));
+        assertTrue(capturePieces.contains(PieceFactory.newPiece(Color.WHITE, Rank.Pawn, b_2)));
+        assertTrue(capturePieces.contains(PieceFactory.newPiece(Color.WHITE, Rank.Pawn, d_2)));
+        assertTrue(capturePieces.contains(PieceFactory.newPiece(Color.WHITE, Rank.Pawn, f_2)));
     }
 
     @Test
@@ -188,8 +188,8 @@ public class ChessPieceTest {
         List<Piece> attackingPieces = w_queen_d_6.opponentAttackers(chessBoard);
 
         assertThat(attackingPieces.size(), equalTo(2));
-        assertTrue(attackingPieces.contains(PieceFactory.newPiece(Rank.Pawn, Color.BLACK, c_7)));
-        assertTrue(attackingPieces.contains(PieceFactory.newPiece(Rank.Pawn, Color.BLACK, e_7)));
+        assertTrue(attackingPieces.contains(PieceFactory.newPiece(Color.BLACK, Rank.Pawn, c_7)));
+        assertTrue(attackingPieces.contains(PieceFactory.newPiece(Color.BLACK, Rank.Pawn, e_7)));
     }
 
     @Test
@@ -201,8 +201,8 @@ public class ChessPieceTest {
         List<Piece> supportingPieces = w_queen_d_3.collaboratorDefenders(chessBoard);
 
         assertThat(supportingPieces.size(), equalTo(2));
-        assertTrue(supportingPieces.contains(PieceFactory.newPiece(Rank.Pawn, Color.WHITE, c_2)));
-        assertTrue(supportingPieces.contains(PieceFactory.newPiece(Rank.Pawn, Color.WHITE, e_2)));
+        assertTrue(supportingPieces.contains(PieceFactory.newPiece(Color.WHITE, Rank.Pawn, c_2)));
+        assertTrue(supportingPieces.contains(PieceFactory.newPiece(Color.WHITE, Rank.Pawn, e_2)));
     }
 
 }

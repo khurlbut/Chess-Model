@@ -76,12 +76,12 @@ public final class BoardSetter {
     private PutEvent w_Pawn_h_2 = new PutEvent(newPiece(Rank.Pawn, Color.WHITE));
 
     private Piece newPiece(Rank rank, Color color) {
-        return PieceFactory.newPiece(rank, color, newSquare(Column.H, Row.R2));
+        return PieceFactory.newPiece(color, rank, newSquare(Column.H, Row.R2));
     }
 
     private Piece newPiece(Rank rank, Color color, Square homeSquare) {
 
-        return PieceFactory.newPiece(rank, color, homeSquare);
+        return PieceFactory.newPiece(color, rank, homeSquare);
 
         // return new Piece(rank, col, homeSquare);
     }

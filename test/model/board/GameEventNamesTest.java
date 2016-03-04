@@ -25,7 +25,7 @@ public class GameEventNamesTest {
 
     @Test
     public void putEvent_name_format_is_as_follows() {
-        piece_a_1 = PieceFactory.newPiece(Rank.Queen, Color.BLACK, a_1);
+        piece_a_1 = PieceFactory.newPiece(Color.BLACK, Rank.Queen, a_1);
 
         putEvent = new PutEvent(piece_a_1);
         assertThat(putEvent.toString(), equalTo("put b Queen A_1"));
@@ -45,7 +45,7 @@ public class GameEventNamesTest {
 
     @Test
     public void captureEvent_name_format_is_as_follows() {
-        piece_a_2 = PieceFactory.newPiece(Rank.Queen, Color.WHITE, a_2);
+        piece_a_2 = PieceFactory.newPiece(Color.WHITE, Rank.Queen, a_2);
         captureEvent = new CaptureEvent(a_1, a_2, piece_a_2);
         assertThat(captureEvent.toString(), equalTo("A_1 x A_2"));
     }

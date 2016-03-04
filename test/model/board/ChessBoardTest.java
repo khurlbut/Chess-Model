@@ -49,12 +49,12 @@ public class ChessBoardTest {
 
     @Before
     public void setUp() {
-        w_pawn_a_2 = PieceFactory.newPiece(Rank.Pawn, Color.WHITE, a_2);
-        b_pawn_b_3 = PieceFactory.newPiece(Rank.Pawn, Color.BLACK, b_3);
-        b_pawn_e_7 = PieceFactory.newPiece(Rank.Pawn, Color.BLACK, e_7);
-        w_rook_a_1 = PieceFactory.newPiece(Rank.Rook, Color.WHITE, a_1);
-        w_bishop_a_1 = PieceFactory.newPiece(Rank.Bishop, Color.WHITE, a_1);
-        w_queen_e_3 = PieceFactory.newPiece(Rank.Queen, Color.WHITE, e_3);
+        w_pawn_a_2 = PieceFactory.newPiece(Color.WHITE, Rank.Pawn, a_2);
+        b_pawn_b_3 = PieceFactory.newPiece(Color.BLACK, Rank.Pawn, b_3);
+        b_pawn_e_7 = PieceFactory.newPiece(Color.BLACK, Rank.Pawn, e_7);
+        w_rook_a_1 = PieceFactory.newPiece(Color.WHITE, Rank.Rook, a_1);
+        w_bishop_a_1 = PieceFactory.newPiece(Color.WHITE, Rank.Bishop, a_1);
+        w_queen_e_3 = PieceFactory.newPiece(Color.WHITE, Rank.Queen, e_3);
 
         put_w_rook_a_1 = new PutEvent(w_rook_a_1);
         put_w_queen_e_3 = new PutEvent(w_queen_e_3);
