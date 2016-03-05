@@ -2,6 +2,7 @@ package model.board.views;
 
 import static model.board.Sugar.eventList;
 import static model.board.Sugar.play;
+import static model.board.Sugar.position;
 import static model.board.Sugar.put;
 import static model.board.Sugar.square;
 import static model.board.views.ViewSugar.pawnView;
@@ -117,7 +118,7 @@ public class PawnViewTest {
     }
 
     private PawnView newPawnView(Color color, Column column, Row row) {
-        return pawnView(color, column, row, chessBoard);
+        return pawnView(color, position(column, row, chessBoard));
     }
 
     private ChessBoard putBlackPawnsInBoxAround_E_4() {

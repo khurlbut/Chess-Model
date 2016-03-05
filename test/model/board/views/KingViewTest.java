@@ -2,6 +2,7 @@ package model.board.views;
 
 import static model.board.Sugar.eventList;
 import static model.board.Sugar.play;
+import static model.board.Sugar.position;
 import static model.board.Sugar.put;
 import static model.board.Sugar.square;
 import static model.board.views.ViewSugar.kingView;
@@ -158,7 +159,7 @@ public class KingViewTest {
     }
 
     private KingView newKingView(Color color, Column column, Row row) {
-        return kingView(color, column, row, chessBoard);
+        return kingView(color, position(column, row, chessBoard));
     }
 
     private ChessBoard putBlackPawnsInBoxAround_E_4() {
