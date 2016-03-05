@@ -174,7 +174,7 @@ public class PieceTest {
 
         chessBoard = chessBoard.playEvent(put(w_queen_d_6));
 
-        List<Piece> attackingPieces = w_queen_d_6.opponentAttackers(chessBoard);
+        List<Piece> attackingPieces = w_queen_d_6.attackingOpponents(chessBoard);
 
         assertThat(attackingPieces.size(), equalTo(2));
         assertTrue(attackingPieces.contains(newPiece(Color.BLACK, Rank.Pawn, c_7)));
@@ -187,7 +187,7 @@ public class PieceTest {
 
         chessBoard = chessBoard.playEvent(put(w_queen_d_3));
 
-        List<Piece> supportingPieces = w_queen_d_3.collaboratorDefenders(chessBoard);
+        List<Piece> supportingPieces = w_queen_d_3.collaboratingDefenders(chessBoard);
 
         assertThat(supportingPieces.size(), equalTo(2));
         assertTrue(supportingPieces.contains(newPiece(Color.WHITE, Rank.Pawn, c_2)));
