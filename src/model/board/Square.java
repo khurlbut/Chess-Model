@@ -4,7 +4,7 @@ import static model.board.Sugar.square;
 import model.enums.Column;
 import model.enums.Row;
 import model.enums.ViewVector;
-import model.exceptions.ConstructorArgsExcetpion;
+import model.exceptions.ConstructorArgsException;
 
 public class Square {
 
@@ -13,7 +13,7 @@ public class Square {
 
     public Square(Column c, Row r) {
         if (c == null || r == null) {
-            throw new ConstructorArgsExcetpion("Constructor does not allow null(s)!");
+            throw new ConstructorArgsException("Constructor does not allow null(s)!");
         }
         col = c;
         row = r;

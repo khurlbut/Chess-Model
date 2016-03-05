@@ -2,7 +2,7 @@ package model.board;
 
 import static model.enums.GameEventType.CAPTURE;
 import model.enums.GameEventType;
-import model.exceptions.ConstructorArgsExcetpion;
+import model.exceptions.ConstructorArgsException;
 import model.piece.Piece;
 
 public class CaptureEvent implements GameEvent {
@@ -13,7 +13,7 @@ public class CaptureEvent implements GameEvent {
 
     CaptureEvent(Square source, Square target, Piece targetedPiece) {
         if (source == null || target == null || targetedPiece == null) {
-            throw new ConstructorArgsExcetpion("Constructor does not allow null(s)!");
+            throw new ConstructorArgsException("Constructor does not allow null(s)!");
         }
         this.source = source;
         this.target = target;

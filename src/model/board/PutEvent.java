@@ -2,7 +2,7 @@ package model.board;
 
 import static model.enums.GameEventType.PUT;
 import model.enums.GameEventType;
-import model.exceptions.ConstructorArgsExcetpion;
+import model.exceptions.ConstructorArgsException;
 import model.piece.Piece;
 
 public class PutEvent implements GameEvent {
@@ -12,7 +12,7 @@ public class PutEvent implements GameEvent {
 
     PutEvent(Piece piece) {
         if (piece == null) {
-            throw new ConstructorArgsExcetpion("Constructor does not allow null(s)!");
+            throw new ConstructorArgsException("Constructor does not allow null(s)!");
         }
         this.piece = piece;
         this.target = piece.homeSquare();

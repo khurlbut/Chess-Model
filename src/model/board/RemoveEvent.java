@@ -2,7 +2,7 @@ package model.board;
 
 import static model.enums.GameEventType.REMOVE;
 import model.enums.GameEventType;
-import model.exceptions.ConstructorArgsExcetpion;
+import model.exceptions.ConstructorArgsException;
 
 public class RemoveEvent implements GameEvent {
 
@@ -10,7 +10,7 @@ public class RemoveEvent implements GameEvent {
 
     RemoveEvent(Square source) {
         if (source == null) {
-            throw new ConstructorArgsExcetpion("Constructor does not allow null!");
+            throw new ConstructorArgsException("Constructor does not allow null!");
         }
         this.source = source;
     }

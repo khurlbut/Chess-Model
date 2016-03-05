@@ -13,6 +13,7 @@ import model.board.Square;
 import model.board.views.RankView;
 import model.enums.Color;
 import model.enums.Rank;
+import model.exceptions.ConstructorArgsException;
 
 public class Piece {
     private final Rank rank;
@@ -21,7 +22,7 @@ public class Piece {
 
     Piece(Color color, Rank rank, Square homeSquare) {
         if (rank == null || color == null || homeSquare == null) {
-            throw new IllegalArgumentException("Constructor does not allow null(s)!");
+            throw new ConstructorArgsException("Constructor does not allow null(s)!");
         }
         this.rank = rank;
         this.color = color;
