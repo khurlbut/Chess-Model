@@ -6,10 +6,11 @@ import model.enums.ViewVector;
 
 public final class RookView extends RadiatingView {
 
-    private static final ViewVector[] ROOK_MOVES = { ViewVector.UP, ViewVector.DOWN, ViewVector.LEFT, ViewVector.RIGHT };
+    private static final ViewVector[] ROOK_MOVES = { ViewVector.UP, ViewVector.DOWN, ViewVector.LEFT,
+            ViewVector.RIGHT };
 
-    public RookView(BoardPosition boardPosition, Color color) {
-        super(boardPosition, color, ROOK_MOVES);
+    public RookView(Color color, BoardPosition boardPosition) {
+        super(color, boardPosition, ROOK_MOVES);
     }
 
 }

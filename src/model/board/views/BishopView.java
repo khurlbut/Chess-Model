@@ -9,8 +9,8 @@ public final class BishopView extends RadiatingView {
     private static final ViewVector[] BISHOP_MOVES = { ViewVector.RIGHT_UP, ViewVector.RIGHT_DOWN,
             ViewVector.LEFT_UP, ViewVector.LEFT_DOWN };
 
-    BishopView(BoardPosition boardPosition, Color color) {
-        super(boardPosition, color, BISHOP_MOVES);
+    BishopView(Color color, BoardPosition boardPosition) {
+        super(color, boardPosition, BISHOP_MOVES);
     }
 
 }

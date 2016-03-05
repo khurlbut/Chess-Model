@@ -1,5 +1,8 @@
 package model.board.views;
 
+import static model.Sugar.hasMoved;
+import static model.Sugar.isCollaborator;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -23,22 +26,58 @@ public class PawnView implements RankView {
     private final List<Square> squaresHoldingPiecesAttacked;
     private final List<Square> squaresHoldingPiecesDefended;
     private final ChessBoard chessBoard;
-    private Square viewPoint;
+    private final Square viewSquare;
 
-    public PawnView(BoardPosition boardPosition, Color viewColor) {
+    public PawnView(Color viewColor, BoardPosition boardPosition) {
 
         this.chessBoard = boardPosition.chessBoard();
-        this.viewPoint = boardPosition.square();
+        viewSquare = boardPosition.square();
         this.viewColor = viewColor;
 
         this.pawnDirection = pawnDirection();
 
-        // Initializing these here is a bit ugly, but making these guys final requires it.
         moveToSquares = new ArrayList<Square>();
         squaresHoldingPiecesAttacked = new ArrayList<Square>();
         squaresHoldingPiecesDefended = new ArrayList<Square>();
 
         addSquaresToLists();
+    }
+
+    private void addSquaresToLists() {
+        addMoveToSquares();
+
+        List<Square> threatenedSquares = threatenedSquares();
+        for (Square threatenedSquare : threatenedSquares) {
+            Piece otherPiece = chessBoard.pieceAt(threatenedSquare);
+
+            if (otherPiece != null) {
+                if (isCollaborator(viewColor, otherPiece)) {
+                    squaresHoldingPiecesDefended.add(threatenedSquare);
+                } else {
+                    squaresHoldingPiecesAttacked.add(threatenedSquare);
+                }
+            }
+
+        }
+    }
+
+    private void addMoveToSquares() {
+        Square oneStep = viewSquare.neighbor(pawnDirection);
+        if (chessBoard.pieceAt(oneStep) == null) {
+            moveToSquares.add(oneStep);
+
+            Piece thisPawn = chessBoard.pieceAt(viewSquare);
+            if (hasNotMoved(thisPawn)) {
+                Square twoSteps = oneStep.neighbor(pawnDirection);
+                if (chessBoard.pieceAt(twoSteps) == null) {
+                    moveToSquares.add(twoSteps);
+                }
+            }
+        }
+    }
+
+    private boolean hasNotMoved(Piece thisPawn) {
+        return !hasMoved(thisPawn, viewSquare);
     }
 
     private ViewVector pawnDirection() {
@@ -62,8 +101,8 @@ public class PawnView implements RankView {
 
     @Override
     public List<Square> threatenedSquares() {
-        Square leftAttack = viewPoint.neighbor(pawnAttacks()[0]);
-        Square rightAttack = viewPoint.neighbor(pawnAttacks()[1]);
+        Square leftAttack = viewSquare.neighbor(pawnAttacks()[0]);
+        Square rightAttack = viewSquare.neighbor(pawnAttacks()[1]);
 
         if (leftAttack != null && rightAttack != null) {
             return Arrays.asList(leftAttack, rightAttack);
@@ -76,37 +115,6 @@ public class PawnView implements RankView {
         }
 
         return Collections.emptyList();
-    }
-
-    private void addSquaresToLists() {
-        addMoveToSquares();
-
-        List<Square> threatenedSquares = threatenedSquares();
-        for (Square threatenedSquare : threatenedSquares) {
-            Piece piece = chessBoard.pieceAt(threatenedSquare);
-            Color opponentColor = viewColor.opponentColor();
-
-            if (piece != null && piece.color().equals(opponentColor)) {
-                squaresHoldingPiecesAttacked.add(threatenedSquare);
-            } else {
-                squaresHoldingPiecesDefended.add(threatenedSquare);
-            }
-        }
-    }
-
-    private void addMoveToSquares() {
-        Square forwardStep = viewPoint.neighbor(pawnDirection);
-        if (chessBoard.pieceAt(forwardStep) == null) {
-            moveToSquares.add(forwardStep);
-
-            Piece thisPawn = chessBoard.pieceAt(viewPoint);
-            if (thisPawn.homeSquare().equals(viewPoint)) {
-                Square nextStep = forwardStep.neighbor(pawnDirection);
-                if (chessBoard.pieceAt(nextStep) == null) {
-                    moveToSquares.add(nextStep);
-                }
-            }
-        }
     }
 
     private ViewVector[] pawnAttacks() {

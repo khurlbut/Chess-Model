@@ -1,5 +1,7 @@
 package model.board.views;
 
+import static model.Sugar.isCollaborator;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,16 +9,16 @@ import model.board.BoardPosition;
 import model.board.ChessBoard;
 import model.board.Square;
 import model.enums.Color;
+import model.enums.MovementLimitations;
 import model.enums.ViewVector;
-import model.enums.ViewDistance;
 import model.piece.Piece;
 
-public class RadiatingView implements RankView {
+public abstract class RadiatingView implements RankView {
 
     private final Color viewColor;
     private final Square viewPoint;
-    private final ViewDistance viewDistance;
-    private final ViewVector[] viewDirections;
+    private final MovementLimitations limitations;
+    private final ViewVector[] viewVectors;
 
     private final ChessBoard chessBoard;
 
@@ -24,20 +26,20 @@ public class RadiatingView implements RankView {
     private final List<Square> squaresHoldingPiecesAttacked;
     private final List<Square> squaresHoldingPiecesDefended;
 
-    public RadiatingView(BoardPosition boardPosition, Color viewColor, ViewVector[] viewDirections) {
-        this(boardPosition, viewColor, viewDirections, ViewDistance.EDGE_OF_BOARD);
+    public RadiatingView(Color viewColor, BoardPosition boardPosition, ViewVector[] viewDirections) {
+        this(viewColor, boardPosition, viewDirections, MovementLimitations.EDGE_OF_BOARD);
     }
 
-    public RadiatingView(BoardPosition boardPosition, Color viewColor, ViewVector[] viewDirections,
-        ViewDistance viewDistance) {
+    public RadiatingView(Color viewColor, BoardPosition boardPosition, ViewVector[] viewVectors,
+        MovementLimitations limitations) {
 
-        if (boardPosition == null || viewColor == null || viewDirections == null || viewDistance == null) {
+        if (boardPosition == null || viewColor == null || viewVectors == null || limitations == null) {
             throw new IllegalArgumentException("Constructor does not allow null(s)!");
         }
 
         this.viewPoint = boardPosition.square();
-        this.viewDistance = viewDistance;
-        this.viewDirections = viewDirections;
+        this.limitations = limitations;
+        this.viewVectors = viewVectors;
 
         this.viewColor = viewColor;
         this.chessBoard = boardPosition.chessBoard();
@@ -47,6 +49,36 @@ public class RadiatingView implements RankView {
         this.squaresHoldingPiecesAttacked = new ArrayList<Square>();
 
         addSquaresToLists();
+    }
+
+    private void addSquaresToLists() {
+
+        for (ViewVector vv : viewVectors) {
+            Square nextSquare = null;
+
+            if ((nextSquare = viewPoint.neighbor(vv)) != null) {
+                do {
+
+                    Piece piece = chessBoard.pieceAt(nextSquare);
+                    if (null != piece) {
+                        if (isCollaborator(viewColor, piece)) {
+                            squaresHoldingPiecesDefended.add(nextSquare);
+                        } else {
+                            squaresHoldingPiecesAttacked.add(nextSquare);
+                        }
+                        break;
+                    }
+
+                    moveToSquares.add(nextSquare);
+
+                    if (MovementLimitations.ONE_UNIT_SQUARE.equals(limitations)) {
+                        break;
+                    }
+
+                } while ((nextSquare = nextSquare.neighbor(vv)) != null);
+
+            }
+        }
     }
 
     @Override
@@ -67,36 +99,6 @@ public class RadiatingView implements RankView {
     @Override
     public List<Square> threatenedSquares() {
         return moveToSquares;
-    }
-
-    private void addSquaresToLists() {
-
-        for (ViewVector viewDirection : viewDirections) {
-            Square nextSquare = viewPoint.neighbor(viewDirection);
-
-            while (nextSquare != null) {
-                Piece pieceAtNextSquare = chessBoard.pieceAt(nextSquare);
-                if (null != pieceAtNextSquare) {
-                    if (isCollaborator(pieceAtNextSquare)) {
-                        squaresHoldingPiecesDefended.add(nextSquare);
-                    } else {
-                        squaresHoldingPiecesAttacked.add(nextSquare);
-                    }
-                    break;
-                }
-                moveToSquares.add(nextSquare);
-                if (viewDistance.equals(ViewDistance.SINGLE_UNIT)) {
-                    break;
-                }
-                nextSquare = nextSquare.neighbor(viewDirection);
-            }
-
-        }
-
-    }
-
-    private boolean isCollaborator(Piece pieceAtNextSquare) {
-        return viewColor.equals(pieceAtNextSquare.color());
     }
 
 }

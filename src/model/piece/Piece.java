@@ -1,14 +1,14 @@
 package model.piece;
 
+import static model.Sugar.capture;
+import static model.Sugar.move;
 import static model.board.views.RankViewFactory.rankView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import model.board.CaptureEvent;
 import model.board.ChessBoard;
 import model.board.GameEvent;
-import model.board.MoveEvent;
 import model.board.Square;
 import model.board.views.RankView;
 import model.enums.Color;
@@ -19,7 +19,7 @@ public class Piece {
     private final Color color;
     private final Square homeSquare;
 
-    Piece(Rank rank, Color color, Square homeSquare) {
+    Piece(Color color, Rank rank, Square homeSquare) {
         if (rank == null || color == null || homeSquare == null) {
             throw new IllegalArgumentException("Constructor does not allow null(s)!");
         }
@@ -44,7 +44,7 @@ public class Piece {
         List<GameEvent> potentialGameEvents = new ArrayList<GameEvent>();
         Square mySquare = chessBoard.squareHolding(this);
         for (Square targetSquare : moveToSquares(chessBoard)) {
-            potentialGameEvents.add(new MoveEvent(mySquare, targetSquare));
+            potentialGameEvents.add(move(mySquare, targetSquare));
         }
 
         return addCaptureEvents(chessBoard, potentialGameEvents);
@@ -54,7 +54,7 @@ public class Piece {
         Square mySquare = chessBoard.squareHolding(this);
         for (Piece pieceAttacked : piecesAttacked(chessBoard)) {
             Square targetSquare = chessBoard.squareHolding(pieceAttacked);
-            potentialGameEvents.add(new CaptureEvent(mySquare, targetSquare, pieceAttacked));
+            potentialGameEvents.add(capture(mySquare, targetSquare, pieceAttacked));
         }
         return potentialGameEvents;
     }
@@ -109,10 +109,14 @@ public class Piece {
     }
 
     public List<Piece> collaboratorDefenders(ChessBoard chessBoard) {
-        List<Piece> collaboratorDefenders = new ArrayList<Piece>();
         Square mySquare = chessBoard.squareHolding(this);
 
-        List<Piece> collaborators = chessBoard.piecesFor(color);
+        return piecesPointingAtMe(chessBoard, mySquare, chessBoard.piecesFor(color));
+    }
+
+    private List<Piece> piecesPointingAtMe(ChessBoard chessBoard, Square mySquare, List<Piece> collaborators) {
+        List<Piece> collaboratorDefenders = new ArrayList<Piece>();
+
         for (Piece collaboratorPiece : collaborators) {
             RankView collaboratorView = rankView(collaboratorPiece, chessBoard);
 
@@ -122,6 +126,7 @@ public class Piece {
             }
 
         }
+
         return collaboratorDefenders;
     }
 

@@ -8,7 +8,7 @@ import model.board.ChessBoard;
 import model.board.Square;
 import model.enums.Color;
 import model.enums.ViewVector;
-import model.enums.ViewDistance;
+import model.enums.MovementLimitations;
 import model.piece.Piece;
 
 public final class KingView extends RadiatingView {
@@ -18,8 +18,8 @@ public final class KingView extends RadiatingView {
     private Color color;
     private ChessBoard chessBoard;
 
-    KingView(BoardPosition boardPosition, Color color) {
-        super(boardPosition, color, KING_MOVES, ViewDistance.SINGLE_UNIT);
+    KingView(Color color, BoardPosition boardPosition) {
+        super(color, boardPosition, KING_MOVES, MovementLimitations.ONE_UNIT_SQUARE);
 
         this.color = color;
         this.chessBoard = boardPosition.chessBoard();
@@ -28,9 +28,9 @@ public final class KingView extends RadiatingView {
     @Override
     public List<Square> moveToSquares() {
         List<Square> moveToSquares = new ArrayList<Square>();
-        List<Square> availableSquares = super.moveToSquares();
+        List<Square> openSquares = super.moveToSquares();
 
-        for (Square availableSquare : availableSquares) {
+        for (Square availableSquare : openSquares) {
             if (piecesAttackingAt(availableSquare).size() == 0) {
                 moveToSquares.add(availableSquare);
             }
