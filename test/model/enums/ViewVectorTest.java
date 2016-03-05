@@ -2,11 +2,10 @@ package model.enums;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
-import model.enums.ViewVector;
 
 import org.junit.Test;
 
-public class DirectionTest {
+public class ViewVectorTest {
 
     @Test
     public void direction_name_format_is_as_follows() {
@@ -23,53 +22,53 @@ public class DirectionTest {
 
     @Test
     public void testRightUp() {
-        ViewVector up = ViewVector.RIGHT_UP;
-        assertThat(up.horizontalDelta(), equalTo(1));
-        assertThat(up.verticalDelta(), equalTo(1));
+        ViewVector right_up = ViewVector.RIGHT_UP;
+        assertThat(right_up.horizontalDelta(), equalTo(1));
+        assertThat(right_up.verticalDelta(), equalTo(1));
     }
 
     @Test
     public void testRight() {
-        ViewVector up = ViewVector.RIGHT;
-        assertThat(up.horizontalDelta(), equalTo(1));
-        assertThat(up.verticalDelta(), equalTo(0));
+        ViewVector right = ViewVector.RIGHT;
+        assertThat(right.horizontalDelta(), equalTo(1));
+        assertThat(right.verticalDelta(), equalTo(0));
     }
 
     @Test
     public void testRightDown() {
-        ViewVector up = ViewVector.RIGHT_DOWN;
-        assertThat(up.horizontalDelta(), equalTo(1));
-        assertThat(up.verticalDelta(), equalTo(-1));
+        ViewVector right_down = ViewVector.RIGHT_DOWN;
+        assertThat(right_down.horizontalDelta(), equalTo(1));
+        assertThat(right_down.verticalDelta(), equalTo(-1));
     }
 
     @Test
     public void testDown() {
-        ViewVector up = ViewVector.DOWN;
-        assertThat(up.horizontalDelta(), equalTo(0));
-        assertThat(up.verticalDelta(), equalTo(-1));
+        ViewVector down = ViewVector.DOWN;
+        assertThat(down.horizontalDelta(), equalTo(0));
+        assertThat(down.verticalDelta(), equalTo(-1));
     }
 
     @Test
     public void testLeftDown() {
-        ViewVector up = ViewVector.LEFT_DOWN;
-        assertThat(up.horizontalDelta(), equalTo(-1));
-        assertThat(up.verticalDelta(), equalTo(-1));
+        ViewVector left_down = ViewVector.LEFT_DOWN;
+        assertThat(left_down.horizontalDelta(), equalTo(-1));
+        assertThat(left_down.verticalDelta(), equalTo(-1));
     }
 
     @Test
     public void testLeft() {
-        ViewVector up = ViewVector.LEFT;
-        assertThat(up.horizontalDelta(), equalTo(-1));
-        assertThat(up.verticalDelta(), equalTo(0));
+        ViewVector left = ViewVector.LEFT;
+        assertThat(left.horizontalDelta(), equalTo(-1));
+        assertThat(left.verticalDelta(), equalTo(0));
     }
 
     @Test
     public void testLeftUp() {
-        ViewVector up = ViewVector.LEFT_UP;
-        assertThat(up.horizontalDelta(), equalTo(-1));
-        assertThat(up.verticalDelta(), equalTo(1));
+        ViewVector left_up = ViewVector.LEFT_UP;
+        assertThat(left_up.horizontalDelta(), equalTo(-1));
+        assertThat(left_up.verticalDelta(), equalTo(1));
     }
-    
+
     @Test
     public void testRightUpUp() {
         ViewVector knightMove = ViewVector.RIGHT_UP_UP;

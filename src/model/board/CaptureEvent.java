@@ -9,15 +9,15 @@ public class CaptureEvent implements GameEvent {
 
     private Square source;
     private Square target;
-    private Piece capturedPiece;
+    private Piece targetedPiece;
 
-    public CaptureEvent(Square source, Square target, Piece capturedPiece) {
-        if (source == null || target == null || capturedPiece == null) {
+    public CaptureEvent(Square source, Square target, Piece targetedPiece) {
+        if (source == null || target == null || targetedPiece == null) {
             throw new ConstructorArgsExcetpion("Constructor does not allow null(s)!");
         }
         this.source = source;
         this.target = target;
-        this.capturedPiece = capturedPiece;
+        this.targetedPiece = targetedPiece;
     }
 
     @Override
@@ -35,8 +35,8 @@ public class CaptureEvent implements GameEvent {
         return chessBoard.capture(this);
     }
 
-    public Piece capturedPiece() {
-        return capturedPiece;
+    public Piece targetedPiece() {
+        return targetedPiece;
     }
 
     @Override
@@ -53,7 +53,7 @@ public class CaptureEvent implements GameEvent {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((capturedPiece == null) ? 0 : capturedPiece.hashCode());
+        result = prime * result + ((targetedPiece == null) ? 0 : targetedPiece.hashCode());
         result = prime * result + ((source == null) ? 0 : source.hashCode());
         result = prime * result + ((target == null) ? 0 : target.hashCode());
         return result;
@@ -68,10 +68,10 @@ public class CaptureEvent implements GameEvent {
         if (getClass() != obj.getClass())
             return false;
         CaptureEvent other = (CaptureEvent) obj;
-        if (capturedPiece == null) {
-            if (other.capturedPiece != null)
+        if (targetedPiece == null) {
+            if (other.targetedPiece != null)
                 return false;
-        } else if (!capturedPiece.equals(other.capturedPiece))
+        } else if (!targetedPiece.equals(other.targetedPiece))
             return false;
         if (source == null) {
             if (other.source != null)

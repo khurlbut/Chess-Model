@@ -1,6 +1,7 @@
 package model.board.views;
 
 import static model.Sugar.hasMoved;
+import static model.Sugar.isCollaborator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,7 +28,7 @@ public class PawnView implements RankView {
     private final ChessBoard chessBoard;
     private final Square viewSquare;
 
-    public PawnView(BoardPosition boardPosition, Color viewColor) {
+    public PawnView(Color viewColor, BoardPosition boardPosition) {
 
         this.chessBoard = boardPosition.chessBoard();
         viewSquare = boardPosition.square();
@@ -35,7 +36,6 @@ public class PawnView implements RankView {
 
         this.pawnDirection = pawnDirection();
 
-        // Initializing these here is a bit ugly, but making these guys final requires it.
         moveToSquares = new ArrayList<Square>();
         squaresHoldingPiecesAttacked = new ArrayList<Square>();
         squaresHoldingPiecesDefended = new ArrayList<Square>();
@@ -43,38 +43,21 @@ public class PawnView implements RankView {
         addSquaresToLists();
     }
 
-    private ViewVector pawnDirection() {
-        return viewColor.equals(Color.WHITE) ? ViewVector.UP : ViewVector.DOWN;
-    }
-
-    @Override
-    public List<Square> moveToSquares() {
-        return moveToSquares;
-    }
-
-    @Override
-    public List<Square> squaresHoldingPiecesAttacked() {
-        return squaresHoldingPiecesAttacked;
-    }
-
-    @Override
-    public List<Square> squaresHoldingPiecesDefended() {
-        return squaresHoldingPiecesDefended;
-    }
-
     private void addSquaresToLists() {
         addMoveToSquares();
 
         List<Square> threatenedSquares = threatenedSquares();
         for (Square threatenedSquare : threatenedSquares) {
-            Piece piece = chessBoard.pieceAt(threatenedSquare);
-            Color opponentColor = viewColor.opponentColor();
+            Piece otherPiece = chessBoard.pieceAt(threatenedSquare);
 
-            if (piece != null && piece.color().equals(opponentColor)) {
-                squaresHoldingPiecesAttacked.add(threatenedSquare);
-            } else {
-                squaresHoldingPiecesDefended.add(threatenedSquare);
+            if (otherPiece != null) {
+                if (isCollaborator(viewColor, otherPiece)) {
+                    squaresHoldingPiecesDefended.add(threatenedSquare);
+                } else {
+                    squaresHoldingPiecesAttacked.add(threatenedSquare);
+                }
             }
+
         }
     }
 
@@ -95,6 +78,25 @@ public class PawnView implements RankView {
 
     private boolean hasNotMoved(Piece thisPawn) {
         return !hasMoved(thisPawn, viewSquare);
+    }
+
+    private ViewVector pawnDirection() {
+        return viewColor.equals(Color.WHITE) ? ViewVector.UP : ViewVector.DOWN;
+    }
+
+    @Override
+    public List<Square> moveToSquares() {
+        return moveToSquares;
+    }
+
+    @Override
+    public List<Square> squaresHoldingPiecesAttacked() {
+        return squaresHoldingPiecesAttacked;
+    }
+
+    @Override
+    public List<Square> squaresHoldingPiecesDefended() {
+        return squaresHoldingPiecesDefended;
     }
 
     @Override

@@ -2,12 +2,10 @@ package model.enums;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
-import model.enums.Color;
 
 import org.junit.Test;
 
 public class ColorTest {
-
 
     @Test
     public void color_name_format_is_as_follows() {
