@@ -95,8 +95,8 @@ public class Piece {
         return myView(chessBoard).squaresHoldingPiecesDefended();
     }
 
-    public List<Piece> opponentAttackers(ChessBoard chessBoard) {
-        List<Piece> opponentAttackers = new ArrayList<Piece>();
+    public List<Piece> attackingOpponents(ChessBoard chessBoard) {
+        List<Piece> attackingOpponents = new ArrayList<Piece>();
         Square mySquare = chessBoard.squareHolding(this);
 
         List<Piece> opponentPieces = chessBoard.piecesFor(color.opponentColor());
@@ -105,33 +105,29 @@ public class Piece {
 
             List<Square> squaresHoldingPiecesUnderAttack = opponentView.squaresHoldingPiecesAttacked();
             if (squaresHoldingPiecesUnderAttack.contains(mySquare)) {
-                opponentAttackers.add(opponentPiece);
+                attackingOpponents.add(opponentPiece);
             }
         }
-        return opponentAttackers;
+        return attackingOpponents;
 
     }
 
-    public List<Piece> collaboratorDefenders(ChessBoard chessBoard) {
+    public List<Piece> collaboratingDefenders(ChessBoard chessBoard) {
+        List<Piece> collaboratingDefenders = new ArrayList<Piece>();
         Square mySquare = chessBoard.squareHolding(this);
 
-        return piecesPointingAtMe(chessBoard, mySquare, chessBoard.piecesFor(color));
-    }
-
-    private List<Piece> piecesPointingAtMe(ChessBoard chessBoard, Square mySquare, List<Piece> collaborators) {
-        List<Piece> collaboratorDefenders = new ArrayList<Piece>();
-
+        List<Piece> collaborators = chessBoard.piecesFor(color);
         for (Piece collaboratorPiece : collaborators) {
             RankView collaboratorView = rankView(collaboratorPiece, chessBoard);
 
             List<Square> squaresHoldingPiecesDefended = collaboratorView.squaresHoldingPiecesDefended();
             if (squaresHoldingPiecesDefended.contains(mySquare)) {
-                collaboratorDefenders.add(collaboratorPiece);
+                collaboratingDefenders.add(collaboratorPiece);
             }
 
         }
 
-        return collaboratorDefenders;
+        return collaboratingDefenders;
     }
 
     public List<Square> threatenedSquares(ChessBoard chessBoard) {
