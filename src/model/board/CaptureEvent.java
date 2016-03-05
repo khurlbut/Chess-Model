@@ -11,7 +11,7 @@ public class CaptureEvent implements GameEvent {
     private Square target;
     private Piece targetedPiece;
 
-    public CaptureEvent(Square source, Square target, Piece targetedPiece) {
+    CaptureEvent(Square source, Square target, Piece targetedPiece) {
         if (source == null || target == null || targetedPiece == null) {
             throw new ConstructorArgsExcetpion("Constructor does not allow null(s)!");
         }

@@ -8,7 +8,7 @@ public class RemoveEvent implements GameEvent {
 
     private Square source;
 
-    public RemoveEvent(Square source) {
+    RemoveEvent(Square source) {
         if (source == null) {
             throw new ConstructorArgsExcetpion("Constructor does not allow null!");
         }

@@ -10,7 +10,7 @@ public class PutEvent implements GameEvent {
     private Piece piece;
     private Square target;
 
-    public PutEvent(Piece piece) {
+    PutEvent(Piece piece) {
         if (piece == null) {
             throw new ConstructorArgsExcetpion("Constructor does not allow null(s)!");
         }

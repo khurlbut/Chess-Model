@@ -1,6 +1,6 @@
 package model.board;
 
-import static model.Sugar.square;
+import static model.board.Sugar.square;
 import model.enums.Column;
 import model.enums.Row;
 import model.enums.ViewVector;

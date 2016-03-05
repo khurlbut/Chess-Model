@@ -1,7 +1,7 @@
 package model.piece;
 
-import static model.Sugar.capture;
-import static model.Sugar.move;
+import static model.board.Sugar.capture;
+import static model.board.Sugar.move;
 import static model.board.views.RankViewFactory.rankView;
 
 import java.util.ArrayList;
