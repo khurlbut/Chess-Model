@@ -37,14 +37,16 @@ public final class KingView extends RadiatingView {
         return piecesAttackingAt(availableSquare).size() == 0;
     }
 
-    private List<Piece> piecesAttackingAt(Square s) {
+    private List<Piece> piecesAttackingAt(Square square) {
         List<Piece> attackingPieces = new ArrayList<Piece>();
         List<Piece> opponentPieces = chessBoard.piecesFor(viewColor.opponentColor());
+
         for (Piece opponentPiece : opponentPieces) {
-            if (opponentPiece.threatenedSquares(chessBoard).contains(s)) {
+            if (opponentPiece.threatenedSquares(chessBoard).contains(square)) {
                 attackingPieces.add(opponentPiece);
             }
         }
+
         return attackingPieces;
     }
 
