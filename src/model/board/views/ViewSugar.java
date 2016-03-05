@@ -1,6 +1,6 @@
 package model.board.views;
 
-import static model.Sugar.position;
+import static model.board.Sugar.position;
 import model.board.ChessBoard;
 import model.enums.Color;
 import model.enums.Column;

@@ -1,11 +1,11 @@
 package model.piece;
 
-import static model.Sugar.capture;
-import static model.Sugar.eventList;
-import static model.Sugar.move;
-import static model.Sugar.play;
-import static model.Sugar.put;
-import static model.Sugar.square;
+import static model.board.Sugar.capture;
+import static model.board.Sugar.eventList;
+import static model.board.Sugar.move;
+import static model.board.Sugar.play;
+import static model.board.Sugar.put;
+import static model.board.Sugar.square;
 import static model.piece.PieceFactory.newPiece;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;

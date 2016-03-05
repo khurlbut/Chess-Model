@@ -1,6 +1,6 @@
 package model.board;
 
-import static model.Sugar.square;
+import static model.board.Sugar.square;
 import static model.piece.PieceFactory.newPiece;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;

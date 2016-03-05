@@ -1,7 +1,7 @@
 package model.board.views;
 
-import static model.Sugar.hasMoved;
-import static model.Sugar.isCollaborator;
+import static model.board.Sugar.hasMoved;
+import static model.board.Sugar.isCollaborator;
 
 import java.util.ArrayList;
 import java.util.Arrays;

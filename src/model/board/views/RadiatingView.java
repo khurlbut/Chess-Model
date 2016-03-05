@@ -1,6 +1,6 @@
 package model.board.views;
 
-import static model.Sugar.isCollaborator;
+import static model.board.Sugar.isCollaborator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,12 +15,12 @@ import model.piece.Piece;
 
 public abstract class RadiatingView implements RankView {
 
-    private final Color viewColor;
+    protected final Color viewColor;
     private final Square viewPoint;
     private final MovementLimitations limitations;
     private final ViewVector[] viewVectors;
 
-    private final ChessBoard chessBoard;
+    protected final ChessBoard chessBoard;
 
     private final List<Square> moveToSquares;
     private final List<Square> squaresHoldingPiecesAttacked;
