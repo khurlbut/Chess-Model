@@ -36,6 +36,10 @@ public class Piece {
         return color;
     }
 
+    public int points() {
+        return rank.value();
+    }
+
     public Square homeSquare() {
         return homeSquare;
     }
@@ -140,10 +144,6 @@ public class Piece {
 
     private RankView myView(ChessBoard chessBoard) {
         return rankView(this, chessBoard);
-    }
-
-    public int points() {
-        return rank.value();
     }
 
     @Override
