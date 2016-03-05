@@ -83,6 +83,11 @@ public abstract class RadiatingView implements RankView {
     }
 
     @Override
+    public Square viewPoint() {
+        return viewPoint;
+    }
+
+    @Override
     public List<Square> moveToSquares() {
         return moveToSquares;
     }

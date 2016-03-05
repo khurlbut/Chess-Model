@@ -45,23 +45,28 @@ public class Piece {
         return homeSquare;
     }
 
-    public List<GameEvent> potentialGameEvents(ChessBoard chessBoard) {
-        List<GameEvent> potentialGameEvents = new ArrayList<GameEvent>();
-        Square mySquare = chessBoard.squareHolding(this);
-        for (Square targetSquare : moveToSquares(chessBoard)) {
-            potentialGameEvents.add(move(mySquare, targetSquare));
-        }
+    public List<GameEvent> possibleEvents(ChessBoard chessBoard) {
+        List<GameEvent> possibleEvents = new ArrayList<GameEvent>();
 
-        return addCaptureEvents(chessBoard, potentialGameEvents);
+        RankView myView = myView(chessBoard);
+
+        addPossibleMoves(myView, possibleEvents, chessBoard);
+        addPossibleCaptures(myView, possibleEvents, chessBoard);
+
+        return possibleEvents;
     }
 
-    private List<GameEvent> addCaptureEvents(ChessBoard chessBoard, List<GameEvent> potentialGameEvents) {
-        Square mySquare = chessBoard.squareHolding(this);
-        for (Piece pieceAttacked : piecesAttacked(chessBoard)) {
-            Square targetSquare = chessBoard.squareHolding(pieceAttacked);
-            potentialGameEvents.add(capture(mySquare, targetSquare, pieceAttacked));
+    private void addPossibleMoves(RankView myView, List<GameEvent> possibleEvents, ChessBoard chessBoard) {
+        for (Square s : myView.moveToSquares()) {
+            possibleEvents.add(move(myView.viewPoint(), s));
         }
-        return potentialGameEvents;
+    }
+
+    private void addPossibleCaptures(RankView myView, List<GameEvent> possibleEvents, ChessBoard chessBoard) {
+        for (Piece target : piecesAttacked(chessBoard)) {
+            Square s = chessBoard.squareHolding(target);
+            possibleEvents.add(capture(myView.viewPoint(), s, target));
+        }
     }
 
     public List<Piece> piecesAttacked(ChessBoard chessBoard) {

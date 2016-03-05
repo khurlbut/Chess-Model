@@ -91,7 +91,7 @@ public class PieceTest {
         chessBoard = chessBoard.playEvent(put(w_queen_d_4));
         Square queen_d_4 = square(Column.D, Row.R4);
 
-        List<GameEvent> potentialGameEvents = w_queen_d_4.potentialGameEvents(chessBoard);
+        List<GameEvent> potentialGameEvents = w_queen_d_4.possibleEvents(chessBoard);
 
         assertThat(potentialGameEvents.size(), equalTo(19));
 
@@ -131,7 +131,7 @@ public class PieceTest {
 
         chessBoard = chessBoard.playEvent(put(w_queen_d_4));
 
-        List<GameEvent> potentialGameEvents = w_queen_d_4.potentialGameEvents(chessBoard);
+        List<GameEvent> potentialGameEvents = w_queen_d_4.possibleEvents(chessBoard);
 
         chessBoard = chessBoard.setBoardForGameInProgress();
 

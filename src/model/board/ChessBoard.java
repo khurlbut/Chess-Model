@@ -66,7 +66,7 @@ public class ChessBoard {
         ArrayList<GameEvent> potentialGameEvents = new ArrayList<GameEvent>();
         List<Piece> pieces = piecesFor(color);
         for (Piece piece : pieces) {
-            potentialGameEvents.addAll(piece.potentialGameEvents(this));
+            potentialGameEvents.addAll(piece.possibleEvents(this));
         }
         return potentialGameEvents;
     }
