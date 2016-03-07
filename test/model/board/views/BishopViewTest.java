@@ -2,6 +2,7 @@ package model.board.views;
 
 import static model.board.Sugar.eventList;
 import static model.board.Sugar.play;
+import static model.board.Sugar.position;
 import static model.board.Sugar.put;
 import static model.board.Sugar.square;
 import static model.board.views.ViewSugar.bishopView;
@@ -148,7 +149,7 @@ public class BishopViewTest {
     }
 
     private BishopView newBishopView(Color color, Column column, Row row) {
-        return bishopView(color, column, row, chessBoard);
+        return bishopView(color, position(column, row, chessBoard));
     }
 
     private ChessBoard putBlackPawnsInBoxAround_E_4() {

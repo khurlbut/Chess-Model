@@ -7,6 +7,7 @@ import java.util.List;
 
 import model.board.views.RankView;
 import model.enums.Color;
+import model.exceptions.ConstructorArgsException;
 import model.exceptions.IllegalGameEventException;
 import model.piece.Piece;
 
@@ -38,7 +39,7 @@ public class ChessBoard {
 
     private ChessBoard(List<GameEvent> gameEvents, BackingMap backingMap, boolean boardIsSet) {
         if (gameEvents == null || backingMap == null) {
-            throw new IllegalArgumentException("Constructor does not accept null arguments!");
+            throw new ConstructorArgsException("Constructor does not accept null arguments!");
         }
         this.gameEvents = gameEvents;
         this.backingMap = backingMap;
@@ -65,7 +66,7 @@ public class ChessBoard {
         ArrayList<GameEvent> potentialGameEvents = new ArrayList<GameEvent>();
         List<Piece> pieces = piecesFor(color);
         for (Piece piece : pieces) {
-            potentialGameEvents.addAll(piece.potentialGameEvents(this));
+            potentialGameEvents.addAll(piece.possibleEvents(this));
         }
         return potentialGameEvents;
     }

@@ -26,12 +26,12 @@ public class PawnView implements RankView {
     private final List<Square> squaresHoldingPiecesAttacked;
     private final List<Square> squaresHoldingPiecesDefended;
     private final ChessBoard chessBoard;
-    private final Square viewSquare;
+    private final Square viewPoint;
 
     public PawnView(Color viewColor, BoardPosition boardPosition) {
 
         this.chessBoard = boardPosition.chessBoard();
-        viewSquare = boardPosition.square();
+        viewPoint = boardPosition.square();
         this.viewColor = viewColor;
 
         this.pawnDirection = pawnDirection();
@@ -62,11 +62,11 @@ public class PawnView implements RankView {
     }
 
     private void addMoveToSquares() {
-        Square oneStep = viewSquare.neighbor(pawnDirection);
+        Square oneStep = viewPoint.neighbor(pawnDirection);
         if (chessBoard.pieceAt(oneStep) == null) {
             moveToSquares.add(oneStep);
 
-            Piece thisPawn = chessBoard.pieceAt(viewSquare);
+            Piece thisPawn = chessBoard.pieceAt(viewPoint);
             if (hasNotMoved(thisPawn)) {
                 Square twoSteps = oneStep.neighbor(pawnDirection);
                 if (chessBoard.pieceAt(twoSteps) == null) {
@@ -77,11 +77,16 @@ public class PawnView implements RankView {
     }
 
     private boolean hasNotMoved(Piece thisPawn) {
-        return !hasMoved(thisPawn, viewSquare);
+        return !hasMoved(thisPawn, viewPoint);
     }
 
     private ViewVector pawnDirection() {
         return viewColor.equals(Color.WHITE) ? ViewVector.UP : ViewVector.DOWN;
+    }
+
+    @Override
+    public Square viewPoint() {
+        return viewPoint;
     }
 
     @Override
@@ -101,8 +106,8 @@ public class PawnView implements RankView {
 
     @Override
     public List<Square> threatenedSquares() {
-        Square leftAttack = viewSquare.neighbor(pawnAttacks()[0]);
-        Square rightAttack = viewSquare.neighbor(pawnAttacks()[1]);
+        Square leftAttack = viewPoint.neighbor(pawnAttacks()[0]);
+        Square rightAttack = viewPoint.neighbor(pawnAttacks()[1]);
 
         if (leftAttack != null && rightAttack != null) {
             return Arrays.asList(leftAttack, rightAttack);

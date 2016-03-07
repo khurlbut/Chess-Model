@@ -9,15 +9,16 @@ import model.board.BoardPosition;
 import model.board.ChessBoard;
 import model.board.Square;
 import model.enums.Color;
-import model.enums.MovementLimitations;
+import model.enums.TravelDistance;
 import model.enums.ViewVector;
+import model.exceptions.ConstructorArgsException;
 import model.piece.Piece;
 
 public abstract class RadiatingView implements RankView {
 
     protected final Color viewColor;
     private final Square viewPoint;
-    private final MovementLimitations limitations;
+    private final TravelDistance travelDistance;
     private final ViewVector[] viewVectors;
 
     protected final ChessBoard chessBoard;
@@ -27,18 +28,18 @@ public abstract class RadiatingView implements RankView {
     private final List<Square> squaresHoldingPiecesDefended;
 
     public RadiatingView(Color viewColor, BoardPosition boardPosition, ViewVector[] viewDirections) {
-        this(viewColor, boardPosition, viewDirections, MovementLimitations.EDGE_OF_BOARD);
+        this(viewColor, boardPosition, viewDirections, TravelDistance.EDGE_OF_BOARD);
     }
 
     public RadiatingView(Color viewColor, BoardPosition boardPosition, ViewVector[] viewVectors,
-        MovementLimitations limitations) {
+        TravelDistance travelDistance) {
 
-        if (boardPosition == null || viewColor == null || viewVectors == null || limitations == null) {
-            throw new IllegalArgumentException("Constructor does not allow null(s)!");
+        if (boardPosition == null || viewColor == null || viewVectors == null || travelDistance == null) {
+            throw new ConstructorArgsException("Constructor does not allow null(s)!");
         }
 
         this.viewPoint = boardPosition.square();
-        this.limitations = limitations;
+        this.travelDistance = travelDistance;
         this.viewVectors = viewVectors;
 
         this.viewColor = viewColor;
@@ -71,7 +72,7 @@ public abstract class RadiatingView implements RankView {
 
                     moveToSquares.add(nextSquare);
 
-                    if (MovementLimitations.ONE_UNIT_SQUARE.equals(limitations)) {
+                    if (!travelDistance.edgeOfBoard()) {
                         break;
                     }
 
@@ -79,6 +80,11 @@ public abstract class RadiatingView implements RankView {
 
             }
         }
+    }
+
+    @Override
+    public Square viewPoint() {
+        return viewPoint;
     }
 
     @Override

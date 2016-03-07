@@ -14,4 +14,6 @@ public interface RankView {
 
     List<Square> threatenedSquares();
 
+    Square viewPoint();
+
 }
