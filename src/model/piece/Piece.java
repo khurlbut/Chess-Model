@@ -45,103 +45,98 @@ public class Piece {
         return homeSquare;
     }
 
-    public List<GameEvent> possibleEvents(ChessBoard chessBoard) {
+    public List<GameEvent> possibleEvents(ChessBoard board) {
         List<GameEvent> possibleEvents = new ArrayList<GameEvent>();
 
-        RankView myView = myView(chessBoard);
+        RankView view = myView(board);
 
-        addPossibleMoves(myView, possibleEvents, chessBoard);
-        addPossibleCaptures(myView, possibleEvents, chessBoard);
+        addPossibleMoves(view, possibleEvents, board);
+        addPossibleCaptures(view, possibleEvents, board);
 
         return possibleEvents;
     }
 
-    private void addPossibleMoves(RankView myView, List<GameEvent> possibleEvents, ChessBoard chessBoard) {
-        for (Square s : myView.moveToSquares()) {
-            possibleEvents.add(move(myView.viewPoint(), s));
+    private void addPossibleMoves(RankView view, List<GameEvent> possibleEvents, ChessBoard board) {
+        for (Square openSquare : view.moveToSquares()) {
+            possibleEvents.add(move(view.viewPoint(), openSquare));
         }
     }
 
-    private void addPossibleCaptures(RankView myView, List<GameEvent> possibleEvents, ChessBoard chessBoard) {
-        for (Piece target : piecesAttacked(chessBoard)) {
-            Square s = chessBoard.squareHolding(target);
-            possibleEvents.add(capture(myView.viewPoint(), s, target));
+    private void addPossibleCaptures(RankView view, List<GameEvent> possibleEvents, ChessBoard board) {
+        for (Piece target : opponentPiecesAttacked(board, view)) {
+            Square targetSquare = board.squareHolding(target);
+            possibleEvents.add(capture(view.viewPoint(), targetSquare, target));
         }
     }
 
-    public List<Piece> piecesAttacked(ChessBoard chessBoard) {
-        List<Piece> attackedPieces = new ArrayList<Piece>();
+    private List<Piece> opponentPiecesAttacked(ChessBoard board, RankView view) {
+        List<Piece> opponentPiecesAttacked = new ArrayList<Piece>();
 
-        List<Square> squaresHoldingPiecesAttacked = squaresHoldingPiecesAttacked(chessBoard);
-
+        List<Square> squaresHoldingPiecesAttacked = view.squaresHoldingPiecesAttacked();
         for (Square square : squaresHoldingPiecesAttacked) {
-            attackedPieces.add(chessBoard.pieceAt(square));
+            opponentPiecesAttacked.add(board.pieceAt(square));
         }
-
-        return attackedPieces;
+        return opponentPiecesAttacked;
     }
 
-    private List<Square> squaresHoldingPiecesAttacked(ChessBoard chessBoard) {
-        return myView(chessBoard).squaresHoldingPiecesAttacked();
+    public List<Piece> opponentPiecesAttacked(ChessBoard board) {
+        RankView view = myView(board);
+        return opponentPiecesAttacked(board, view);
     }
 
-    public List<Piece> piecesDefended(ChessBoard chessBoard) {
-        List<Piece> defendedPieces = new ArrayList<Piece>();
+    public List<Piece> teammatesDefended(ChessBoard board) {
+        List<Piece> teammatesDefended = new ArrayList<Piece>();
 
-        List<Square> squaresHoldingPiecesDefended = squaresHoldingPiecesDefended(chessBoard);
+        List<Square> squaresHoldingPiecesDefended = myView(board).squaresHoldingPiecesDefended();
 
         for (Square square : squaresHoldingPiecesDefended) {
-            defendedPieces.add(chessBoard.pieceAt(square));
+            teammatesDefended.add(board.pieceAt(square));
         }
 
-        return defendedPieces;
+        return teammatesDefended;
     }
 
-    private List<Square> squaresHoldingPiecesDefended(ChessBoard chessBoard) {
-        return myView(chessBoard).squaresHoldingPiecesDefended();
-    }
+    public List<Piece> opponentsAttackingMe(ChessBoard board) {
+        List<Piece> opponentsAttackingMe = new ArrayList<Piece>();
+        Square mySquare = board.squareHolding(this);
 
-    public List<Piece> attackingOpponents(ChessBoard chessBoard) {
-        List<Piece> attackingOpponents = new ArrayList<Piece>();
-        Square mySquare = chessBoard.squareHolding(this);
-
-        List<Piece> opponentPieces = chessBoard.piecesFor(color.opponentColor());
+        List<Piece> opponentPieces = board.piecesFor(color.opponentColor());
         for (Piece opponentPiece : opponentPieces) {
-            RankView opponentView = rankView(opponentPiece, chessBoard);
+            RankView opponentView = rankView(opponentPiece, board);
 
             List<Square> squaresHoldingPiecesUnderAttack = opponentView.squaresHoldingPiecesAttacked();
             if (squaresHoldingPiecesUnderAttack.contains(mySquare)) {
-                attackingOpponents.add(opponentPiece);
+                opponentsAttackingMe.add(opponentPiece);
             }
         }
-        return attackingOpponents;
+        return opponentsAttackingMe;
 
     }
 
-    public List<Piece> collaboratingDefenders(ChessBoard chessBoard) {
-        List<Piece> collaboratingDefenders = new ArrayList<Piece>();
-        Square mySquare = chessBoard.squareHolding(this);
+    public List<Piece> teammatesDefendingMe(ChessBoard board) {
+        List<Piece> teammatesDefendingMe = new ArrayList<Piece>();
+        Square mySquare = board.squareHolding(this);
 
-        List<Piece> collaborators = chessBoard.piecesFor(color);
+        List<Piece> collaborators = board.piecesFor(color);
         for (Piece collaboratorPiece : collaborators) {
-            RankView collaboratorView = rankView(collaboratorPiece, chessBoard);
+            RankView collaboratorView = rankView(collaboratorPiece, board);
 
             List<Square> squaresHoldingPiecesDefended = collaboratorView.squaresHoldingPiecesDefended();
             if (squaresHoldingPiecesDefended.contains(mySquare)) {
-                collaboratingDefenders.add(collaboratorPiece);
+                teammatesDefendingMe.add(collaboratorPiece);
             }
 
         }
 
-        return collaboratingDefenders;
+        return teammatesDefendingMe;
     }
 
-    public List<Square> threatenedSquares(ChessBoard chessBoard) {
-        return myView(chessBoard).threatenedSquares();
+    public List<Square> threatenedSquares(ChessBoard board) {
+        return myView(board).threatenedSquares();
     }
 
-    public List<Square> moveToSquares(ChessBoard chessBoard) {
-        return myView(chessBoard).moveToSquares();
+    public List<Square> moveToSquares(ChessBoard board) {
+        return myView(board).moveToSquares();
     }
 
     private RankView myView(ChessBoard chessBoard) {
