@@ -6,7 +6,6 @@ import static model.board.Sugar.move;
 import static model.board.Sugar.play;
 import static model.board.Sugar.put;
 import static model.board.Sugar.square;
-import static model.board.views.RankViewFactory.rankView;
 import static model.piece.PieceFactory.newPiece;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
@@ -18,7 +17,6 @@ import model.board.BoardSetter;
 import model.board.ChessBoard;
 import model.board.GameEvent;
 import model.board.Square;
-import model.board.views.RankView;
 import model.enums.Color;
 import model.enums.Column;
 import model.enums.Rank;
@@ -163,7 +161,6 @@ public class PieceTest {
 
         chessBoard = chessBoard.playEvent(put(w_queen_d_4));
 
-        RankView view = rankView(w_queen_d_4, chessBoard);
         List<Piece> capturePieces = w_queen_d_4.teammatesDefended(chessBoard);
 
         assertThat(capturePieces.size(), equalTo(3));
