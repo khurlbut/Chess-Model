@@ -1,14 +1,16 @@
 package model.board;
 
-import model.exceptions.ConstructorArgsExcetpion;
+import static model.enums.GameEventType.REMOVE;
+import model.enums.GameEventType;
+import model.exceptions.ConstructorArgsException;
 
 public class RemoveEvent implements GameEvent {
 
     private Square source;
 
-    public RemoveEvent(Square source) {
+    RemoveEvent(Square source) {
         if (source == null) {
-            throw new ConstructorArgsExcetpion("Constructor does not allow null!");
+            throw new ConstructorArgsException("Constructor does not allow null!");
         }
         this.source = source;
     }
@@ -42,6 +44,11 @@ public class RemoveEvent implements GameEvent {
     }
 
     @Override
+    public GameEventType type() {
+        return REMOVE;
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
@@ -56,11 +63,6 @@ public class RemoveEvent implements GameEvent {
         } else if (!source.equals(other.source))
             return false;
         return true;
-    }
-
-    @Override
-    public int type() {
-        return 3;
     }
 
 }

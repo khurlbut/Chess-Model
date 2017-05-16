@@ -1,20 +1,27 @@
 package strategy;
 
+import static model.board.Sugar.eventList;
+import static model.board.Sugar.move;
+import static model.board.Sugar.play;
+import static model.board.Sugar.put;
+import static model.board.Sugar.square;
+import static model.piece.PieceFactory.newPiece;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
+
+import java.util.List;
+
 import model.board.ChessBoard;
 import model.board.GameEvent;
-import model.board.MoveEvent;
-import model.board.PutEvent;
 import model.board.Square;
 import model.enums.Color;
 import model.enums.Column;
 import model.enums.Rank;
 import model.enums.Row;
 import model.piece.Piece;
-import model.piece.PieceFactory;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class BruteForceGameStrategyTest {
@@ -27,27 +34,24 @@ public class BruteForceGameStrategyTest {
     }
 
     @Test
+    @Ignore("not yet ready for prime time")
     public void test() {
         ChessBoard chessBoard = new ChessBoard();
 
-        Square a_2 = new Square(Column.A, Row.R2);
-        Square a_4 = new Square(Column.A, Row.R4);
-        Square h_2 = new Square(Column.H, Row.R2);
-        Square b_7 = new Square(Column.B, Row.R7);
+        Square a_2 = square(Column.A, Row.R2);
+        Square h_2 = square(Column.H, Row.R2);
+        Square h_3 = square(Column.H, Row.R3);
+        Square b_7 = square(Column.B, Row.R7);
 
-        Piece w_pawn_a = PieceFactory.newPiece(Rank.Pawn, Color.WHITE, a_2);
-        Piece w_pawn_h = PieceFactory.newPiece(Rank.Pawn, Color.WHITE, h_2);
-        Piece b_pawn_b = PieceFactory.newPiece(Rank.Pawn, Color.BLACK, b_7);
+        Piece w_pawn_a = newPiece(Color.WHITE, Rank.Pawn, a_2);
+        Piece w_pawn_h = newPiece(Color.WHITE, Rank.Pawn, h_2);
+        Piece b_pawn_b = newPiece(Color.BLACK, Rank.Pawn, b_7);
 
-        PutEvent put_w_pawn_a = new PutEvent(w_pawn_a);
-        PutEvent put_w_pawn_h = new PutEvent(w_pawn_h);
-        PutEvent put_b_pawn_b = new PutEvent(b_pawn_b);
+        List<GameEvent> putEvents = eventList(put(w_pawn_a), put(w_pawn_h), put(b_pawn_b));
 
-        chessBoard =
-            chessBoard.playEvent(put_w_pawn_a).playEvent(put_w_pawn_h).playEvent(put_b_pawn_b)
-                .setBoardForGameInProgress();
+        chessBoard = play(putEvents, chessBoard).setBoardForGameInProgress();
 
-        GameEvent bestMove = new MoveEvent(a_2, a_4);
+        GameEvent bestMove = move(h_2, h_3);
 
         assertThat(bruteForceGameStrategy.nextMove(Color.WHITE, chessBoard), equalTo(bestMove));
 

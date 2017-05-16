@@ -1,6 +1,8 @@
 package model.board;
 
-import model.exceptions.ConstructorArgsExcetpion;
+import static model.enums.GameEventType.PUT;
+import model.enums.GameEventType;
+import model.exceptions.ConstructorArgsException;
 import model.piece.Piece;
 
 public class PutEvent implements GameEvent {
@@ -8,9 +10,9 @@ public class PutEvent implements GameEvent {
     private Piece piece;
     private Square target;
 
-    public PutEvent(Piece piece) {
+    PutEvent(Piece piece) {
         if (piece == null) {
-            throw new ConstructorArgsExcetpion("Constructor does not allow null(s)!");
+            throw new ConstructorArgsException("Constructor does not allow null(s)!");
         }
         this.piece = piece;
         this.target = piece.homeSquare();
@@ -38,6 +40,11 @@ public class PutEvent implements GameEvent {
     @Override
     public String toString() {
         return "put " + piece + " " + target;
+    }
+
+    @Override
+    public GameEventType type() {
+        return PUT;
     }
 
     @Override
@@ -69,11 +76,6 @@ public class PutEvent implements GameEvent {
         } else if (!target.equals(other.target))
             return false;
         return true;
-    }
-
-    @Override
-    public int type() {
-        return 2;
     }
 
 }

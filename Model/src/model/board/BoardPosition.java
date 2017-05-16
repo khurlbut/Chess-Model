@@ -1,17 +1,16 @@
 package model.board;
 
-
 public class BoardPosition {
-    private ChessBoard chessBoard;
     private Square square;
+    private ChessBoard board;
 
-    public BoardPosition(ChessBoard chessBoard, Square square) {
-        this.chessBoard = chessBoard;
+    public BoardPosition(Square square, ChessBoard board) {
         this.square = square;
+        this.board = board;
     }
 
     public ChessBoard chessBoard() {
-        return chessBoard;
+        return board;
     }
 
     public Square square() {

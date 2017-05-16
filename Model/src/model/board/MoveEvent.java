@@ -1,15 +1,17 @@
 package model.board;
 
-import model.exceptions.ConstructorArgsExcetpion;
+import static model.enums.GameEventType.MOVE;
+import model.enums.GameEventType;
+import model.exceptions.ConstructorArgsException;
 
 public class MoveEvent implements GameEvent {
 
     private Square source;
     private Square target;
 
-    public MoveEvent(Square source, Square target) {
+    MoveEvent(Square source, Square target) {
         if (source == null || target == null) {
-            throw new ConstructorArgsExcetpion("Constructor does not allow null(s)!");
+            throw new ConstructorArgsException("Constructor does not allow null(s)!");
         }
         this.source = source;
         this.target = target;
@@ -36,8 +38,8 @@ public class MoveEvent implements GameEvent {
     }
 
     @Override
-    public int type() {
-        return 1;
+    public GameEventType type() {
+        return MOVE;
     }
 
     @Override

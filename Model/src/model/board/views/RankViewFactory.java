@@ -2,17 +2,12 @@ package model.board.views;
 
 import model.board.BoardPosition;
 import model.board.ChessBoard;
-import model.board.GameEvent;
 import model.board.Square;
 import model.enums.Color;
 import model.enums.Rank;
 import model.piece.Piece;
 
 public class RankViewFactory {
-
-    public static RankView rankView(GameEvent event, ChessBoard chessBoard) {
-        return newRankView(chessBoard.pieceAt(event.source()), chessBoard);
-    }
 
     public static RankView rankView(Piece piece, ChessBoard chessBoard) {
         return newRankView(piece, chessBoard);
@@ -22,21 +17,21 @@ public class RankViewFactory {
         Rank rank = piece.rank();
         Color color = piece.color();
         Square viewPoint = chessBoard.squareHolding(piece);
-        BoardPosition boardPosition = new BoardPosition(chessBoard, viewPoint);
+        BoardPosition position = new BoardPosition(viewPoint, chessBoard);
 
         switch (rank) {
             case Pawn:
-                return new PawnView(boardPosition, color);
+                return new PawnView(color, position);
             case Rook:
-                return new RookView(boardPosition, color);
+                return new RookView(color, position);
             case Knight:
-                return new KnightView(boardPosition, color);
+                return new KnightView(color, position);
             case Bishop:
-                return new BishopView(boardPosition, color);
+                return new BishopView(color, position);
             case Queen:
-                return new QueenView(boardPosition, color);
+                return new QueenView(color, position);
             case King:
-                return new KingView(boardPosition, color);
+                return new KingView(color, position);
             default:
                 throw new RuntimeException("This should never happen! Rank is: " + rank);
         }

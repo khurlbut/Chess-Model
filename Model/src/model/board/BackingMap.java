@@ -13,7 +13,7 @@ import com.google.common.collect.ImmutableMap;
 final class BackingMap {
 
     private ImmutableMap<Square, Piece> backingMap = null;
-    private ImmutableMap<Piece, Square> invertedBackingMap;
+    private ImmutableMap<Piece, Square> invertedBackingMap = null;
 
     BackingMap() {
         this.backingMap = new ImmutableMap.Builder<Square, Piece>().build();
@@ -45,19 +45,19 @@ final class BackingMap {
         return new BackingMap(newBackingMapAfterPut(square, piece));
     }
 
+    BackingMap move(Square source, Square target) {
+        validateMoveArgs(source, target);
+        return new BackingMap(newBackingMapAfterMoveOrCapture(source, target));
+    }
+
+    BackingMap capture(Square source, Square target) {
+        validateCaptureArgs(source, target);
+        return new BackingMap(newBackingMapAfterMoveOrCapture(source, target));
+    }
+
     BackingMap remove(Square source) {
         validateRemoveArgs(source);
         return new BackingMap(newBackingMapAfterRemove(source));
-    }
-
-    BackingMap move(Square source, Square target) {
-        validateMoveArgs(source, target);
-        return new BackingMap(newBackingMapAfterMove(source, target));
-    }
-
-    BackingMap replace(Square source, Square target) {
-        validateMoveAndReplaceArgs(source, target);
-        return new BackingMap(newBackingMapAfterMove(source, target));
     }
 
     private BackingMap(Map<Square, Piece> mutableMap) {
@@ -75,26 +75,20 @@ final class BackingMap {
 
     private Map<Square, Piece> newBackingMapAfterPut(Square square, Piece piece) {
         Map<Square, Piece> map = new HashMap<Square, Piece>(backingMap);
-
         map.put(square, piece);
+        return map;
+    }
 
+    private Map<Square, Piece> newBackingMapAfterMoveOrCapture(Square source, Square target) {
+        Map<Square, Piece> map = new HashMap<Square, Piece>(backingMap);
+        map.put(target, map.get(source));
+        map.remove(source);
         return map;
     }
 
     private Map<Square, Piece> newBackingMapAfterRemove(Square square) {
         Map<Square, Piece> map = new HashMap<Square, Piece>(backingMap);
-
         map.remove(square);
-
-        return map;
-    }
-
-    private Map<Square, Piece> newBackingMapAfterMove(Square source, Square target) {
-        Map<Square, Piece> map = new HashMap<Square, Piece>(backingMap);
-
-        map.put(target, map.get(source));
-        map.remove(source);
-
         return map;
     }
 
@@ -126,12 +120,6 @@ final class BackingMap {
         }
     }
 
-    private void validateRemoveArgs(Square source) {
-        if (isNotOccupied(source)) {
-            throw new IllegalArgumentException("Attempted to remove a piece on an empty square!");
-        }
-    }
-
     private void validateMoveArgs(Square source, Square target) {
         if (isNotOccupied(source)) {
             throw new IllegalArgumentException("Attempted to move from an empty square!");
@@ -141,12 +129,18 @@ final class BackingMap {
         }
     }
 
-    private void validateMoveAndReplaceArgs(Square source, Square target) {
+    private void validateCaptureArgs(Square source, Square target) {
         if (isNotOccupied(source)) {
             throw new IllegalArgumentException("Attempted to replace from an empty square!");
         }
         if (isNotOccupied(target)) {
             throw new IllegalArgumentException("Attempted to replace on an empty square!");
+        }
+    }
+
+    private void validateRemoveArgs(Square source) {
+        if (isNotOccupied(source)) {
+            throw new IllegalArgumentException("Attempted to remove a piece on an empty square!");
         }
     }
 

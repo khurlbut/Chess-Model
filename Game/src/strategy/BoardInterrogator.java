@@ -35,7 +35,7 @@ class BoardInterrogator {
         for (Piece piece : pieces) {
             material += piece.points();
             territory += piece.threatenedSquares(chessBoard).size();
-            collaboration += piece.piecesDefended(chessBoard).size();
+            collaboration += piece.teammatesDefended(chessBoard).size();
             position += position(chessBoard, position, piece);
         }
 
@@ -51,9 +51,9 @@ class BoardInterrogator {
     }
 
     private int position(ChessBoard chessBoard, int position, Piece piece) {
-        List<Piece> piecesAttacked = piece.piecesAttacked(chessBoard);
-        List<Piece> attackers = piece.opponentAttackers(chessBoard);
-        List<Piece> defenders = piece.collaboratorDefenders(chessBoard);
+        List<Piece> piecesAttacked = piece.opponentPiecesAttacked(chessBoard);
+        List<Piece> attackers = piece.opponentsAttackingMe(chessBoard);
+        List<Piece> defenders = piece.teammatesDefendingMe(chessBoard);
 
         for (Piece attackedPiece : piecesAttacked) {
             if (pieceUndefended(attackedPiece, chessBoard) || pieceOffersSacrifice(piece, attackedPiece)) {
@@ -76,7 +76,7 @@ class BoardInterrogator {
     }
 
     private boolean pieceUndefended(Piece attackedPiece, ChessBoard chessBoard) {
-        return attackedPiece.collaboratorDefenders(chessBoard).size() == 0;
+        return attackedPiece.teammatesDefendingMe(chessBoard).size() == 0;
     }
 
     private boolean sacrificeAttack(int position, Piece piece, List<Piece> attackers) {

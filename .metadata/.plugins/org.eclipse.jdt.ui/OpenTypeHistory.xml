@@ -1,2 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy/>
+<typeInfoHistroy>
+<typeInfo handle="=Model/test&lt;model.board{ChessBoardTest.java[ChessBoardTest" modifiers="1" timestamp="1457201255000"/>
+<typeInfo handle="=Model/src&lt;model.enums{GameEventType.java[GameEventType" modifiers="16385" timestamp="1457139073000"/>
+<typeInfo handle="=Model/src&lt;model.board.views{BishopView.java[BishopView" modifiers="17" timestamp="1457139073000"/>
+<typeInfo handle="=Model/test&lt;model.board.views{BishopViewTest.java[BishopViewTest" modifiers="1" timestamp="1457457018000"/>
+<typeInfo handle="=Model/src&lt;model.board.views{KingView.java[KingView" modifiers="17" timestamp="1457457018000"/>
+<typeInfo handle="=Model/src&lt;model.board.views{PawnView.java[PawnView" modifiers="1" timestamp="1457457018000"/>
+<typeInfo handle="=Model/src&lt;model.board.views{KnightView.java[KnightView" modifiers="17" timestamp="1457457018000"/>
+<typeInfo handle="=Model/src&lt;model.board{PutEvent.java[PutEvent" modifiers="1" timestamp="1457457018000"/>
+<typeInfo handle="=Model/src&lt;model.board{Sugar.java[Sugar" modifiers="17" timestamp="1457201283000"/>
+<typeInfo handle="=Model/src&lt;model.piece{Piece.java[Piece" modifiers="1" timestamp="1457457318000"/>
+</typeInfoHistroy>

@@ -2,15 +2,15 @@ package model.board.views;
 
 import model.board.BoardPosition;
 import model.enums.Color;
-import model.enums.ViewDirection;
+import model.enums.ViewVector;
 
 public final class QueenView extends RadiatingView {
 
-    private static final ViewDirection[] QUEEN_MOVES = { ViewDirection.UP, ViewDirection.RIGHT_UP, ViewDirection.RIGHT,
-            ViewDirection.RIGHT_DOWN, ViewDirection.DOWN, ViewDirection.LEFT_DOWN, ViewDirection.LEFT, ViewDirection.LEFT_UP };
+    private static final ViewVector[] QUEEN_MOVES = { ViewVector.UP, ViewVector.RIGHT_UP, ViewVector.RIGHT,
+            ViewVector.RIGHT_DOWN, ViewVector.DOWN, ViewVector.LEFT_DOWN, ViewVector.LEFT, ViewVector.LEFT_UP };
 
-    public QueenView(BoardPosition boardPosition, Color color) {
-        super(boardPosition, color, QUEEN_MOVES);
+    public QueenView(Color color, BoardPosition boardPosition) {
+        super(color, boardPosition, QUEEN_MOVES);
     }
 
 }

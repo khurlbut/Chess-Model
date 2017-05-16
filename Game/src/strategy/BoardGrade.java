@@ -1,9 +1,9 @@
 package strategy;
 
+import enums.Coin;
+
 public class BoardGrade {
 
-    private static final boolean TAILS = false;
-    private static final boolean HEADS = true;
     private int material;
     private int territory;
     private int position;
@@ -41,7 +41,7 @@ public class BoardGrade {
             return otherGrade;
         }
         if (otherGrade.finalGrade() == this.finalGrade()) {
-            return coinToss() == HEADS ? this : otherGrade;
+            return Coin.toss() == Coin.HEADS ? this : otherGrade;
         }
         return this;
     }
@@ -51,18 +51,9 @@ public class BoardGrade {
             return otherGrade;
         }
         if (otherGrade.finalGrade() == this.finalGrade()) {
-            return coinToss() == TAILS ? this : otherGrade;
+            return Coin.toss() == Coin.TAILS ? this : otherGrade;
         }
         return this;
-    }
-
-    private boolean coinToss() {
-        double coin = Math.random();
-        if (coin > 0.5) {
-            return HEADS;
-        } else {
-            return TAILS;
-        }
     }
 
 }

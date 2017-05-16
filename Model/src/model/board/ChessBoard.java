@@ -1,10 +1,13 @@
 package model.board;
 
+import static model.board.views.RankViewFactory.rankView;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import model.board.views.RankViewFactory;
+import model.board.views.RankView;
 import model.enums.Color;
+import model.exceptions.ConstructorArgsException;
 import model.exceptions.IllegalGameEventException;
 import model.piece.Piece;
 
@@ -15,9 +18,9 @@ public class ChessBoard {
     private List<GameEvent> gameEvents;
 
     public ChessBoard() {
-        boardIsSet = false;
-        backingMap = new BackingMap();
         gameEvents = new ArrayList<GameEvent>();
+        backingMap = new BackingMap();
+        boardIsSet = false;
     }
 
     public boolean boardIsSet() {
@@ -26,17 +29,20 @@ public class ChessBoard {
 
     public ChessBoard setBoardForGame() {
         ChessBoard chessBoard = new BoardSetter().setBoard();
-        return new ChessBoard(chessBoard.backingMap, chessBoard.gameEvents, true);
+        return new ChessBoard(chessBoard.gameEvents, chessBoard.backingMap, true);
     }
 
     public ChessBoard setBoardForGameInProgress() {
         guard_SetBoardForGameInProgress();
-        return new ChessBoard(backingMap, gameEvents, true);
+        return new ChessBoard(gameEvents, backingMap, true);
     }
 
-    private ChessBoard(BackingMap backingMap, List<GameEvent> gameEvents, boolean boardIsSet) {
-        this.backingMap = backingMap;
+    private ChessBoard(List<GameEvent> gameEvents, BackingMap backingMap, boolean boardIsSet) {
+        if (gameEvents == null || backingMap == null) {
+            throw new ConstructorArgsException("Constructor does not accept null arguments!");
+        }
         this.gameEvents = gameEvents;
+        this.backingMap = backingMap;
         this.boardIsSet = boardIsSet;
     }
 
@@ -48,10 +54,6 @@ public class ChessBoard {
         return backingMap.getPieceAt(square);
     }
 
-    public Piece piece(GameEvent event) {
-        return backingMap.getPieceAt(event.source());
-    }
-
     public Square squareHolding(Piece piece) {
         return backingMap.getSquareHolding(piece);
     }
@@ -60,11 +62,11 @@ public class ChessBoard {
         return gameEvents;
     }
 
-    public List<GameEvent> potentialGameEvents(Color colorMovingFirst) {
+    public List<GameEvent> potentialGameEvents(Color color) {
         ArrayList<GameEvent> potentialGameEvents = new ArrayList<GameEvent>();
-        List<Piece> pieces = piecesFor(colorMovingFirst);
+        List<Piece> pieces = piecesFor(color);
         for (Piece piece : pieces) {
-            potentialGameEvents.addAll(piece.potentialGameEvents(this));
+            potentialGameEvents.addAll(piece.possibleEvents(this));
         }
         return potentialGameEvents;
     }
@@ -73,46 +75,9 @@ public class ChessBoard {
         return backingMap.pieces(color);
     }
 
-    ChessBoard capture(CaptureEvent capture) {
-        guard(capture);
-        return new ChessBoard(newBackingMap(capture), newGameEventsList(capture), boardIsSet);
-    }
-
-    ChessBoard move(MoveEvent move) {
-        guard(move);
-        return new ChessBoard(newBackingMap(move), newGameEventsList(move), boardIsSet);
-    }
-
     ChessBoard put(PutEvent put) {
         guard(put);
-        return new ChessBoard(newBackingMap(put), newGameEventsList(put), boardIsSet);
-    }
-
-    ChessBoard remove(RemoveEvent remove) {
-        guard(remove);
-        return new ChessBoard(newBackingMap(remove), newGameEventsList(remove), boardIsSet);
-    }
-
-    private BackingMap newBackingMap(GameEvent event) {
-        switch (event.type()) {
-            case 0:
-                return backingMap.replace(event.source(), event.target());
-            case 1:
-                return backingMap.move(event.source(), event.target());
-            case 2:
-                return backingMap.put(event.target(), ((PutEvent) event).piece());
-            case 3:
-                return backingMap.remove(event.source());
-            default:
-                throw new RuntimeException();
-        }
-    }
-
-    private List<GameEvent> newGameEventsList(GameEvent event) {
-        List<GameEvent> afterGameEvents = new ArrayList<GameEvent>(gameEvents);
-        afterGameEvents.add(event);
-
-        return afterGameEvents;
+        return new ChessBoard(eventsList(put), backingMap(put), boardIsSet);
     }
 
     private void guard(PutEvent put) {
@@ -122,6 +87,35 @@ public class ChessBoard {
         }
     }
 
+    ChessBoard move(MoveEvent move) {
+        guard(move);
+        return new ChessBoard(eventsList(move), backingMap(move), boardIsSet);
+    }
+
+    private void guard(MoveEvent move) {
+        guard_BoardMustBeSet();
+        if (isNotLegalMove(move)) {
+            throw new IllegalGameEventException("Move is Illegal!");
+        }
+    }
+
+    ChessBoard capture(CaptureEvent capture) {
+        guard(capture);
+        return new ChessBoard(eventsList(capture), backingMap(capture), boardIsSet);
+    }
+
+    private void guard(CaptureEvent capture) {
+        guard_BoardMustBeSet();
+        if (isNotLegalCapture(capture)) {
+            throw new IllegalGameEventException("Capture is Illegal!");
+        }
+    }
+
+    ChessBoard remove(RemoveEvent remove) {
+        guard(remove);
+        return new ChessBoard(eventsList(remove), backingMap(remove), boardIsSet);
+    }
+
     private void guard(RemoveEvent remove) {
         guard_BoardMustNotBeSet();
         if (backingMap.isNotOccupied(remove.source())) {
@@ -129,13 +123,26 @@ public class ChessBoard {
         }
     }
 
-    private void guard_SetBoardForGameInProgress() {
-        if (backingMap.isEmpty()) {
-            throw new IllegalStateException("Attempted to set an empty board!");
+    private BackingMap backingMap(GameEvent event) {
+        switch (event.type()) {
+            case PUT:
+                return backingMap.put(event.target(), ((PutEvent) event).piece());
+            case REMOVE:
+                return backingMap.remove(event.source());
+            case MOVE:
+                return backingMap.move(event.source(), event.target());
+            case CAPTURE:
+                return backingMap.capture(event.source(), event.target());
+            default:
+                throw new IllegalArgumentException("Event Type: " + event.type() + " Not Supported!");
         }
-        if (boardIsSet) {
-            throw new IllegalStateException("Attempted to set an already set board!");
-        }
+    }
+
+    private List<GameEvent> eventsList(GameEvent event) {
+        List<GameEvent> afterGameEvents = new ArrayList<GameEvent>(gameEvents);
+        afterGameEvents.add(event);
+
+        return afterGameEvents;
     }
 
     private void guard_BoardMustBeSet() {
@@ -150,34 +157,39 @@ public class ChessBoard {
         }
     }
 
-    private void guard(MoveEvent move) {
-        guard_BoardMustBeSet();
-        if (isNotLegalMove(move)) {
-            throw new IllegalGameEventException("Move is Illegal!");
+    private void guard_SetBoardForGameInProgress() {
+        if (backingMap.isEmpty()) {
+            throw new IllegalStateException("Attempted to set an empty board!");
+        }
+        if (boardIsSet) {
+            throw new IllegalStateException("Attempted to set an already set board!");
         }
     }
 
-    private void guard(CaptureEvent capture) {
-        guard_BoardMustBeSet();
-        if (isNotLegalCapture(capture)) {
-            throw new IllegalGameEventException("Capture is Illegal!");
-        }
+    private boolean isLegalMove(MoveEvent event) {
+        Piece piece = pieceAt(event.source());
+        return moveToSquares(piece).contains(event.target());
     }
 
     private boolean isNotLegalMove(MoveEvent move) {
         return !isLegalMove(move);
     }
 
+    private boolean isLegalCapture(CaptureEvent event) {
+        Piece piece = pieceAt(event.source());
+        return attackAtSquares(piece).squaresHoldingPiecesAttacked().contains(event.target());
+    }
+
     private boolean isNotLegalCapture(CaptureEvent capture) {
         return !isLegalCapture(capture);
     }
 
-    private boolean isLegalMove(MoveEvent event) {
-        return RankViewFactory.rankView(event, this).moveToSquares().contains(event.target());
+    private List<Square> moveToSquares(Piece piece) {
+        return rankView(piece, this).moveToSquares();
     }
 
-    private boolean isLegalCapture(CaptureEvent event) {
-        return RankViewFactory.rankView(event, this).squaresHoldingPiecesAttacked().contains(event.target());
+    private RankView attackAtSquares(Piece piece) {
+        return rankView(piece, this);
     }
 
     @Override

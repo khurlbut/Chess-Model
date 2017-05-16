@@ -1,47 +1,48 @@
 package model.board;
 
+import static model.board.Sugar.square;
 import model.enums.Column;
 import model.enums.Row;
-import model.enums.ViewDirection;
-import model.exceptions.ConstructorArgsExcetpion;
+import model.enums.ViewVector;
+import model.exceptions.ConstructorArgsException;
 
 public class Square {
 
-    protected final Row row;
     protected final Column col;
+    protected final Row row;
 
     public Square(Column c, Row r) {
         if (c == null || r == null) {
-            throw new ConstructorArgsExcetpion("Constructor does not allow null(s)!");
+            throw new ConstructorArgsException("Constructor does not allow null(s)!");
         }
         col = c;
         row = r;
-    }
-
-    public Row row() {
-        return row;
     }
 
     public Column col() {
         return col;
     }
 
-    public Square neighbor(ViewDirection boardMove) {
-        Column c = horizontalNeighbor(boardMove);
-        Row r = verticalNeighbor(boardMove);
+    public Row row() {
+        return row;
+    }
+
+    public Square neighbor(ViewVector vv) {
+        Column c = horizontalNeighbor(vv);
+        Row r = verticalNeighbor(vv);
 
         if (c == null || r == null) {
             return null;
         }
-        return new Square(c, r);
+        return square(c, r);
     }
 
-    private Column horizontalNeighbor(ViewDirection boardMove) {
-        return col.horizontalNeighbor(boardMove.horizontalDelta());
+    private Column horizontalNeighbor(ViewVector vv) {
+        return col.horizontalNeighbor(vv.horizontalDelta());
     }
 
-    private Row verticalNeighbor(ViewDirection boardMove) {
-        return row.verticalNeighbor(boardMove.verticalDelta());
+    private Row verticalNeighbor(ViewVector vv) {
+        return row.verticalNeighbor(vv.verticalDelta());
     }
 
     @Override

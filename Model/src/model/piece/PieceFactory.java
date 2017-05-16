@@ -3,20 +3,15 @@ package model.piece;
 import model.board.Square;
 import model.enums.Color;
 import model.enums.Rank;
+import model.exceptions.ConstructorArgsException;
 
 public class PieceFactory {
 
-    public static Piece newPiece(Rank rank, Color color) {
-        return new Piece(rank, color, homeSquare(rank, color));
-    }
-
-    private static Square homeSquare(Rank rank, Color color) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    public static Piece newPiece(Rank rank, Color color, Square homeSquare) {
-        return new Piece(rank, color, homeSquare);
+    public static Piece newPiece(Color color, Rank rank, Square homeSquare) {
+        if (color == null || rank == null || homeSquare == null) {
+            throw new ConstructorArgsException("Arguments must not be null!");
+        }
+        return new Piece(color, rank, homeSquare);
     }
 
 }

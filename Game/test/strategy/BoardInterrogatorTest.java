@@ -78,15 +78,15 @@ public class BoardInterrogatorTest {
         when(w_queen.threatenedSquares(chessBoard)).thenReturn(squaresThreatenedByWhite);
         when(b_queen.threatenedSquares(chessBoard)).thenReturn(squaresThreatenedByBlack);
 
-        when(w_queen.opponentAttackers(chessBoard)).thenReturn(blackPieces);
-        when(b_queen.opponentAttackers(chessBoard)).thenReturn(whitePieces);
+        when(w_queen.opponentsAttackingMe(chessBoard)).thenReturn(blackPieces);
+        when(b_queen.opponentsAttackingMe(chessBoard)).thenReturn(whitePieces);
     }
 
     @Test
     public void attacking_an_unguarded_piece_adds_the_value_of_the_piece_under_attack() {
         blackPieces = Arrays.asList(b_pawn);
-        when(w_queen.opponentAttackers(chessBoard)).thenReturn(Collections.<Piece> emptyList());
-        when(w_queen.piecesAttacked(chessBoard)).thenReturn(blackPieces);
+        when(w_queen.opponentsAttackingMe(chessBoard)).thenReturn(Collections.<Piece> emptyList());
+        when(w_queen.opponentPiecesAttacked(chessBoard)).thenReturn(blackPieces);
 
         BoardGrade grade = boardInterrogator.grade(chessBoard, Color.WHITE);
         assertThat(grade.positionGrade(), equalTo(+Rank.Pawn.value()));
@@ -100,9 +100,9 @@ public class BoardInterrogatorTest {
 
     @Test
     public void attacking_a_guarded_equivalent_or_subordinate_piece_is_a_wash() {
-        when(w_queen.piecesAttacked(chessBoard)).thenReturn(blackPieces);
-        when(w_queen.opponentAttackers(chessBoard)).thenReturn(Collections.<Piece> emptyList());
-        when(b_queen.collaboratorDefenders(chessBoard)).thenReturn(Arrays.asList(b_pawn));
+        when(w_queen.opponentPiecesAttacked(chessBoard)).thenReturn(blackPieces);
+        when(w_queen.opponentsAttackingMe(chessBoard)).thenReturn(Collections.<Piece> emptyList());
+        when(b_queen.teammatesDefendingMe(chessBoard)).thenReturn(Arrays.asList(b_pawn));
 
         BoardGrade grade = boardInterrogator.grade(chessBoard, Color.WHITE);
         assertThat(grade.positionGrade(), equalTo(0));
@@ -114,9 +114,9 @@ public class BoardInterrogatorTest {
         blackPieces = Arrays.asList(b_queen);
 
         when(chessBoard.piecesFor(Color.WHITE)).thenReturn(whitePieces);
-        when(w_pawn.piecesAttacked(chessBoard)).thenReturn(blackPieces);
-        when(w_pawn.opponentAttackers(chessBoard)).thenReturn(Collections.<Piece> emptyList());
-        when(b_queen.collaboratorDefenders(chessBoard)).thenReturn(Arrays.asList(b_pawn));
+        when(w_pawn.opponentPiecesAttacked(chessBoard)).thenReturn(blackPieces);
+        when(w_pawn.opponentsAttackingMe(chessBoard)).thenReturn(Collections.<Piece> emptyList());
+        when(b_queen.teammatesDefendingMe(chessBoard)).thenReturn(Arrays.asList(b_pawn));
 
         BoardGrade grade = boardInterrogator.grade(chessBoard, Color.WHITE);
         assertThat(grade.positionGrade(), equalTo(+Rank.Queen.value()));
@@ -125,7 +125,7 @@ public class BoardInterrogatorTest {
     @Test
     public void a_guarded_piece_under_attack_by_an_equivalent_piece_is_a_wash() {
         blackPieces = Arrays.asList(b_pawn);
-        when(b_queen.collaboratorDefenders(chessBoard)).thenReturn(blackPieces);
+        when(b_queen.teammatesDefendingMe(chessBoard)).thenReturn(blackPieces);
 
         BoardGrade grade = boardInterrogator.grade(chessBoard, Color.BLACK);
 
@@ -136,8 +136,8 @@ public class BoardInterrogatorTest {
     public void a_quarded_piece_under_attack_by_a_subordinate_piece_takes_away_the_value_of_the_piece() {
         blackPieces = Arrays.asList(b_queen, b_pawn);
         whitePieces = Arrays.asList(w_pawn);
-        when(b_queen.collaboratorDefenders(chessBoard)).thenReturn(blackPieces);
-        when(b_queen.opponentAttackers(chessBoard)).thenReturn(whitePieces);
+        when(b_queen.teammatesDefendingMe(chessBoard)).thenReturn(blackPieces);
+        when(b_queen.opponentsAttackingMe(chessBoard)).thenReturn(whitePieces);
 
         BoardGrade grade = boardInterrogator.grade(chessBoard, Color.BLACK);
 
@@ -146,12 +146,12 @@ public class BoardInterrogatorTest {
 
     @Test
     public void collaborator_score_is_one_times_the_number_of_collaborators_defended() {
-        when(b_queen.piecesDefended(chessBoard)).thenReturn(Arrays.asList(b_pawn, b_queen));
+        when(b_queen.teammatesDefended(chessBoard)).thenReturn(Arrays.asList(b_pawn, b_queen));
         blackPieces = Arrays.asList(b_queen, b_pawn);
 
         BoardGrade grade = boardInterrogator.grade(chessBoard, Color.BLACK);
 
-        when(b_queen.collaboratorDefenders(chessBoard)).thenReturn(blackPieces);
+        when(b_queen.teammatesDefendingMe(chessBoard)).thenReturn(blackPieces);
         assertThat(grade.collaborationGrade(), equalTo(2));
     }
 
